@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Convert from "./Convert";
 import Collections from "./Collections";
 import FeaturedSets from "./FeaturedSets";
+import HowItWorks from "./HowItWorks";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
       <Convert />
       <Collections />
       <FeaturedSets />
+      <HowItWorks />
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>

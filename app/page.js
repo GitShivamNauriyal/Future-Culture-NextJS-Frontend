@@ -6,6 +6,7 @@ import FeaturedSets from "./FeaturedSets";
 import HowItWorks from "./HowItWorks";
 import Testimonials from "./Testimonials";
 import Stats from "./Stats";
+import InstaUpdates from "./InstaUpdates";
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
       <HowItWorks />
       <Testimonials />
       <Stats />
+      <InstaUpdates />
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>

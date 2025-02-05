@@ -19,9 +19,15 @@ import React from "react";
 const about = () => {
   return (
     <div>
-      <h1>about</h1>
+      <h1 className="mb-24">about</h1>
       <div>this is about page</div>
       <div>hello about</div>
+      <h1 className="mb-24">about</h1>
+      <h1 className="mb-24">about</h1>
+      <h1 className="mb-24">about</h1>
+      <h1 className="mb-24">about</h1>
+      <h1 className="mb-24">about</h1>
+      <h1 className="mb-24">about</h1>
     </div>
   );
 };

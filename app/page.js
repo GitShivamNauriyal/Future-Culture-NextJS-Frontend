@@ -1,9 +1,15 @@
 import React from "react";
+import Hero from "./Hero";
+import Convert from "./Convert";
 
 const page = () => {
   return (
     <div>
-      <h1>this is home page</h1>
+      <Hero />
+      <Convert />
+      <h1 className="mb-24">thiw is home </h1>
+      <h1 className="mb-24">thiw is home </h1>
+      <h1 className="mb-24">thiw is home </h1>
     </div>
   );
 };

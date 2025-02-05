@@ -7,7 +7,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white font-raleway">
-              Future Culture
+              <div className="raleway">Future</div>
+              <div className="raleway">Culture.</div>
             </h3>
             <p className="text-gray-400">
               Crafting memorable gifting experiences for every occasion.

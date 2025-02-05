@@ -24,9 +24,12 @@ const page = () => {
       <InstaUpdates />
       <Blogs />
       <Contactus />
-      <h1 className="mb-24">thiw is fc </h1>
-      <h1 className="mb-24">thiw is fc </h1>
-      <h1 className="mb-24">thiw is fc </h1>
+      <h1 className="mb-24">this is Future Culture </h1>
+      <h1 className="mb-24">Demonstration build </h1>
+      <h1 className="mb-24">
+        repo linkLL:
+        https://github.com/GitShivamNauriyal/Future-Culture-NextJS-Frontend
+      </h1>
     </div>
   );
 };

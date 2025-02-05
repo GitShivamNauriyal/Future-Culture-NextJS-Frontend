@@ -24,9 +24,9 @@ const page = () => {
       <InstaUpdates />
       <Blogs />
       <Contactus />
-      <h1 className="mb-24">thiw is home </h1>
-      <h1 className="mb-24">thiw is home </h1>
-      <h1 className="mb-24">thiw is home </h1>
+      <h1 className="mb-24">thiw is fc </h1>
+      <h1 className="mb-24">thiw is fc </h1>
+      <h1 className="mb-24">thiw is fc </h1>
     </div>
   );
 };

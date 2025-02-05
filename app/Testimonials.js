@@ -79,9 +79,9 @@ const Testimonials = () => {
             keyBoardControl={true}
             customTransition="all .5s"
             transitionDuration={500}
-            containerClass="carousel-container"
-            dotListClass="custom-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
+            containerclassName="carousel-container"
+            dotListclassName="custom-dot-list-style"
+            itemclassName="carousel-item-padding-40-px"
           >
             {testimonialsData.map((testimonial, index) => (
               // Remove the fixed width classes here

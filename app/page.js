@@ -9,6 +9,7 @@ import Testimonials from "./Testimonials";
 import Stats from "./Stats";
 import InstaUpdates from "./InstaUpdates";
 import Blogs from "./Blogs";
+import Contactus from "./Contactus";
 
 const page = () => {
   return (
@@ -22,6 +23,7 @@ const page = () => {
       <Stats />
       <InstaUpdates />
       <Blogs />
+      <Contactus />
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>
       <h1 className="mb-24">thiw is home </h1>

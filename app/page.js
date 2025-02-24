@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Hero from "./Hero";
+import Hero from "./00_Hero";
 import Convert from "./01_Convert";
 import Collections from "./02_Collections";
 import FeaturedSets from "./03_FeaturedSets";

@@ -10,6 +10,8 @@ import Stats from "./Stats";
 import InstaUpdates from "./InstaUpdates";
 import Blogs from "./Blogs";
 import Contactus from "./Contactus";
+import OurPromises from "./OurPromises";
+import PricingModels from "./PricingModels";
 
 const page = () => {
     return (
@@ -19,7 +21,9 @@ const page = () => {
             <Collections />
             <FeaturedSets />
             <HowItWorks />
+            <OurPromises />
             <Testimonials />
+            <PricingModels />
             <Stats />
             <InstaUpdates />
             <Blogs />

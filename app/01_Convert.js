@@ -36,7 +36,7 @@ const Convert = () => {
                             </div>
 
                             <div className="grid grid-cols-2 gap-6 ">
-                                <div className="p-4 bg-neutral-50 rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl hover:shadow-lg transition-all duration-300">
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Curated Selection
                                     </h3>
@@ -46,7 +46,7 @@ const Convert = () => {
                                     </p>
                                 </div>
 
-                                <div className="p-4 bg-neutral-50 rounded-lg hover:shadow-lg transition-all duration-300">
+                                <div className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl hover:shadow-lg transition-all duration-300">
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Custom Design
                                     </h3>

@@ -1,28 +1,42 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { FaHandshake, FaBoxOpen } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
 
 const modelsData = [
     {
-        title: "🤝 Collaboration",
-        description:
-            "Work with us and get **30% off on order price** + earn **50% of sales** (if commercial). Perfect for influencers & brand collaborations.",
+        title: "Collaboration",
+        description: (
+            <>
+                Work with us and get <strong>30% off on order price</strong> +
+                earn <strong>50% of sales</strong> (if commercial). Perfect for
+                influencers & brand collaborations.
+            </>
+        ),
         icon: <FaHandshake className="text-5xl text-neutral-900" />,
         bgColor: "bg-gradient-to-r from-blue-100 to-blue-50",
     },
     {
-        title: "🏭 Manufactured by Future Culture",
-        description:
-            "We handle **everything**—from design to production! Get **15% off on order price** with our full-service manufacturing.",
+        title: "Manufactured by Future Culture",
+        description: (
+            <>
+                We handle <strong>everything</strong>—from design to production!
+                Get <strong>15% off on order price</strong> with our
+                full-service manufacturing.
+            </>
+        ),
         icon: <MdFactory className="text-5xl text-neutral-900" />,
         bgColor: "bg-gradient-to-r from-green-100 to-green-50",
     },
     {
-        title: "📦 White Labeling",
-        description:
-            "Order in bulk at **exclusive pricing**. Perfect for companies looking to resell products under their **own brand**.",
+        title: "White Labeling",
+        description: (
+            <>
+                Order in bulk at <strong>exclusive pricing</strong>. Perfect for
+                companies looking to resell products under their{" "}
+                <strong>own brand</strong>.
+            </>
+        ),
         icon: <FaBoxOpen className="text-5xl text-neutral-900" />,
         bgColor: "bg-gradient-to-r from-yellow-100 to-yellow-50",
     },
@@ -49,14 +63,9 @@ const PricingModels = () => {
                 {/* Cards Layout */}
                 <div className="space-y-8">
                     {modelsData.map((model, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            className={`p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start ${model.bgColor}`}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.02 }}
+                            className={`px-8 py-16 rounded-2xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start ${model.bgColor} transition-transform duration-300 hover:scale-[1.01] cursor-pointer`}
                         >
                             {/* Icon */}
                             <div className="mb-4 sm:mb-0 sm:mr-6">
@@ -65,14 +74,14 @@ const PricingModels = () => {
 
                             {/* Content */}
                             <div>
-                                <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+                                <h3 className="text-2xl font-bold text-neutral-700 mb-2">
                                     {model.title}
                                 </h3>
                                 <p className="text-neutral-700">
                                     {model.description}
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

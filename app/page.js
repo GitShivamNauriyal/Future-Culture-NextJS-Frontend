@@ -12,6 +12,7 @@ import Blogs from "./Blogs";
 import Contactus from "./Contactus";
 import OurPromises from "./OurPromises";
 import PricingModels from "./PricingModels";
+import ProductsCardsCarousel from "./ProductsCardCarousel";
 
 const page = () => {
     return (
@@ -21,6 +22,7 @@ const page = () => {
             <Collections />
             <FeaturedSets />
             <HowItWorks />
+            <ProductsCardsCarousel />
             <OurPromises />
             <Testimonials />
             <PricingModels />

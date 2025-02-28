@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@tabler/icons-react": "^3.30.0",
     "@vercel/speed-insights": "^1.1.0",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",

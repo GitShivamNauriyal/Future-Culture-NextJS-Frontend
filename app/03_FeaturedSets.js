@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import "react-multi-carousel/lib/styles.css";
 
 // Dynamically import Carousel for client-side rendering
@@ -23,7 +24,7 @@ const categoriesData = [
             "Hoodies & Sweatshirts - Street-ready comfort and style.",
             "Caps & Accessories - Because details make the difference.",
         ],
-        image: "https://via.placeholder.com/500x300/CCCCCC/000000?text=Fashion", // Grey placeholder
+        image: "/images/categories/fashion.jpg", // Corrected path
     },
     {
         title: "Collectibles - Limited Drops, Lasting Impacts",
@@ -34,7 +35,7 @@ const categoriesData = [
             "Custom Coins - Unique keepsakes for any occasion.",
             "Stickers & Patches - Express yourself everywhere.",
         ],
-        image: "https://via.placeholder.com/500x300/CCCCCC/000000?text=Collectibles", // Grey placeholder
+        image: "/images/categories/collectables.jpg", // Corrected path
     },
     {
         title: "Tech - Where Innovation Meets Creativity",
@@ -45,17 +46,22 @@ const categoriesData = [
             "Tech-Boxes - Custom-built for your brand with light & sound.",
             "USBs & Power Banks - Stay charged, stay connected.",
         ],
-        image: "https://via.placeholder.com/500x300/CCCCCC/000000?text=Tech", // Grey placeholder
+        image: "/images/categories/tech.jpg", // Corrected path
     },
 ];
 
 const CategoryCard = ({ title, description, items, image }) => (
     <div className="px-4 h-full">
-        <div className="bg-neutral-50 rounded-xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-            <div
-                className="h-64 w-full rounded-lg bg-cover bg-neutral-200 bg-center mb-6"
-                style={{ backgroundImage: `url(${image})` }}
-            ></div>
+        <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <div className="h-64 w-full relative rounded-lg overflow-hidden mb-6">
+                <Image
+                    src={image}
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                />
+            </div>
             <h3 className="text-3xl font-bold text-neutral-900 mb-2">
                 {title.split(" - ")[0]}
             </h3>
@@ -66,7 +72,7 @@ const CategoryCard = ({ title, description, items, image }) => (
                 ))}
             </ul>
             <div className="mt-auto">
-                <button className="px-4 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors duration-300 ">
+                <button className="px-4 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors duration-300">
                     Explore More
                 </button>
             </div>
@@ -77,7 +83,6 @@ const CategoryCard = ({ title, description, items, image }) => (
 const FeaturedSets = () => {
     return (
         <section id="featured" className="py-20 bg-white relative">
-            {/* Main content container with higher z-index */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-8">
                     <h2 className="text-5xl md:text-6xl font-raleway font-bold text-neutral-900 mb-4">

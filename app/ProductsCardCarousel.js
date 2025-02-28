@@ -28,32 +28,32 @@ const items = [
     { title: "Embroidery Patches", image: "/images/patches.jpg" },
     { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
     { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
-    { title: "Fridge Magnets", image: "/images/tshirts.jpg" },
-    { title: "Crossbody Bags", image: "/images/tshirts.jpg" },
+    { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
+    { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
     {
         title: "Hamper Boxes",
-        image: "/images/tshirts.jpg",
+        image: "/images/hapmer_boxes.jpg",
     },
-    { title: "Tech Boxes", image: "/images/tshirts.jpg" },
+    { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
     {
         title: "Collectibles",
-        image: "/images/tshirts.jpg",
+        image: "/images/collectables.jpg",
     },
     {
         title: "Drinkware",
-        image: "/images/tshirts.jpg",
+        image: "/images/drink_ware.jpg",
     },
-    { title: "Coasters", image: "/images/tshirts.jpg" },
-    { title: "Tote Bags", image: "/images/tshirts.jpg" },
-    { title: "3D Printed Bobbleheads", image: "/images/tshirts.jpg" },
-    { title: "Candles", image: "/images/tshirts.jpg" },
+    { title: "Coasters", image: "/images/coasters.jpg" },
+    { title: "Tote Bags", image: "/images/toat_bags.jpg" },
+    { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
+    { title: "Candles", image: "/images/candles.jpg" },
     {
         title: "Customised Edibles",
-        image: "/images/tshirts.jpg",
+        image: "/images/edibles.jpg",
     },
     {
         title: "Other Items like Scarf, Wristband, Sunglasses and More",
-        image: "/images/tshirts.jpg",
+        image: "/images/scarfs.jpg",
     },
 ];
 
@@ -135,16 +135,17 @@ export default function ProductsCardsCarousel() {
             value={{ onCardClose: () => setSelectedItem(null) }}
         >
             <div className="relative w-full py-10 flex flex-col items-center">
-                <h2 className="text-5xl font-bold text-center mb-8 mt-4">
-                    Items We Provide
+                <h2 className="text-6xl font-bold text-center mb-1 mt-10">
+                    Collectibles
                 </h2>
+                <p className="mb-12">Tentative List of Items we provide</p>
 
                 <div
                     className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide"
                     ref={carouselRef}
                     onScroll={checkScrollability}
                 >
-                    <div className="flex flex-row justify-start gap-4 px-8 max-w-7xl mx-auto">
+                    <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
                         {items.map((item, index) => (
                             <motion.div
                                 key={index}

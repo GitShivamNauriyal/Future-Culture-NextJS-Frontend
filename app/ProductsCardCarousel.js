@@ -23,24 +23,24 @@ export const CarouselContext = createContext({
 
 const items = [
     { title: "Tshirts", image: "/images/tshirts.jpg" },
-    { title: "Hoodies/Sweatshirt/Sweater", image: "/images/tshirts.jpg" },
-    { title: "Jackets", image: "/images/tshirts.jpg" },
-    { title: "Embroidery Patches", image: "/images/tshirts.jpg" },
-    { title: "Laptop Stickers", image: "/images/tshirts.jpg" },
-    { title: "Lapel Pins", image: "/images/tshirts.jpg" },
-    { title: "Fridge Magnets", image: "/images/tshirts.jpg" }, // Fixed incorrect path
+    { title: "Hoodies", image: "/images/hoodies.jpg" },
+    { title: "Jackets", image: "/images/jackets.jpg" },
+    { title: "Embroidery Patches", image: "/images/patches.jpg" },
+    { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
+    { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
+    { title: "Fridge Magnets", image: "/images/tshirts.jpg" },
     { title: "Crossbody Bags", image: "/images/tshirts.jpg" },
     {
-        title: "Hamper Boxes with Customised Wrapping Paper + Ribbon",
+        title: "Hamper Boxes",
         image: "/images/tshirts.jpg",
     },
     { title: "Tech Boxes", image: "/images/tshirts.jpg" },
     {
-        title: "Collectibles (Coins, Bracelet, Pendants, etc.)",
+        title: "Collectibles",
         image: "/images/tshirts.jpg",
     },
     {
-        title: "Glasses, Mugs and Other Drinkware",
+        title: "Drinkware",
         image: "/images/tshirts.jpg",
     },
     { title: "Coasters", image: "/images/tshirts.jpg" },
@@ -48,7 +48,7 @@ const items = [
     { title: "3D Printed Bobbleheads", image: "/images/tshirts.jpg" },
     { title: "Candles", image: "/images/tshirts.jpg" },
     {
-        title: "Customised Edibles like Chocolate, Candies",
+        title: "Customised Edibles",
         image: "/images/tshirts.jpg",
     },
     {
@@ -154,18 +154,18 @@ export default function ProductsCardsCarousel() {
                                     duration: 0.5,
                                     delay: 0.1 * index,
                                 }}
-                                className="w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-900 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow"
+                                className="w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg opacity-0 transition-shadow"
                                 onClick={() => setSelectedItem(item)}
                             >
                                 <Image
                                     src={item.image}
                                     alt={item.title}
-                                    layout="fill"
+                                    fill
                                     objectFit="cover"
                                     className="absolute inset-0 rounded-3xl"
                                 />
-                                <div className="absolute top-0 left-0 w-full p-4 bg-gradient-to-t from-neutral-800 to-transparent bg-opacity-60 text-white">
-                                    <h3 className="text-lg font-semibold">
+                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent bg-opacity-0 text-white rounded-3xl">
+                                    <h3 className="text-2xl font-semibold">
                                         {item.title}
                                     </h3>
                                 </div>

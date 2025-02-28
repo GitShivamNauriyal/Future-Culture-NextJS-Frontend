@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
 
 const stepsData = [
     {
@@ -27,9 +28,15 @@ const stepsData = [
 
 const ProcessStep = ({ id, title, description, delay }) => {
     return (
-        <div className="relative" data-aos="fade-up" data-aos-delay={delay}>
+        <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay }}
+            viewport={{ once: true }}
+        >
             <div className="bg-neutral-800 rounded-xl p-6 hover:bg-neutral-700 transition-all duration-300 h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 transition-transform duration-300">
                     {id}
                 </div>
                 <div className="mt-auto text-center">
@@ -39,29 +46,31 @@ const ProcessStep = ({ id, title, description, delay }) => {
                     <p className="text-gray-400">{description}</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
 const HowItWorks = () => {
-    useEffect(() => {
-        AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
-    }, []);
-
     return (
-        <section id="process" className="py-20 bg-neutral-900">
+        <section id="process" className="py-20 bg-neutral-900 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-raleway font-bold text-white mb-6">
+                    <motion.h2
+                        className="text-4xl md:text-5xl font-raleway font-bold text-white mb-6"
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                         How It
                         <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
                             Works
                         </span>
-                    </h2>
+                    </motion.h2>
                 </div>
 
                 <div className="relative">
-                    {/* Line Connector (for desktop view) */}
+                    {/* Line Connector */}
                     <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neutral-800 via-white to-neutral-800 hidden md:block"></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -69,21 +78,23 @@ const HowItWorks = () => {
                             <ProcessStep
                                 key={step.id}
                                 {...step}
-                                delay={index * 300}
+                                delay={index * 0.2}
                             />
                         ))}
                     </div>
 
                     {/* Call-to-Action Button */}
-                    <div
+                    <motion.div
                         className="mt-16 text-center"
-                        data-aos="fade-up"
-                        data-aos-delay="1200"
+                        initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        viewport={{ once: true }}
                     >
                         <button className="px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
                             Start Your Journey
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 

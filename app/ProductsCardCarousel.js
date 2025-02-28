@@ -1,25 +1,9 @@
 "use client";
 
-import React, {
-    useEffect,
-    useRef,
-    useState,
-    createContext,
-    useContext,
-} from "react";
-import Image from "next/image"; // Fixed Image Import
-import { motion, AnimatePresence } from "framer-motion";
-import {
-    IconArrowNarrowLeft,
-    IconArrowNarrowRight,
-    IconX,
-} from "@tabler/icons-react";
-import { useOutsideClick } from "@/app/hooks/use-outside-click";
-
-export const CarouselContext = createContext({
-    onCardClose: () => {},
-    currentIndex: 0,
-});
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 
 const items = [
     { title: "Tshirts", image: "/images/tshirts.jpg" },
@@ -30,140 +14,109 @@ const items = [
     { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
     { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
     { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
-    {
-        title: "Hamper Boxes",
-        image: "/images/hapmer_boxes.jpg",
-    },
+    { title: "Hamper Boxes", image: "/images/hapmer_boxes.jpg" },
     { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
-    {
-        title: "Collectibles",
-        image: "/images/collectables.jpg",
-    },
-    {
-        title: "Drinkware",
-        image: "/images/drink_ware.jpg",
-    },
+    { title: "Collectibles", image: "/images/collectables.jpg" },
+    { title: "Drinkware", image: "/images/drink_ware.jpg" },
     { title: "Coasters", image: "/images/coasters.jpg" },
     { title: "Tote Bags", image: "/images/toat_bags.jpg" },
     { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
     { title: "Candles", image: "/images/candles.jpg" },
-    {
-        title: "Customised Edibles",
-        image: "/images/edibles.jpg",
-    },
+    { title: "Customised Edibles", image: "/images/edibles.jpg" },
     {
         title: "Other Items like Scarf, Wristband, Sunglasses and More",
         image: "/images/scarfs.jpg",
     },
 ];
 
-function CardModal({ item, onClose }) {
-    const modalRef = useRef(null);
-    useOutsideClick(modalRef, onClose);
-
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, []);
-
-    return (
-        <AnimatePresence>
-            <motion.div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-            >
-                <motion.div
-                    ref={modalRef}
-                    className="relative bg-white rounded-lg p-6 w-11/12 max-w-lg shadow-lg"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.8, opacity: 0 }}
-                >
-                    <button
-                        className="absolute top-2 right-2 p-1 text-gray-700 hover:text-red-500"
-                        onClick={onClose}
-                        aria-label="Close"
-                    >
-                        <IconX className="h-6 w-6" />
-                    </button>
-                    <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                </motion.div>
-            </motion.div>
-        </AnimatePresence>
-    );
-}
-
 export default function ProductsCardsCarousel() {
     const carouselRef = useRef(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [visibleCards, setVisibleCards] = useState(new Set());
 
     useEffect(() => {
-        checkScrollability();
-    }, [selectedItem]); // Added dependency to update state properly
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setVisibleCards((prev) =>
+                            new Set(prev).add(entry.target.dataset.index)
+                        );
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
 
-    const checkScrollability = () => {
-        if (carouselRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } =
-                carouselRef.current;
-            setCanScrollLeft(scrollLeft > 0);
-            setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
-        }
-    };
+        const cardElements = document.querySelectorAll(".carousel-card");
+        cardElements.forEach((card, index) => {
+            card.dataset.index = index;
+            observer.observe(card);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const scrollLeft = () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
-            setTimeout(checkScrollability, 200);
         }
     };
 
     const scrollRight = () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
-            setTimeout(checkScrollability, 200);
         }
     };
 
     return (
-        <CarouselContext.Provider
-            value={{ onCardClose: () => setSelectedItem(null) }}
-        >
-            <div className="relative w-full py-10 flex flex-col items-center">
-                <h2 className="text-5xl font-bold text-center mb-1 mt-10 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
-                    Collectibles
-                </h2>
-                <p className="mb-12">Tentative List of Items we provide</p>
+        <div className="relative w-full py-10 flex flex-col items-center">
+            <h2 className="text-5xl font-bold text-center mb-1 mt-10 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
+                Collectibles
+            </h2>
+            <p className="mb-12">Tentative List of Items we provide</p>
 
+            <div className="relative w-full flex flex-col items-center">
+                {/* Carousel */}
                 <div
                     className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide"
                     ref={carouselRef}
-                    onScroll={checkScrollability}
                 >
                     <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
                         {items.map((item, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow"
+                                initial={{
+                                    opacity: 0,
+                                    y: 50,
+                                    filter: "blur(10px)",
+                                }}
+                                animate={
+                                    visibleCards.has(index.toString())
+                                        ? {
+                                              opacity: 1,
+                                              y: 0,
+                                              filter: "blur(0px)",
+                                          }
+                                        : {
+                                              opacity: 0,
+                                              y: 50,
+                                              filter: "blur(10px)",
+                                          }
+                                }
                                 transition={{
                                     duration: 0.5,
+                                    ease: "easeOut",
                                     delay: 0.1 * index,
                                 }}
-                                className="w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg  transition-shadow"
-                                onClick={() => setSelectedItem(item)}
                             >
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
                                     objectFit="cover"
-                                    className="absolute inset-0 rounded-3xl "
+                                    className="absolute inset-0 rounded-3xl"
                                 />
                                 <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent bg-opacity-0 text-white rounded-3xl">
                                     <h3 className="text-2xl font-semibold font-mono">
@@ -175,30 +128,22 @@ export default function ProductsCardsCarousel() {
                     </div>
                 </div>
 
-                <div className="flex justify-center gap-4 mt-4">
+                <div className="flex justify-center gap-4 mt-6">
                     <button
-                        className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
                         onClick={scrollLeft}
-                        disabled={!canScrollLeft}
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
                     >
                         <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
                     </button>
+
                     <button
-                        className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition duration-200"
                         onClick={scrollRight}
-                        disabled={!canScrollRight}
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition"
                     >
                         <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
                     </button>
                 </div>
-
-                {selectedItem && (
-                    <CardModal
-                        item={selectedItem}
-                        onClose={() => setSelectedItem(null)}
-                    />
-                )}
             </div>
-        </CarouselContext.Provider>
+        </div>
     );
 }

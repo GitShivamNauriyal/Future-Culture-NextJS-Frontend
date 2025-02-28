@@ -135,7 +135,7 @@ export default function ProductsCardsCarousel() {
             value={{ onCardClose: () => setSelectedItem(null) }}
         >
             <div className="relative w-full py-10 flex flex-col items-center">
-                <h2 className="text-6xl font-bold text-center mb-1 mt-10">
+                <h2 className="text-5xl font-bold text-center mb-1 mt-10 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
                     Collectibles
                 </h2>
                 <p className="mb-12">Tentative List of Items we provide</p>
@@ -155,7 +155,7 @@ export default function ProductsCardsCarousel() {
                                     duration: 0.5,
                                     delay: 0.1 * index,
                                 }}
-                                className="w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg opacity-0 transition-shadow"
+                                className="w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg  transition-shadow"
                                 onClick={() => setSelectedItem(item)}
                             >
                                 <Image
@@ -163,10 +163,10 @@ export default function ProductsCardsCarousel() {
                                     alt={item.title}
                                     fill
                                     objectFit="cover"
-                                    className="absolute inset-0 rounded-3xl"
+                                    className="absolute inset-0 rounded-3xl "
                                 />
                                 <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent bg-opacity-0 text-white rounded-3xl">
-                                    <h3 className="text-2xl font-semibold">
+                                    <h3 className="text-2xl font-semibold font-mono">
                                         {item.title}
                                     </h3>
                                 </div>

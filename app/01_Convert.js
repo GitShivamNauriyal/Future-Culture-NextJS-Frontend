@@ -67,9 +67,9 @@ const Convert = () => {
 
                     <div className="order-1 md:order-2 relative">
                         <div className="aspect-square rounded-2xl bg-gradient-to-br from-neutral-200 via-neutral-100 to-neutral-300 relative overflow-hidden ">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-3/4 h-3/4 bg-neutral-900/10 rounded-full blur-3xl absolute animate-pulse"></div>
-                                <div className="text-4xl font-bold text-neutral-900/20">
+                            <div className="absolute inset-0 flex items-center justify-center bg-cover bg-center bg-[url(/images/hero/hero.jpg)]">
+                                <div className="w-3/4 h-3/4 rounded-full blur-3xl absolute animate-pulse"></div>
+                                <div className="text-4xl font-bold text-neutral-100">
                                     <div className="flex-shrink-0">
                                         <div className="font-raleway text-5xl font-bold">
                                             <div className="raleway mb-6">

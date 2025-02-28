@@ -47,7 +47,7 @@ const promisesData = [
 
 const PromiseCard = ({ title, subtitle, description, Icon }) => {
     return (
-        <div className="cursor-crosshair bg-white shadow-md rounded-xl p-6 flex flex-col hover:shadow-[4px_4px_8px_rgba(0,0,0,0.1)] transition-all duration-300 group">
+        <div className="cursor-crosshair bg-white shadow-md rounded-xl p-6 flex flex-col hover:shadow-[4px_4px_16px_rgba(0,0,0,0.1)] hover:rounded-2xl transition-all duration-300 group">
             {/* Fixed Bouncing Icon on Hover */}
             <div className="mb-4 text-4xl text-neutral-900 transition-transform duration-300 group-hover:-translate-y-1 ">
                 <Icon />
@@ -65,7 +65,10 @@ const PromiseCard = ({ title, subtitle, description, Icon }) => {
 
 const OurPromises = () => {
     return (
-        <section id="our-promises" className="py-20 bg-neutral-50">
+        <section
+            id="our-promises"
+            className="py-20 bg-neutral-100 inset-shadow-sm"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Heading */}
                 <div className="text-center mb-12">

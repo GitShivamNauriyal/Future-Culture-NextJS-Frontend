@@ -3,21 +3,25 @@ import React, { useEffect } from "react";
 
 const posts = [
     {
-        imageName: "new_collection",
+        imageName: "new_collection.jpg",
         title: "New Collection Preview",
         likes: 276,
     },
     {
-        imageName: "Luxurious_Gift",
+        imageName: "Luxurious_Gift.jpg",
         title: "Luxury Gift Box Collection",
         likes: 245,
     },
     {
-        imageName: "corporate_event",
+        imageName: "corporate_event.jpg",
         title: "Corporate Event Highlights",
         likes: 189,
     },
-    { imageName: "behind_the_scene", title: "Behind the Scenes", likes: 343 },
+    {
+        imageName: "behind_the_scene.jpg",
+        title: "Behind the Scenes",
+        likes: 343,
+    },
 ];
 
 const InstaPost = ({ imageName, title, likes, delay }) => {
@@ -28,7 +32,7 @@ const InstaPost = ({ imageName, title, likes, delay }) => {
         >
             <div className="aspect-square bg-neutral-200 rounded-xl overflow-hidden">
                 <img
-                    src={`/images/insta_updates/${imageName}.jpg`}
+                    src={`/images/insta_updates/${imageName}`}
                     alt={title}
                     className="w-full h-full object-cover"
                 />

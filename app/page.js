@@ -13,6 +13,7 @@ import Contactus from "./Contactus";
 import OurPromises from "./OurPromises";
 import PricingModels from "./PricingModels";
 import ProductsCardsCarousel from "./ProductsCardCarousel";
+import { CardSpotlight } from "./spotlight";
 
 const page = () => {
     return (

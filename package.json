@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@react-three/fiber": "^9.0.4",
     "@tabler/icons-react": "^3.30.0",
+    "@types/three": "^0.174.0",
     "@vercel/speed-insights": "^1.1.0",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",
@@ -23,6 +25,8 @@
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.15.1",
     "react-multi-carousel": "^2.8.5",
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.174.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {

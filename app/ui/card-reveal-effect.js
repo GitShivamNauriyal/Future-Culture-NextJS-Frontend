@@ -38,7 +38,7 @@ export const CanvasRevealEffect = ({
                 />
             </div>
             {showGradient && (
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[84%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[100%]" />
             )}
         </div>
     );
@@ -269,7 +269,7 @@ const ShaderMaterial = ({ source, uniforms, maxFps = 60 }) => {
 
 const Shader = ({ source, uniforms, maxFps = 60 }) => {
     return (
-        <Canvas className="absolute inset-0  h-full w-full">
+        <Canvas className="absolute inset-0  h-full w-full rounded-3xl cursor-pointer">
             <ShaderMaterial
                 source={source}
                 uniforms={uniforms}

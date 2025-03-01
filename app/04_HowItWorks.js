@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { CardSpotlight } from "./ui/CardSpotlight";
 
 const stepsData = [
     {
@@ -26,27 +27,21 @@ const stepsData = [
     },
 ];
 
-const ProcessStep = ({ id, title, description, delay }) => {
+const ProcessStep = ({ id, title, description }) => {
     return (
-        <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay }}
-            viewport={{ once: true }}
-        >
-            <div className="bg-neutral-800 rounded-xl p-6 hover:bg-neutral-700 transition-all duration-300 h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 transition-transform duration-300">
+        <div className="relative cursor-pointer select-none">
+            <div className="bg-neutral-80 rounded-xl p-6 hover:bg-neutral-70 transition-all duration-300 h-full flex flex-col">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 transition-transform duration-300 ">
                     {id}
                 </div>
-                <div className="mt-auto text-center">
-                    <h3 className="text-xl font-bold text-white mb-3">
+                <div className="mt-auto text-center ">
+                    <h3 className="text-xl font-bold text-white mb-2">
                         {title}
                     </h3>
                     <p className="text-gray-400">{description}</p>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 
@@ -73,13 +68,12 @@ const HowItWorks = () => {
                     {/* Line Connector */}
                     <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neutral-800 via-white to-neutral-800 hidden md:block"></div>
 
+                    {/* Steps Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {stepsData.map((step, index) => (
-                            <ProcessStep
-                                key={step.id}
-                                {...step}
-                                delay={index * 0.2}
-                            />
+                            <CardSpotlight key={step.id} delay={index * 0.2}>
+                                <ProcessStep {...step} />
+                            </CardSpotlight>
                         ))}
                     </div>
 

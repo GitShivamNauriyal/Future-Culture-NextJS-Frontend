@@ -42,6 +42,23 @@ const modelsData = [
     },
 ];
 
+const PricingCard = ({ title, description, icon, bgColor }) => {
+    return (
+        <div className="px-8 py-16 rounded-2xl shadow-[inset_2px_2px_8px_rgba(0,0,0,0.1)] flex flex-col sm:flex-row items-center sm:items-start bg-neutral-100 transition-all duration-300  hover:shadow-[inset_-2px_-2px_8px_rgba(0,0,0,0.1)] hover:scale-[0.99] cursor-pointer select-none">
+            {/* Icon */}
+            <div className="mb-4 sm:mb-0 sm:mr-6">{icon}</div>
+
+            {/* Content */}
+            <div className=" cursor-pointer select-none">
+                <h3 className="text-2xl font-bold text-neutral-700 mb-2">
+                    {title}
+                </h3>
+                <p className="text-neutral-700">{description}</p>
+            </div>
+        </div>
+    );
+};
+
 const PricingModels = () => {
     return (
         <section id="pricing-models" className="py-20 bg-neutral-50">
@@ -63,25 +80,7 @@ const PricingModels = () => {
                 {/* Cards Layout */}
                 <div className="space-y-8">
                     {modelsData.map((model, index) => (
-                        <div
-                            key={index}
-                            className={`px-8 py-16 rounded-2xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start ${model.bgColor} transition-transform duration-300 hover:scale-[1.01] cursor-pointer`}
-                        >
-                            {/* Icon */}
-                            <div className="mb-4 sm:mb-0 sm:mr-6">
-                                {model.icon}
-                            </div>
-
-                            {/* Content */}
-                            <div>
-                                <h3 className="text-2xl font-bold text-neutral-700 mb-2">
-                                    {model.title}
-                                </h3>
-                                <p className="text-neutral-700">
-                                    {model.description}
-                                </p>
-                            </div>
-                        </div>
+                        <PricingCard key={index} {...model} />
                     ))}
                 </div>
             </div>

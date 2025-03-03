@@ -3,7 +3,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
+import {
+    IconArrowNarrowLeft,
+    IconArrowNarrowRight,
+    IconX,
+} from "@tabler/icons-react";
 
 const items = [
     { title: "Tshirts", image: "/images/tshirts.jpg" },
@@ -14,12 +18,12 @@ const items = [
     { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
     { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
     { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
-    { title: "Hamper Boxes", image: "/images/hapmer_boxes.jpg" },
+    { title: "Hamper Boxes", image: "/images/hamper_boxes.jpg" },
     { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
-    { title: "Collectibles", image: "/images/collectables.jpg" },
+    { title: "Collectibles", image: "/images/collectibles.jpg" },
     { title: "Drinkware", image: "/images/drink_ware.jpg" },
     { title: "Coasters", image: "/images/coasters.jpg" },
-    { title: "Tote Bags", image: "/images/toat_bags.jpg" },
+    { title: "Tote Bags", image: "/images/tote_bags.jpg" },
     { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
     { title: "Candles", image: "/images/candles.jpg" },
     { title: "Customised Edibles", image: "/images/edibles.jpg" },
@@ -30,10 +34,13 @@ const items = [
 ];
 
 export default function ProductsCardsCarousel() {
+    const [selectedCard, setSelectedCard] = useState(null);
     const carouselRef = useRef(null);
     const [visibleCards, setVisibleCards] = useState(new Set());
 
     useEffect(() => {
+        if (!carouselRef.current) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -48,7 +55,8 @@ export default function ProductsCardsCarousel() {
             { threshold: 0.3 }
         );
 
-        const cardElements = document.querySelectorAll(".carousel-card");
+        const cardElements =
+            carouselRef.current.querySelectorAll(".carousel-card");
         cardElements.forEach((card, index) => {
             card.dataset.index = index;
             observer.observe(card);
@@ -74,12 +82,12 @@ export default function ProductsCardsCarousel() {
             <h2 className="text-5xl font-bold text-center mb-1 mt-10 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
                 Collectibles
             </h2>
-            <p className="mb-12">Tentative List of Items we provide</p>
+            <p className="mb-6">Tentative List of Items we provide</p>
 
+            {/* Carousel */}
             <div className="relative w-full flex flex-col items-center">
-                {/* Carousel */}
                 <div
-                    className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide"
+                    className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide overflow-y-clip"
                     ref={carouselRef}
                 >
                     <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
@@ -110,6 +118,7 @@ export default function ProductsCardsCarousel() {
                                     ease: "easeOut",
                                     delay: 0.1 * index,
                                 }}
+                                onClick={() => setSelectedCard(item)}
                             >
                                 <Image
                                     src={item.image}
@@ -118,7 +127,7 @@ export default function ProductsCardsCarousel() {
                                     objectFit="cover"
                                     className="absolute inset-0 rounded-3xl"
                                 />
-                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent bg-opacity-0 text-white rounded-3xl">
+                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent text-white rounded-3xl">
                                     <h3 className="text-2xl font-semibold font-mono">
                                         {item.title}
                                     </h3>
@@ -128,22 +137,64 @@ export default function ProductsCardsCarousel() {
                     </div>
                 </div>
 
+                {/* Navigation Buttons */}
                 <div className="flex justify-center gap-4 mt-6">
                     <button
                         onClick={scrollLeft}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 hover:-translate-x-1 transition"
                     >
                         <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
                     </button>
 
                     <button
                         onClick={scrollRight}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 hover:translate-x-1 transition"
                     >
                         <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
                     </button>
                 </div>
             </div>
+
+            {/* Modal (Updated with X button on top-right) */}
+            {selectedCard && (
+                <motion.div
+                    className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setSelectedCard(null)}
+                >
+                    <motion.div
+                        className="bg-white rounded-lg p-6 max-w-md mx-auto max-h-[80vh] overflow-y-auto relative"
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 50, opacity: 0 }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Close Button on Top-Right */}
+                        <button
+                            className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
+                            onClick={() => setSelectedCard(null)}
+                        >
+                            <IconX className="h-5 w-5 text-gray-600" />
+                        </button>
+
+                        <h2 className="text-2xl font-bold text-center">
+                            {selectedCard.title}
+                        </h2>
+                        <Image
+                            src={selectedCard.image}
+                            alt={selectedCard.title}
+                            width={400}
+                            height={300}
+                            className="rounded-md mt-4"
+                        />
+                        <p className="mt-2 text-center">
+                            More details about {selectedCard.title}...
+                        </p>
+                    </motion.div>
+                </motion.div>
+            )}
         </div>
     );
 }

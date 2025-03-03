@@ -5,7 +5,7 @@ import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
 
 export const CanvasRevealEffect = ({
-    animationSpeed = 0.4,
+    animationSpeed = 1,
     opacities = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1],
     colors = [[0, 255, 255]],
     containerClassName,
@@ -29,7 +29,7 @@ export const CanvasRevealEffect = ({
                         ]
                     }
                     shader={`
-              float animation_speed_factor = ${animationSpeed.toFixed(1)};
+              float animation_speed_factor = ${animationSpeed.toFixed(2)};
               float intro_offset = distance(u_resolution / 2.0 / u_total_size, st2) * 0.01 + (random(st2) * 0.15);
               opacity *= step(intro_offset, u_time * animation_speed_factor);
               opacity *= clamp((1.0 - step(intro_offset + 0.1, u_time * animation_speed_factor)) * 1.25, 1.0, 1.25);
@@ -38,7 +38,7 @@ export const CanvasRevealEffect = ({
                 />
             </div>
             {showGradient && (
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[100%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[84%]" />
             )}
         </div>
     );
@@ -47,7 +47,7 @@ export const CanvasRevealEffect = ({
 const DotMatrix = ({
     colors = [[0, 0, 0]],
     opacities = [0.04, 0.04, 0.04, 0.04, 0.04, 0.08, 0.08, 0.08, 0.08, 0.14],
-    totalSize = 4,
+    totalSize = 6,
     dotSize = 2,
     shader = "",
     center = ["x", "y"],

@@ -7,8 +7,14 @@ import { cn } from "../lib/utils";
 
 export const CardSpotlight = ({
     children,
-    radius = 150,
+    radius = 0,
+    colors = [
+        [59, 130, 246],
+        [139, 92, 246],
+    ],
     color = "#262626",
+    dotSize = 3,
+    animationSpeed = 3,
     className,
     delay = 0,
     ...props
@@ -41,9 +47,9 @@ export const CardSpotlight = ({
             transition={{ duration: 0.6, ease: "easeOut", delay }}
             viewport={{ once: true }}
         >
-            {/* Spotlight Effect (Fixed pointer-events issue) */}
+            {/* Spotlight Effect */}
             <motion.div
-                className="absolute inset-0 rounded-3xl opacity-0 transition duration-300 group-hover/spotlight:opacity-100 pointer-events-none"
+                className="pointer-events-none absolute z-0 -inset-px rounded-md opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
                 style={{
                     backgroundColor: color,
                     maskImage: useMotionTemplate`
@@ -59,18 +65,15 @@ export const CardSpotlight = ({
 
             {isHovering && (
                 <CanvasRevealEffect
-                    animationSpeed={3}
+                    animationSpeed={animationSpeed}
                     containerClassName="bg-transparent absolute inset-0 pointer-events-none rounded-3xl"
-                    colors={[
-                        [59, 130, 246],
-                        [139, 92, 246],
-                    ]}
-                    dotSize={3}
+                    colors={colors}
+                    dotSize={dotSize}
                 />
             )}
 
-            {/* Content (Fixed cursor issue) */}
-            <div className="relative z-10 pointer-events-auto">{children}</div>
+            {/* Content */}
+            <div className="relative z-0 pointer-events-auto">{children}</div>
         </motion.div>
     );
 };

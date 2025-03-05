@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "./lib/utils";
+import { ColourfulText } from "./ui/AnimatingColourfulText";
 
 const BackgroundBeams = React.memo(({ className }) => {
     const paths = [
@@ -164,7 +165,7 @@ const Hero = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-6">
                         Curated Gifts for
                         <span className="block mt-2 bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent pb-3">
-                            Meaningful Moments
+                            <ColourfulText text={"Meaningful Moments"} />
                         </span>
                     </h1>
                     <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-10">

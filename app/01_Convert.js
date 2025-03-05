@@ -1,42 +1,112 @@
 import React from "react";
+import { useState } from "react";
+import { FlipWords } from "./ui/FlipWords";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Convert = () => {
+    const [blur, setBlur] = useState(0);
     return (
         <section id="about" className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="order-2 md:order-1">
-                        <h2 className="text-3xl md:text-5xl font-raleway font-bold text-neutral-900 mb-6 ">
+                        <motion.h2
+                            className="text-3xl md:text-5xl font-raleway font-bold text-neutral-900 mb-4"
+                            initial={{
+                                opacity: 0,
+                                y: 20,
+                                filter: "blur(10px)",
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                filter: "blur(0px)",
+                            }}
+                            transition={{ duration: 0.4 }}
+                            viewport={{ once: true }}
+                        >
                             {/* Discover Our Story */}
                             Crafting Memorable
                             <span className="block mt-2 bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
                                 Gift Experiences
                             </span>
-                        </h2>
+                        </motion.h2>
 
                         <div className="space-y-6">
                             <div className="space-y-1">
-                                <p className="text-neutral-700 ">
+                                <motion.p
+                                    className="text-neutral-700 "
+                                    initial={{
+                                        opacity: 0,
+                                        filter: "blur(10px)",
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        filter: "blur(0px)",
+                                    }}
+                                    transition={{ duration: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
                                     We're a team with a mix of design,
                                     marketing, and tech backgrounds, blending
                                     creativity with future-forward thinking.
-                                </p>
-                                <p className="text-neutral-700 ">
+                                </motion.p>
+                                <motion.p
+                                    className="text-neutral-700 "
+                                    initial={{
+                                        opacity: 0,
+                                        filter: "blur(10px)",
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        filter: "blur(0px)",
+                                    }}
+                                    transition={{ duration: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
                                     Our Vision? Tech should be seamless, not
                                     just something you plug in. It should
                                     enhance life, shape experiences, and elevate
                                     your brand.
-                                </p>
-                                <p className="text-neutral-700 ">
+                                </motion.p>
+                                <motion.p
+                                    className="text-neutral-700 "
+                                    initial={{
+                                        opacity: 0,
+                                        y: 20,
+                                        filter: "blur(10px)",
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        filter: "blur(0px)",
+                                    }}
+                                    transition={{ duration: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
                                     Join us on the ride toward Future
                                     Culture—where style, tech, and impact
                                     collide to create something that's not just
                                     cool, but next-level.
-                                </p>
+                                </motion.p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-6 ">
-                                <div className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl hover:shadow-lg transition-all duration-300">
+                                <motion.div
+                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    initial={{
+                                        opacity: 0,
+                                        y: 2,
+                                        filter: "blur(10px)",
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        filter: "blur(0px)",
+                                    }}
+                                    transition={{ duration: 0.4, delay: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Curated Selection
                                     </h3>
@@ -44,9 +114,23 @@ const Convert = () => {
                                         Handpicked items that meet our quality
                                         standards
                                     </p>
-                                </div>
+                                </motion.div>
 
-                                <div className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl hover:shadow-lg transition-all duration-300">
+                                <motion.div
+                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-[0.98] transition-all duration-300"
+                                    initial={{
+                                        opacity: 0,
+                                        y: 2,
+                                        filter: "blur(10px)",
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        filter: "blur(0px)",
+                                    }}
+                                    transition={{ duration: 0.4, delay: 0.5 }}
+                                    viewport={{ once: true }}
+                                >
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Custom Design
                                     </h3>
@@ -54,15 +138,39 @@ const Convert = () => {
                                         Personalized gifting solutions for every
                                         occasion
                                     </p>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
 
-                        <div className="mt-8 ">
-                            <button className="px-7 py-4 text-xl bg-neutral-800 raleway text-slate-100 rounded-full font-light hover:bg-neutral-800 transition-all duration-300 transform hover:scale-105">
+                        <motion.div
+                            className="mt-6"
+                            initial={{
+                                opacity: 0,
+                                y: 20,
+                                scale: 1.1,
+                                filter: "blur(10px)",
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                filter: "blur(0px)",
+                            }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            <motion.button
+                                className="px-7 py-4 text-xl bg-neutral-800 raleway text-slate-100 rounded-full font-light hover:bg-neutral-800 transition-all duration-300 transform hover:scale-105"
+                                animate={{ filter: `blur(${blur}px)` }}
+                                onMouseEnter={() => {
+                                    setBlur(5); // Apply blur
+                                    setTimeout(() => setBlur(0), 200); // Remove blur after 0.2s
+                                }}
+                                transition={{ duration: 0.2 }}
+                            >
                                 Discover Our Story
-                            </button>
-                        </div>
+                            </motion.button>
+                        </motion.div>
                     </div>
 
                     <div className="order-1 md:order-2 relative">

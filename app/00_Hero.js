@@ -59,7 +59,7 @@ const BackgroundBeams = React.memo(({ className }) => {
     return (
         <div
             className={cn(
-                "absolute  h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
+                "absolute  h-full w-full inset-0 [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center",
                 className
             )}
         >
@@ -84,7 +84,7 @@ const BackgroundBeams = React.memo(({ className }) => {
                         d={path}
                         stroke={`url(#linearGradient-${index})`}
                         strokeOpacity="0.4"
-                        strokeWidth="0.5"
+                        strokeWidth="0.6"
                     ></motion.path>
                 ))}
                 <defs>
@@ -102,18 +102,18 @@ const BackgroundBeams = React.memo(({ className }) => {
                                 x1: ["0%", "100%"],
                                 x2: ["0%", "95%"],
                                 y1: ["0%", "100%"],
-                                y2: ["0%", `${93 + Math.random() * 8}%`],
+                                y2: ["0%", `${93 + Math.random() * 10}%`],
                             }}
                             transition={{
                                 duration: Math.random() * 10 + 10,
                                 ease: "easeInOut",
                                 repeat: Infinity,
-                                delay: Math.random() * 10,
+                                delay: Math.random() * 8,
                             }}
                         >
-                            <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                            <stop stopColor="#18CCFC"></stop>
-                            <stop offset="32.5%" stopColor="#6344F5"></stop>
+                            <stop stopColor="#FF6688" stopOpacity="0"></stop>
+                            <stop stopColor="#FF6688"></stop>
+                            <stop offset="32.5%" stopColor="#b03300"></stop>
                             <stop
                                 offset="100%"
                                 stopColor="#AE48FF"
@@ -172,10 +172,10 @@ const Hero = () => {
                         create lasting impressions and strengthen relationships.
                     </p>
                     <div className="flex justify-center space-x-4">
-                        <button className="px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                        <button className="px-6 md:px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
                             Explore Collections
                         </button>
-                        <button className="px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-neutral-900 transition-all duration-300 transform hover:scale-105">
+                        <button className="px-6 md:px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-neutral-900 transition-all duration-300 transform hover:scale-105">
                             Learn More
                         </button>
                     </div>

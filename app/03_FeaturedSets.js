@@ -9,8 +9,8 @@ const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
 
 const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 2 },
-    tablet: { breakpoint: { max: 1024, min: 564 }, items: 2 },
-    mobile: { breakpoint: { max: 564, min: 0 }, items: 1 },
+    tablet: { breakpoint: { max: 1024, min: 664 }, items: 2 },
+    mobile: { breakpoint: { max: 664, min: 0 }, items: 1 },
 };
 
 const categoriesData = [
@@ -51,7 +51,7 @@ const categoriesData = [
 ];
 
 const CategoryCard = ({ title, description, items, image }) => (
-    <div className="px-4 h-full">
+    <div className="px-0 md:px-4 h-full">
         <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
             <div className="h-64 w-full relative rounded-lg overflow-hidden mb-6">
                 <Image

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
     IconArrowNarrowLeft,
     IconArrowNarrowRight,
@@ -117,19 +117,19 @@ export default function ProductsCardsCarousel() {
                 <div className="flex justify-center gap-4 mt-6">
                     <button
                         onClick={scrollLeft}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition sm:flex"
                     >
                         <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
                     </button>
                     <button
                         onClick={() => setShowGrid(true)}
-                        className="h-12 px-4 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 transition"
+                        className="h-12 px-4 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 transition sm:hidden"
                     >
                         View All
                     </button>
                     <button
                         onClick={scrollRight}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition  sm:flex"
                     >
                         <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
                     </button>
@@ -137,77 +137,101 @@ export default function ProductsCardsCarousel() {
             </div>
 
             {/* Grid Modal */}
-            {showGrid && (
-                <div className="fixed z-[999] inset-0 bg-black bg-opacity-70 flex justify-center items-center">
-                    <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[80vh] overflow-y-auto">
-                        <button
-                            className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
-                            onClick={() => setShowGrid(false)}
-                        >
-                            <IconX className="h-5 w-5 text-gray-600" />
-                        </button>
-                        <div className="grid grid-cols-2 gap-4">
-                            {items.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="cursor-pointer"
-                                    onClick={() => setSelectedCard(item)}
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt={item.title}
-                                        width={150}
-                                        height={150}
-                                        className="rounded-md"
-                                    />
-                                    <p className="text-center font-medium mt-2">
-                                        {item.title}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {selectedCard && (
-                <motion.div
-                    className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setSelectedCard(null)}
-                >
+            <AnimatePresence>
+                {showGrid && (
                     <motion.div
-                        className="bg-white rounded-lg p-6 max-w-md mx-auto max-h-[80vh] overflow-y-auto relative"
-                        initial={{ y: 50, opacity: 0, filter: "blur(10px)" }}
-                        animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                        exit={{ y: 50, opacity: 0, filter: "blur(10px)" }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        onClick={(e) => e.stopPropagation()}
+                        className="fixed z-40 inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4"
+                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: 20, filter: "blur(10px)" }} // ✅ Proper exit animation
+                        transition={{ duration: 0.4 }}
+                        onClick={() => setShowGrid(false)}
                     >
-                        <button
-                            className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
-                            onClick={() => setSelectedCard(null)}
+                        <motion.div
+                            className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto relative"
+                            initial={{ opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }} // ✅ Smooth exit
+                            transition={{ duration: 0.3 }}
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
                         >
-                            <IconX className="h-5 w-5 text-gray-600" />
-                        </button>
-                        <h2 className="text-2xl font-bold text-center">
-                            {selectedCard.title}
-                        </h2>
-                        <Image
-                            src={selectedCard.image}
-                            alt={selectedCard.title}
-                            width={400}
-                            height={300}
-                            className="rounded-md mt-4"
-                        />
-                        <p className="mt-2 text-center">
-                            More details about {selectedCard.title}...
-                        </p>
+                            <button
+                                className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
+                                onClick={() => setShowGrid(false)}
+                            >
+                                <IconX className="h-5 w-5 text-gray-600" />
+                            </button>
+
+                            <div className="grid grid-cols-2 gap-4 sm:hidden">
+                                {items.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="cursor-pointer flex flex-col items-center"
+                                        onClick={() => setSelectedCard(item)}
+                                    >
+                                        <Image
+                                            src={item.image}
+                                            alt={item.title}
+                                            width={100}
+                                            height={100}
+                                            className="rounded-md"
+                                        />
+                                        <p className="text-center font-medium mt-2 text-sm">
+                                            {item.title}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            )}
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {selectedCard && (
+                    <motion.div
+                        className="z-50 fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }} // ✅ Proper exit animation
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setSelectedCard(null)}
+                    >
+                        <motion.div
+                            className="bg-white rounded-lg p-6 max-w-md mx-auto max-h-[80vh] overflow-y-auto relative"
+                            initial={{
+                                y: 30,
+                                opacity: 0,
+                                filter: "blur(20px)",
+                            }}
+                            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                            exit={{ y: 30, opacity: 0, filter: "blur(20px)" }} // ✅ Proper exit
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
+                                onClick={() => setSelectedCard(null)}
+                            >
+                                <IconX className="h-5 w-5 text-gray-600" />
+                            </button>
+                            <h2 className="text-2xl font-bold text-center">
+                                {selectedCard.title}
+                            </h2>
+                            <Image
+                                src={selectedCard.image}
+                                alt={selectedCard.title}
+                                width={400}
+                                height={300}
+                                className="rounded-md mt-4"
+                            />
+                            <p className="mt-2 text-center">
+                                More details about {selectedCard.title}...
+                            </p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

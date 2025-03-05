@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -35,6 +33,7 @@ const items = [
 
 export default function ProductsCardsCarousel() {
     const [selectedCard, setSelectedCard] = useState(null);
+    const [showGrid, setShowGrid] = useState(false);
     const carouselRef = useRef(null);
     const [visibleCards, setVisibleCards] = useState(new Set());
 
@@ -95,29 +94,6 @@ export default function ProductsCardsCarousel() {
                             <motion.div
                                 key={index}
                                 className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow"
-                                initial={{
-                                    opacity: 0,
-                                    y: 50,
-                                    filter: "blur(10px)",
-                                }}
-                                animate={
-                                    visibleCards.has(index.toString())
-                                        ? {
-                                              opacity: 1,
-                                              y: 0,
-                                              filter: "blur(0px)",
-                                          }
-                                        : {
-                                              opacity: 0,
-                                              y: 50,
-                                              filter: "blur(10px)",
-                                          }
-                                }
-                                transition={{
-                                    duration: 0.5,
-                                    ease: "easeOut",
-                                    delay: 0.1 * index,
-                                }}
                                 onClick={() => setSelectedCard(item)}
                             >
                                 <Image
@@ -141,21 +117,59 @@ export default function ProductsCardsCarousel() {
                 <div className="flex justify-center gap-4 mt-6">
                     <button
                         onClick={scrollLeft}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 hover:-translate-x-1 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
                     >
                         <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
                     </button>
-
+                    <button
+                        onClick={() => setShowGrid(true)}
+                        className="h-12 px-4 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 transition"
+                    >
+                        View All
+                    </button>
                     <button
                         onClick={scrollRight}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 hover:translate-x-1 transition"
+                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition"
                     >
                         <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
                     </button>
                 </div>
             </div>
 
-            {/* Modal (Updated with X button on top-right) */}
+            {/* Grid Modal */}
+            {showGrid && (
+                <div className="fixed z-[999] inset-0 bg-black bg-opacity-70 flex justify-center items-center">
+                    <div className="bg-white rounded-lg p-6 max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+                        <button
+                            className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
+                            onClick={() => setShowGrid(false)}
+                        >
+                            <IconX className="h-5 w-5 text-gray-600" />
+                        </button>
+                        <div className="grid grid-cols-2 gap-4">
+                            {items.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="cursor-pointer"
+                                    onClick={() => setSelectedCard(item)}
+                                >
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        width={150}
+                                        height={150}
+                                        className="rounded-md"
+                                    />
+                                    <p className="text-center font-medium mt-2">
+                                        {item.title}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {selectedCard && (
                 <motion.div
                     className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
@@ -166,19 +180,18 @@ export default function ProductsCardsCarousel() {
                 >
                     <motion.div
                         className="bg-white rounded-lg p-6 max-w-md mx-auto max-h-[80vh] overflow-y-auto relative"
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 50, opacity: 0 }}
+                        initial={{ y: 50, opacity: 0, filter: "blur(10px)" }}
+                        animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                        exit={{ y: 50, opacity: 0, filter: "blur(10px)" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Close Button on Top-Right */}
                         <button
                             className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
                             onClick={() => setSelectedCard(null)}
                         >
                             <IconX className="h-5 w-5 text-gray-600" />
                         </button>
-
                         <h2 className="text-2xl font-bold text-center">
                             {selectedCard.title}
                         </h2>

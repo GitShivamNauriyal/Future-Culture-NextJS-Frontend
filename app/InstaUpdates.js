@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const posts = [
     {
@@ -26,12 +28,23 @@ const posts = [
 
 const InstaPost = ({ imageName, title, likes, delay }) => {
     return (
-        <div
+        <motion.div
             className="relative group animate__animated animate__fadeIn"
             style={{ animationDelay: `${delay}s` }}
+            initial={{
+                filter: "blur(10px)",
+                scale: 0.98,
+            }}
+            whileInView={{
+                filter: "blur(0px)",
+                scale: 1,
+            }}
+            transition={{ duration: 0.4, delay }}
         >
             <div className="aspect-square bg-neutral-200 rounded-xl overflow-hidden">
-                <img
+                <Image
+                    width={500}
+                    height={500}
                     src={imageName}
                     alt={title}
                     className="w-full h-full object-cover"
@@ -54,7 +67,7 @@ const InstaPost = ({ imageName, title, likes, delay }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

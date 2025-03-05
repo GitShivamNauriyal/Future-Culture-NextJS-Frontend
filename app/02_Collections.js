@@ -33,8 +33,14 @@ const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
         <motion.div
             className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105"
-            initial={{ filter: "blur(10px" }}
-            whileInView={{ filter: "blur(0px)" }}
+            initial={{
+                filter: "blur(10px)",
+                scale: 1.06,
+            }}
+            whileInView={{
+                filter: "blur(0px)",
+                scale: 1,
+            }}
             transition={{ duration: 0.4 }}
         >
             <div className="h-48 w-full relative rounded-lg overflow-hidden mb-6">
@@ -76,9 +82,9 @@ const Collections = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     className="text-center mb-16"
-                    initial={{ filter: "blur(10px" }}
-                    whileInView={{ filter: "blur(0px)" }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ filter: "blur(10px", y: 5 }}
+                    whileInView={{ filter: "blur(0px)", y: 0 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <div className="text-3xl md:text-5xl font-raleway font-bold text-white mb-6">
                         Our Curated
@@ -109,7 +115,7 @@ const Collections = () => {
                     className="mt-16 text-center"
                     initial={{ filter: "blur(10px" }}
                     whileInView={{ filter: "blur(0px)" }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
                 >
                     <button className="px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
                         View All Collections

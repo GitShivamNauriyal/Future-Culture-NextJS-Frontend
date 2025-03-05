@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import "react-multi-carousel/lib/styles.css";
@@ -24,7 +25,7 @@ const categoriesData = [
             "Hoodies & Sweatshirts - Street-ready comfort and style.",
             "Caps & Accessories - Because details make the difference.",
         ],
-        image: "/images/categories/fashion.jpg", // Corrected path
+        image: "/images/categories/fashion.jpg",
     },
     {
         title: "Collectibles - Limited Drops, Lasting Impacts",
@@ -35,7 +36,7 @@ const categoriesData = [
             "Custom Coins - Unique keepsakes for any occasion.",
             "Stickers & Patches - Express yourself everywhere.",
         ],
-        image: "/images/categories/collectables.jpg", // Corrected path
+        image: "/images/categories/collectables.jpg",
     },
     {
         title: "Tech - Where Innovation Meets Creativity",
@@ -46,12 +47,25 @@ const categoriesData = [
             "Tech-Boxes - Custom-built for your brand with light & sound.",
             "USBs & Power Banks - Stay charged, stay connected.",
         ],
-        image: "/images/categories/tech.jpg", // Corrected path
+        image: "/images/categories/tech.jpg",
     },
 ];
 
-const CategoryCard = ({ title, description, items, image }) => (
-    <div className="px-0 md:px-4 h-full">
+const CategoryCard = ({ title, description, items, image, delay }) => (
+    <motion.div
+        className="px-0 md:px-4 h-full"
+        initial={{
+            filter: "blur(10px)",
+            y: 50,
+            scale: 1.02,
+        }}
+        whileInView={{
+            filter: "blur(0px)",
+            y: 0,
+            scale: 1,
+        }}
+        transition={{ duration: 0.4, delay }}
+    >
         <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
             <div className="h-64 w-full relative rounded-lg overflow-hidden mb-6">
                 <Image
@@ -77,21 +91,32 @@ const CategoryCard = ({ title, description, items, image }) => (
                 </button>
             </div>
         </div>
-    </div>
+    </motion.div>
 );
 
 const FeaturedSets = () => {
     return (
         <section id="featured" className="py-20 bg-white relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-8">
+                <motion.div
+                    className="text-center mb-8"
+                    initial={{
+                        filter: "blur(10px)",
+                        y: 20,
+                    }}
+                    whileInView={{
+                        filter: "blur(0px)",
+                        y: 0,
+                    }}
+                    transition={{ duration: 0.4 }}
+                >
                     <h2 className="text-5xl md:text-6xl font-raleway font-bold text-neutral-900 mb-4">
                         Featured
                         <span className="block mt-2 bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text text-transparent pb-3">
                             Categories
                         </span>
                     </h2>
-                </div>
+                </motion.div>
 
                 <Carousel
                     swipeable
@@ -108,7 +133,11 @@ const FeaturedSets = () => {
                     itemClass="carousel-item-padding-40-px"
                 >
                     {categoriesData.map((category, index) => (
-                        <CategoryCard key={index} {...category} />
+                        <CategoryCard
+                            key={index}
+                            delay={index * 0.2}
+                            {...category}
+                        />
                     ))}
                 </Carousel>
             </div>

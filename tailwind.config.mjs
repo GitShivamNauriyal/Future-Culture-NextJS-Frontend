@@ -151,6 +151,26 @@ export default {
             },
         },
     },
+    extend: {
+        extend: {
+            animation: {
+                "meteor-effect": "meteor 3s linear infinite",
+            },
+            keyframes: {
+                meteor: {
+                    "0%": {
+                        transform: "translateX(0) translateY(0) rotate(215deg)",
+                        opacity: "1",
+                    },
+                    "100%": {
+                        transform:
+                            "translateX(300px) translateY(300px) rotate(215deg)",
+                        opacity: "0",
+                    },
+                },
+            },
+        },
+    },
     plugins: [
         function ({ addBase, theme }) {
             addVariablesForColors({ addBase, theme });

@@ -45,7 +45,6 @@ const Convert = () => {
                                         filter: "blur(0px)",
                                     }}
                                     transition={{ duration: 0.4 }}
-                                    viewport={{ once: true }}
                                 >
                                     We're a team with a mix of design,
                                     marketing, and tech backgrounds, blending
@@ -62,7 +61,6 @@ const Convert = () => {
                                         filter: "blur(0px)",
                                     }}
                                     transition={{ duration: 0.4 }}
-                                    viewport={{ once: true }}
                                 >
                                     Our Vision? Tech should be seamless, not
                                     just something you plug in. It should
@@ -82,7 +80,6 @@ const Convert = () => {
                                         filter: "blur(0px)",
                                     }}
                                     transition={{ duration: 0.4 }}
-                                    viewport={{ once: true }}
                                 >
                                     Join us on the ride toward Future
                                     Culture—where style, tech, and impact
@@ -97,15 +94,16 @@ const Convert = () => {
                                     initial={{
                                         opacity: 0,
                                         y: 2,
+                                        scale: 1.02,
                                         filter: "blur(10px)",
                                     }}
                                     whileInView={{
                                         opacity: 1,
                                         y: 0,
+                                        scale: 1,
                                         filter: "blur(0px)",
                                     }}
                                     transition={{ duration: 0.4, delay: 0.4 }}
-                                    viewport={{ once: true }}
                                 >
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Curated Selection
@@ -117,19 +115,20 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-[0.98] transition-all duration-300"
+                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
+                                        scale: 1.02,
                                         filter: "blur(10px)",
                                     }}
                                     whileInView={{
                                         opacity: 1,
                                         y: 0,
+                                        scale: 1,
                                         filter: "blur(0px)",
                                     }}
                                     transition={{ duration: 0.4, delay: 0.5 }}
-                                    viewport={{ once: true }}
                                 >
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Custom Design
@@ -157,39 +156,62 @@ const Convert = () => {
                                 filter: "blur(0px)",
                             }}
                             transition={{ duration: 0.4, delay: 0.2 }}
-                            viewport={{ once: true }}
                         >
                             <motion.button
                                 className="px-7 py-4 text-xl bg-neutral-800 raleway text-slate-100 rounded-full font-light hover:bg-neutral-800 transition-all duration-300 transform hover:scale-105"
-                                animate={{ filter: `blur(${blur}px)` }}
-                                onMouseEnter={() => {
-                                    setBlur(5); // Apply blur
-                                    setTimeout(() => setBlur(0), 200); // Remove blur after 0.2s
-                                }}
-                                transition={{ duration: 0.2 }}
+                                whileTap={{ scale: 0.9 }}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.02 }}
                             >
-                                Discover Our Story
+                                <motion.div
+                                    animate={{ filter: `blur(${blur}px)` }}
+                                    onMouseEnter={() => {
+                                        setBlur(5); // Apply blur
+                                        setTimeout(() => setBlur(0), 100); // Remove blur after 0.2s
+                                    }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    Discover Our Story
+                                </motion.div>
                             </motion.button>
                         </motion.div>
                     </div>
 
                     <div className="order-1 md:order-2 relative">
                         <div className="aspect-square rounded-2xl bg-gradient-to-br from-neutral-200 via-neutral-100 to-neutral-300 relative overflow-hidden ">
-                            <div className="absolute inset-0 flex items-center justify-center bg-cover bg-center bg-[url(/images/hero/hero.jpg)]">
+                            <motion.div
+                                className="absolute inset-0 flex items-center justify-center bg-cover bg-center bg-[url(/images/hero/hero.jpg)]"
+                                initial={{ filter: "blur(5px" }}
+                                whileInView={{ filter: "blur(0px)" }}
+                                transition={{ duration: 0.4 }}
+                                viewport={{ once: "true" }}
+                            >
                                 <div className="w-3/4 h-3/4 rounded-full blur-3xl absolute animate-pulse"></div>
                                 <div className="text-4xl font-bold text-neutral-100">
                                     <div className="flex-shrink-0">
-                                        <div className="font-raleway text-5xl font-bold">
+                                        <motion.div
+                                            className="font-raleway text-5xl font-bold"
+                                            initial={{
+                                                opacity: 0,
+                                                y: 20,
+                                                filter: "blur(10px)",
+                                            }}
+                                            whileInView={{
+                                                opacity: 1,
+                                                y: 0,
+                                                filter: "blur(0px)",
+                                            }}
+                                        >
                                             <div className="raleway mb-6">
                                                 Future
                                             </div>
                                             <div className="raleway mb-6">
                                                 Culture.
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-gradient-to-br from-neutral-900 to-neutral-700 rounded-full blur-3xl opacity-10 animate-float"></div>

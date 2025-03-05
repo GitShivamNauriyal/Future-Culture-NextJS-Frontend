@@ -94,6 +94,29 @@ export default function ProductsCardsCarousel() {
                             <motion.div
                                 key={index}
                                 className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow"
+                                initial={{
+                                    opacity: 0,
+                                    y: 50,
+                                    filter: "blur(10px)",
+                                }}
+                                animate={
+                                    visibleCards.has(index.toString())
+                                        ? {
+                                              opacity: 1,
+                                              y: 0,
+                                              filter: "blur(0px)",
+                                          }
+                                        : {
+                                              opacity: 0,
+                                              y: 50,
+                                              filter: "blur(10px)",
+                                          }
+                                }
+                                transition={{
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: 0.1 * index,
+                                }}
                                 onClick={() => setSelectedCard(item)}
                             >
                                 <Image

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const collectionsData = [
     {
@@ -30,7 +31,12 @@ const collectionsData = [
 
 const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
-        <div className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105">
+        <motion.div
+            className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105"
+            initial={{ filter: "blur(10px" }}
+            whileInView={{ filter: "blur(0px)" }}
+            transition={{ duration: 0.4 }}
+        >
             <div className="h-48 w-full relative rounded-lg overflow-hidden mb-6">
                 <Image
                     src={image}
@@ -60,7 +66,7 @@ const CollectionCard = ({ title, description, number, explore, image }) => {
                     </svg>
                 </button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
@@ -68,7 +74,12 @@ const Collections = () => {
     return (
         <section id="collections" className="py-20 bg-neutral-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <motion.div
+                    className="text-center mb-16"
+                    initial={{ filter: "blur(10px" }}
+                    whileInView={{ filter: "blur(0px)" }}
+                    transition={{ duration: 0.2 }}
+                >
                     <div className="text-3xl md:text-5xl font-raleway font-bold text-white mb-6">
                         Our Curated
                         <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
@@ -79,7 +90,7 @@ const Collections = () => {
                         Explore our thoughtfully curated gift collections,
                         designed to make every moment special
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {collectionsData.map((collection) => (
@@ -94,11 +105,16 @@ const Collections = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
+                <motion.div
+                    className="mt-16 text-center"
+                    initial={{ filter: "blur(10px" }}
+                    whileInView={{ filter: "blur(0px)" }}
+                    transition={{ duration: 0.2 }}
+                >
                     <button className="px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
                         View All Collections
                     </button>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

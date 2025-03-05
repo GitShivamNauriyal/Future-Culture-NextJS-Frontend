@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 
 const posts = [
     {
-        imageName: "/images/insta_updates/new_collection.jpg",
+        imageName: "/images/Insta_updates/new_collection.jpg",
         title: "New Collection Preview",
         likes: 276,
     },
     {
-        imageName: "/images/insta_updates/Luxurious_Gift.jpg",
+        imageName: "/images/Insta_updates/Luxurious_Gift.jpg",
         title: "Luxury Gift Box Collection",
         likes: 245,
     },
     {
-        imageName: "/images/insta_updates/corporate_event.jpg",
+        imageName: "/images/Insta_updates/corporate_event.jpg",
         title: "Corporate Event Highlights",
         likes: 189,
     },
     {
-        imageName: "/images/insta_updates/behind_the_scene.jpg",
+        imageName: "/images/Insta_updates/behind_the_scene.jpg",
         title: "Behind the Scenes",
         likes: 343,
     },

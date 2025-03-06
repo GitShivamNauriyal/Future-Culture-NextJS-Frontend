@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Blogs = () => {
     useEffect(() => {
@@ -66,10 +67,21 @@ const Blogs = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post, index) => (
-                        <article
+                        <motion.article
                             key={index}
-                            className="bg-neutral-50 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 animate__animated"
+                            className="bg-neutral-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate__animated"
                             style={{ animationDelay: post.delay }}
+                            initial={{
+                                opacity: 0,
+                                y: 10,
+                                filter: "blur(10px)",
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                filter: "blur(0px)",
+                            }}
+                            transition={{ duration: 0.4 }}
                         >
                             <div className="h-48 bg-neutral-200 overflow-hidden">
                                 <img
@@ -109,7 +121,7 @@ const Blogs = () => {
                                     </svg>
                                 </a>
                             </div>
-                        </article>
+                        </motion.article>
                     ))}
                 </div>
 

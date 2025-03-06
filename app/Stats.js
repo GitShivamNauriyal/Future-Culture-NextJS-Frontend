@@ -3,6 +3,7 @@ import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import BottomGradientHover from "./ui/BottomGradientHover";
 
 const statsData = [
     {
@@ -34,7 +35,7 @@ const StatBox = ({ target, label, delay }) => {
     return (
         <motion.div
             ref={ref}
-            className="bg-neutral-800 p-8 rounded-lg text-center transform hover:-translate-y-1 transition-transform duration-300 animate__animated animate__fadeInUp"
+            className="relative group bg-neutral-800 p-8 rounded-lg text-center transform hover:-translate-y-1 transition-transform duration-300 animate__animated animate__fadeInUp"
             style={{ animationDelay: `${delay}s` }}
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -49,6 +50,7 @@ const StatBox = ({ target, label, delay }) => {
             </div>
             <div className="h-1 w-10 bg-white mx-auto mb-4"></div>
             <p className="font-raleway text-gray-300">{label}</p>
+            <BottomGradientHover />
         </motion.div>
     );
 };

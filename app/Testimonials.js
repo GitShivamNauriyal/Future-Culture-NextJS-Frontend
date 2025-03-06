@@ -2,6 +2,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import "react-multi-carousel/lib/styles.css";
+import { AnimatedTestimonials } from "./ui/AnimatedTestmonials";
 
 // Dynamically import the carousel so that it runs only on the client.
 const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
@@ -10,6 +11,7 @@ const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
 const testimonialsData = [
     {
         initials: "JD",
+        src: "/images/tshirts.jpg",
         name: "John Doe",
         position: "CEO, Tech Corp",
         message:
@@ -18,6 +20,7 @@ const testimonialsData = [
     },
     {
         initials: "JS",
+        src: "/images/hoodies.jpg",
         name: "Jane Smith",
         position: "Event Planner",
         message:
@@ -26,6 +29,7 @@ const testimonialsData = [
     },
     {
         initials: "RB",
+        src: "/images/jackets.jpg",
         name: "Robert Brown",
         position: "Marketing Director",
         message:
@@ -36,36 +40,36 @@ const testimonialsData = [
 ];
 
 // Responsive settings for react-multi-carousel.
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 1,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2,
-        slidesToSlide: 1,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-        slidesToSlide: 1,
-    },
-};
+// const responsive = {
+//     desktop: {
+//         breakpoint: { max: 3000, min: 1024 },
+//         items: 3,
+//         slidesToSlide: 1,
+//     },
+//     tablet: {
+//         breakpoint: { max: 1024, min: 464 },
+//         items: 2,
+//         slidesToSlide: 1,
+//     },
+//     mobile: {
+//         breakpoint: { max: 464, min: 0 },
+//         items: 1,
+//         slidesToSlide: 1,
+//     },
+// };
 
 const Testimonials = () => {
     return (
         <section id="testimonials" className="py-20 bg-neutral-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-raleway font-bold text-neutral-100 mb-6 animate__animated animate__fadeInUp">
-                        Client
-                        <span className="block mt-2 bg-gradient-to-r from-neutral-50 to-neutral-200 bg-clip-text text-transparent">
-                            Testimonials
-                        </span>
-                    </h2>
-                </div>
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-raleway font-bold text-neutral-100 mb-6 animate__animated animate__fadeInUp">
+                    Client
+                    <span className="block mt-2 bg-gradient-to-r from-neutral-50 to-neutral-200 bg-clip-text text-transparent">
+                        Testimonials
+                    </span>
+                </h2>
+            </div>
+            {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div
                     className="testimonial-slider relative"
@@ -125,7 +129,8 @@ const Testimonials = () => {
                         ))}
                     </Carousel>
                 </div>
-            </div>
+            </div> */}
+            <AnimatedTestimonials testimonials={testimonialsData} />
         </section>
     );
 };

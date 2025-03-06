@@ -47,7 +47,7 @@ const stepsData = [
 // Step Card Component
 const ProcessStep = ({ id, title, description }) => {
     return (
-        <div className="relative cursor-pointer select-none">
+        <div className="relative cursor-pointer select-none hover:-translate-y-2 transition">
             <div className="bg-neutral-80 rounded-xl p-6 hover:bg-neutral-70 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 transition-transform duration-300">
                     {id}
@@ -74,7 +74,6 @@ const HowItWorks = () => {
                         initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
                     >
                         How It
                         <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">

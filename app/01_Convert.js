@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { FlipWords } from "./ui/FlipWords";
 import { AnimatePresence, motion } from "framer-motion";
+import { Meteors } from "./ui/Meteors";
 
 const Convert = () => {
     const [blur, setBlur] = useState(0);
@@ -115,7 +116,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    className="relative cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -130,6 +131,12 @@ const Convert = () => {
                                     }}
                                     transition={{ duration: 0.4, delay: 0.5 }}
                                 >
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        <Meteors
+                                            number={10}
+                                            className="opacity-40"
+                                        />
+                                    </div>
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Custom Design
                                     </h3>

@@ -60,10 +60,10 @@ const Contactus = () => {
                 <div className="text-center mb-16">
                     <h2 className="relative group text-3xl md:text-4xl font-raleway font-bold text-white mb-6 animate__animated">
                         Get in
-                        <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
+                        <span className="relative inline-block ml-2 mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
                             Touch
+                            <BottomGradient />
                         </span>
-                        <BottomGradient />
                     </h2>
                 </div>
 

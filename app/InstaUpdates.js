@@ -10,17 +10,17 @@ const posts = [
         likes: 276,
     },
     {
-        imageName: "/images/Insta_updates/Luxurious_Gift.jpg",
+        imageName: "/images/Insta_Updates/Luxurious_Gift.jpg",
         title: "Luxury Gift Box Collection",
         likes: 245,
     },
     {
-        imageName: "/images/Insta_updates/corporate_event.jpg",
+        imageName: "/images/Insta_Updates/corporate_event.jpg",
         title: "Corporate Event Highlights",
         likes: 189,
     },
     {
-        imageName: "/images/Insta_updates/behind_the_scene.jpg",
+        imageName: "/images/Insta_Updates/behind_the_scene.jpg",
         title: "Behind the Scenes",
         likes: 343,
     },

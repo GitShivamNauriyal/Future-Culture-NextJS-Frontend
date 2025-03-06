@@ -33,7 +33,7 @@ const Blogs = () => {
             title: "The Art of Corporate Gifting",
             excerpt:
                 "Discover how thoughtful corporate gifting can strengthen business relationships and create lasting impressions.",
-            delay: "0s",
+            delay: 0,
         },
         {
             image: "sustainable_gifting.jpg",
@@ -41,7 +41,7 @@ const Blogs = () => {
             title: "Sustainable Gifting Guide",
             excerpt:
                 "Explore our eco-friendly gift options and learn how to make environmentally conscious gifting choices.",
-            delay: "0.2s",
+            delay: 0.2,
         },
         {
             image: "personalization_gifting.jpg",
@@ -49,31 +49,36 @@ const Blogs = () => {
             title: "Personalization Trends",
             excerpt:
                 "Learn about the latest trends in personalized gifting and how to make your presents more meaningful.",
-            delay: "0.4s",
+            delay: 0.4,
         },
     ];
 
     return (
         <section id="blog" className="bg-white py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16 animate__animated animate__fadeIn">
+                <motion.div
+                    className="text-center mb-16 animate__animated"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     <h2 className="text-3xl font-bold font-raleway mb-4">
                         Latest From Our Blog
                     </h2>
                     <p className="text-gray-600 font-raleway max-w-2xl mx-auto">
                         Insights and ideas for thoughtful gifting
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post, index) => (
                         <motion.article
                             key={index}
                             className="bg-neutral-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate__animated"
-                            style={{ animationDelay: post.delay }}
                             initial={{
                                 opacity: 0,
-                                y: 10,
+                                y: 20,
                                 filter: "blur(10px)",
                             }}
                             whileInView={{
@@ -81,7 +86,8 @@ const Blogs = () => {
                                 y: 0,
                                 filter: "blur(0px)",
                             }}
-                            transition={{ duration: 0.4 }}
+                            transition={{ duration: 0.4, delay: post.delay }}
+                            viewport={{ once: true }}
                         >
                             <div className="h-48 bg-neutral-200 overflow-hidden">
                                 <img

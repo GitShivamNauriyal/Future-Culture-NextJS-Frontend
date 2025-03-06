@@ -91,7 +91,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -106,6 +106,12 @@ const Convert = () => {
                                     }}
                                     transition={{ duration: 0.4, delay: 0.4 }}
                                 >
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        <Meteors
+                                            number={20}
+                                            className="opacity-40"
+                                        />
+                                    </div>
                                     <h3 className="font-bold text-xl text-neutral-700 mb-2">
                                         Curated Selection
                                     </h3>
@@ -116,7 +122,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -133,7 +139,7 @@ const Convert = () => {
                                 >
                                     <div className="absolute inset-0 pointer-events-none">
                                         <Meteors
-                                            number={10}
+                                            number={20}
                                             className="opacity-40"
                                         />
                                     </div>

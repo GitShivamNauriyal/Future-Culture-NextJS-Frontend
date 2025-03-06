@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { Input } from "./ui/Input";
+import { Label } from "./ui/Label";
+import BottomGradient from "./ui/BottomGradient";
+import BottomGradientHover from "./ui/BottomGradientHover";
 
 // Define validation schema with Zod
 const formSchema = z.object({
@@ -54,32 +58,33 @@ const Contactus = () => {
         <section id="contact" className="py-20 bg-neutral-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-raleway font-bold text-white mb-6 animate__animated">
+                    <h2 className="relative group text-3xl md:text-4xl font-raleway font-bold text-white mb-6 animate__animated">
                         Get in
                         <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
                             Touch
                         </span>
+                        <BottomGradient />
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Contact Form */}
-                    <div className="bg-neutral-800 p-8 rounded-xl animate__animated">
+                    <div className="relative group bg-neutral-800 p-8 rounded-xl animate__animated">
                         <form
                             onSubmit={handleSubmit(onSubmit)}
                             className="space-y-6"
                         >
                             <div>
-                                <label
+                                <Label
                                     htmlFor="name"
                                     className="block text-sm font-medium text-gray-300 mb-2"
                                 >
                                     Full Name
-                                </label>
-                                <input
+                                </Label>
+                                <Input
                                     {...register("name")}
                                     id="name"
-                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-opacity-0  focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
                                     placeholder="Enter your name"
                                 />
                                 {errors.name && (
@@ -96,11 +101,11 @@ const Contactus = () => {
                                 >
                                     Email Address
                                 </label>
-                                <input
+                                <Input
                                     {...register("email")}
                                     type="email"
                                     id="email"
-                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-0  focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
                                     placeholder="Enter your email"
                                 />
                                 {errors.email && (
@@ -117,10 +122,10 @@ const Contactus = () => {
                                 >
                                     Subject
                                 </label>
-                                <input
+                                <Input
                                     {...register("subject")}
                                     id="subject"
-                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg  focus:ring-0  focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
                                     placeholder="Enter subject"
                                 />
                                 {errors.subject && (
@@ -141,7 +146,7 @@ const Contactus = () => {
                                     {...register("message")}
                                     id="message"
                                     rows={4}
-                                    className="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                                    className=" w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg  focus:ring-0  focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
                                     placeholder="Enter your message"
                                 />
                                 {errors.message && (
@@ -154,7 +159,7 @@ const Contactus = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full px-6 py-3 bg-white text-neutral-900 rounded-lg font-medium hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="relative group w-full px-6 py-3 bg-white text-neutral-900 rounded-lg font-medium hover:bg-gray-200 transform hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {isSubmitting ? "Sending..." : "Send Message"}
                             </button>
@@ -166,11 +171,12 @@ const Contactus = () => {
                                 </p>
                             )}
                         </form>
+                        <BottomGradient />
                     </div>
 
                     {/* Contact Information */}
                     <div className="space-y-8 animate__animated">
-                        <div className="bg-neutral-800 p-8 rounded-xl">
+                        <div className="relative group bg-neutral-800 p-8 rounded-xl">
                             <h3 className="text-xl font-bold text-white mb-4">
                                 Contact Information
                             </h3>
@@ -181,7 +187,7 @@ const Contactus = () => {
                                 <div className="flex items-center text-gray-300">
                                     <span>contact@futureculture.com</span>
                                 </div>
-                                <div className="flex items-center text-gray-300">
+                                <div className=" flex items-center text-gray-300">
                                     <span>
                                         2099 Future Street, Future District
                                         <br />
@@ -189,9 +195,10 @@ const Contactus = () => {
                                     </span>
                                 </div>
                             </div>
+                            <BottomGradientHover />
                         </div>
 
-                        <div className="bg-neutral-800 p-8 rounded-xl">
+                        <div className="relative group bg-neutral-800 p-8 rounded-xl">
                             <h3 className="text-xl font-bold text-white mb-4">
                                 Business Hours
                             </h3>
@@ -200,6 +207,7 @@ const Contactus = () => {
                                 <p>Saturday: 10:00 AM - 4:00 PM</p>
                                 <p>Sunday: Closed...</p>
                             </div>
+                            <BottomGradientHover />
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import React from "react";
 import { FaHandshake, FaBoxOpen } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
 import { motion } from "framer-motion";
+import { useAnimation } from "framer-motion";
 
 const modelsData = [
     {
@@ -44,15 +45,24 @@ const modelsData = [
 ];
 
 const PricingCard = ({ title, description, icon, bgColor }) => {
+    const iconControls = useAnimation();
+
     return (
         <motion.div
-            className="px-8 py-12 z-10 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer select-none border border-neutral-200"
+            className="px-8 py-12 z-10 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start bg-white transition-all duration-300 hover:shadow-xl cursor-pointer select-none border border-neutral-200"
             initial={{ filter: "blur(10px)" }}
             whileInView={{ filter: "blur(0px)" }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.4 }}
+            whileHover={{
+                scale: 1.02, // Card scales up
+            }}
+            onHoverStart={() => iconControls.start({ y: -10 })} // Move icon up
+            onHoverEnd={() => iconControls.start({ y: 0 })} // Reset icon position
         >
-            {/* Icon */}
-            <div className="mb-6 sm:mb-0 sm:mr-6">{icon}</div>
+            {/* Icon with external animation control */}
+            <motion.div className="mb-6 sm:mb-0 sm:mr-6" animate={iconControls}>
+                {icon}
+            </motion.div>
 
             {/* Content */}
             <div className="cursor-pointer select-none">

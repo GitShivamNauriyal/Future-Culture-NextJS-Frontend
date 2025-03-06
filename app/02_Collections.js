@@ -32,14 +32,14 @@ const collectionsData = [
 const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
         <motion.div
-            className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105"
+            className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105 cursor-pointer"
             initial={{
                 filter: "blur(10px)",
-                scale: 1.06,
+                // scale: 1.06,
             }}
             whileInView={{
                 filter: "blur(0px)",
-                scale: 1,
+                // scale: 1,
             }}
             transition={{ duration: 0.4 }}
         >

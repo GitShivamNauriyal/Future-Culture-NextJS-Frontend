@@ -157,7 +157,7 @@ const Hero = () => {
     return (
         <section
             id="hero"
-            className="min-h-[80vh] bg-neutral-900 flex items-center pt-16 relative overflow-hidden"
+            className="min-h-[80vh] md:min-h-[90vh] bg-neutral-900 flex items-center pt-16 relative overflow-hidden"
         >
             <BackgroundBeams />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

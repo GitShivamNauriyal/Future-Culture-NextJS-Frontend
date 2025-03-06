@@ -5,6 +5,7 @@ import { MdVerified } from "react-icons/md";
 import { TbPrinter, TbRuler2 } from "react-icons/tb";
 import { IoColorPalette } from "react-icons/io5";
 import { Meteors } from "./ui/Meteors";
+import { motion } from "framer-motion";
 
 const promisesData = [
     {
@@ -46,12 +47,17 @@ const promisesData = [
     },
 ];
 
-const PromiseCard = ({ title, subtitle, description, Icon }) => {
+const PromiseCard = ({ title, subtitle, description, Icon, delay }) => {
     return (
-        <div className="relative cursor-crosshair bg-white shadow-md rounded-xl p-6 flex flex-col hover:shadow-lg hover:rounded-2xl transition-all duration-300 group overflow-hidden">
+        <motion.div
+            className="relative cursor-crosshair bg-white shadow-md rounded-xl p-6 flex flex-col hover:shadow-lg hover:rounded-2xl transition-all duration-300 group overflow-hidden"
+            initial={{ filter: "blur(10px)" }}
+            whileInView={{ filter: "blur(0px)" }}
+            transition={{ duration: 0.4, delay }}
+        >
             {/* Floating Meteors */}
             <div className="absolute inset-0 pointer-events-none">
-                <Meteors number={15} className="opacity-40" />
+                <Meteors number={10} className="opacity-40" />
             </div>
 
             {/* Icon */}
@@ -69,7 +75,7 @@ const PromiseCard = ({ title, subtitle, description, Icon }) => {
 
             {/* Description */}
             <p className="text-neutral-600 flex-grow z-10">{description}</p>
-        </div>
+        </motion.div>
     );
 };
 
@@ -93,7 +99,11 @@ const OurPromises = () => {
                 {/* Grid Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {promisesData.map((promise, index) => (
-                        <PromiseCard key={index} {...promise} />
+                        <PromiseCard
+                            key={index}
+                            delay={index * 0.2}
+                            {...promise}
+                        />
                     ))}
                 </div>
             </div>

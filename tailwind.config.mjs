@@ -150,21 +150,22 @@ export default {
                 ultrawide: "21/9",
             },
         },
-    },
-    extend: {
         extend: {
+            boxShadow: {
+                input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+            },
             animation: {
-                "meteor-effect": "meteor 3s linear infinite",
+                "meteor-effect": "meteor 5s linear infinite",
             },
             keyframes: {
                 meteor: {
                     "0%": {
-                        transform: "translateX(0) translateY(0) rotate(215deg)",
+                        transform: "rotate(215deg) translateX(0px)",
                         opacity: "1",
                     },
+                    "70%": { opacity: "1" },
                     "100%": {
-                        transform:
-                            "translateX(300px) translateY(300px) rotate(215deg)",
+                        transform: "rotate(215deg) translateX(-500px)",
                         opacity: "0",
                     },
                 },

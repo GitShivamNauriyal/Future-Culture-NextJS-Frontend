@@ -2,6 +2,7 @@
 import React from "react";
 import { FaHandshake, FaBoxOpen } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const modelsData = [
     {
@@ -44,18 +45,25 @@ const modelsData = [
 
 const PricingCard = ({ title, description, icon, bgColor }) => {
     return (
-        <div className="px-8 py-16 rounded-2xl shadow-[inset_2px_2px_8px_rgba(0,0,0,0.1)] flex flex-col sm:flex-row items-center sm:items-start bg-neutral-100 transition-all duration-300  hover:shadow-[inset_-2px_-2px_8px_rgba(0,0,0,0.1)] hover:scale-[0.99] cursor-pointer select-none">
+        <motion.div
+            className="px-8 py-12 z-10 rounded-xl shadow-lg flex flex-col sm:flex-row items-center sm:items-start bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer select-none border border-neutral-200"
+            initial={{ filter: "blur(10px)" }}
+            whileInView={{ filter: "blur(0px)" }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+        >
             {/* Icon */}
-            <div className="mb-4 sm:mb-0 sm:mr-6">{icon}</div>
+            <div className="mb-6 sm:mb-0 sm:mr-6">{icon}</div>
 
             {/* Content */}
-            <div className=" cursor-pointer select-none">
-                <h3 className="text-2xl font-bold text-neutral-700 mb-2">
+            <div className="cursor-pointer select-none">
+                <h3 className="text-2xl font-semibold text-neutral-800 mb-2">
                     {title}
                 </h3>
-                <p className="text-neutral-700">{description}</p>
+                <p className="text-neutral-600 leading-relaxed">
+                    {description}
+                </p>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
@@ -65,11 +73,22 @@ const PricingModels = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-neutral-700 mb-4">
                         Our{" "}
-                        <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                        <motion.span
+                            className="bg-gradient-to-r from-blue-500 to-purple-700 bg-clip-text text-transparent"
+                            initial={{
+                                y: 50,
+                                filter: "blur(10px)",
+                            }}
+                            whileInView={{
+                                y: 0,
+                                filter: "blur(0px)",
+                            }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
                             Business Models
-                        </span>
+                        </motion.span>
                     </h2>
                     <p className="text-lg text-neutral-700">
                         Flexible pricing and collaboration options to fit your
@@ -78,10 +97,16 @@ const PricingModels = () => {
                 </div>
 
                 {/* Cards Layout */}
-                <div className="space-y-8">
-                    {modelsData.map((model, index) => (
-                        <PricingCard key={index} {...model} />
-                    ))}
+                <div className="relative space-y-8">
+                    <div className="z-0 absolute left-1/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
+                    <div className="z-0 absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
+                    <div className="z-0 absolute left-3/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
+
+                    <div className="relative flex flex-col space-y-8">
+                        {modelsData.map((model, index) => (
+                            <PricingCard key={index} {...model} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

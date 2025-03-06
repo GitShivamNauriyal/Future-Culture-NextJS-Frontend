@@ -131,6 +131,7 @@ const FeaturedSets = () => {
                     containerClass="carousel-container"
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
+                    className="overflow-y-hidden"
                 >
                     {categoriesData.map((category, index) => (
                         <CategoryCard

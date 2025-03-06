@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const posts = [
     {
-        imageName: "/images/Insta_updates/new_collection.jpg",
+        imageName: "/images/Insta_Updates/new_collection.jpg",
         title: "New Collection Preview",
         likes: 276,
     },

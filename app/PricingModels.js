@@ -60,7 +60,16 @@ const PricingCard = ({ title, description, icon, bgColor }) => {
             onHoverEnd={() => iconControls.start({ y: 0 })} // Reset icon position
         >
             {/* Icon with external animation control */}
-            <motion.div className="mb-6 sm:mb-0 sm:mr-6" animate={iconControls}>
+            <motion.div
+                className="mb-6 sm:mb-0 sm:mr-6"
+                animate={iconControls}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.6,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                }}
+            >
                 {icon}
             </motion.div>
 

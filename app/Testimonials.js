@@ -3,6 +3,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatedTestimonials } from "./ui/AnimatedTestmonials";
+import { motion } from "framer-motion";
 
 // Dynamically import the carousel so that it runs only on the client.
 const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
@@ -60,7 +61,13 @@ const testimonialsData = [
 
 const Testimonials = () => {
     return (
-        <section id="testimonials" className="py-20 bg-neutral-900">
+        <motion.section
+            id="testimonials"
+            className="py-20 bg-neutral-900"
+            initial={{ filter: "blur(10px)" }}
+            whileInView={{ filter: "blur(0px)" }}
+            transition={{ duration: 0.4 }}
+        >
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-raleway font-bold text-neutral-100 mb-6 animate__animated animate__fadeInUp">
                     Client
@@ -131,7 +138,7 @@ const Testimonials = () => {
                 </div>
             </div> */}
             <AnimatedTestimonials testimonials={testimonialsData} />
-        </section>
+        </motion.section>
     );
 };
 

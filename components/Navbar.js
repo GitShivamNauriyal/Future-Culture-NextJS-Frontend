@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { clsx } from "clsx";
 
 const menuItems = [
     "hero",
@@ -15,25 +14,24 @@ const menuItems = [
     "contact",
 ];
 
+const menuVariants = {
+    hidden: { opacity: 0, y: -20, filter: "blur(5px)" },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.4, ease: "easeOut" },
+    },
+    exit: {
+        opacity: 0,
+        y: -20,
+        filter: "blur(5px)",
+        transition: { duration: 0.3 },
+    },
+};
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-    // Framer Motion Variants
-    const menuVariants = {
-        hidden: { opacity: 0, x: 50, filter: "blur(10px)" },
-        visible: (i) => ({
-            opacity: 1,
-            x: 0,
-            filter: "blur(0px)",
-            transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
-        }),
-        exit: {
-            opacity: 0,
-            x: 50,
-            filter: "blur(10px)",
-            transition: { duration: 0.3 },
-        },
-    };
 
     return (
         <nav className="fixed w-full bg-neutral-900/80 backdrop-blur-sm z-50">
@@ -57,16 +55,18 @@ const Navbar = () => {
                             aria-expanded={isOpen}
                             className="text-gray-300 hover:text-white focus:outline-none"
                         >
-                            <span className="sr-only">Open main menu</span>
                             <motion.div
                                 initial={false}
-                                animate={{ rotate: isOpen ? 90 : 0 }}
+                                animate={{
+                                    rotate: isOpen ? 90 : 0,
+                                    scale: isOpen ? 1.1 : 1,
+                                }}
                                 transition={{ duration: 0.3 }}
                                 className="w-6 h-6 flex flex-col justify-between"
                             >
-                                <span className="block w-full h-0.5 bg-white transform transition duration-300"></span>
-                                <span className="block w-full h-0.5 bg-white transform transition duration-300"></span>
-                                <span className="block w-full h-0.5 bg-white transform transition duration-300"></span>
+                                <span className="block w-full h-0.5 bg-white"></span>
+                                <span className="block w-full h-0.5 bg-white"></span>
+                                <span className="block w-full h-0.5 bg-white"></span>
                             </motion.div>
                         </button>
                     </div>
@@ -90,42 +90,29 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                        className="md:hidden"
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={menuVariants}
+                        className="md:hidden bg-neutral-900/80 backdrop-blur-lg absolute top-16 left-0 w-full px-4 py-4 space-y-2"
                     >
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                y: -30,
-                                filter: "blur(10px)",
-                            }}
-                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, y: -30, filter: "blur(10px)" }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                            className="px-2 pt-2 pb-3 bg-neutral-900/10 backdrop-blur-sm space-y-1"
-                        >
-                            {menuItems.map((item, i) => (
-                                <motion.div
-                                    key={item}
-                                    custom={i}
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                    variants={menuVariants}
+                        {menuItems.map((item, i) => (
+                            <motion.div
+                                key={item}
+                                initial={{ opacity: 0, x: 30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 30 }}
+                                transition={{ delay: i * 0.1, duration: 0.3 }}
+                            >
+                                <Link
+                                    href={`#${item}`}
+                                    className="block text-gray-300 hover:text-white px-3 py-2 text-lg font-medium transition-colors duration-300"
                                 >
-                                    <Link
-                                        href={`#${item}`}
-                                        className="block text-gray-300 hover:text-white px-3 py-2 text-base font-medium"
-                                    >
-                                        {item.charAt(0).toUpperCase() +
-                                            item.slice(1)}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                                    {item.charAt(0).toUpperCase() +
+                                        item.slice(1)}
+                                </Link>
+                            </motion.div>
+                        ))}
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -64,10 +64,20 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
             y: 0,
             scale: 1,
         }}
+        viewport={{ once: true }}
         transition={{ duration: 0.4, delay }}
     >
         <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-3 sm:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-            <div className="h-64 w-full relative rounded-lg overflow-hidden mb-6">
+            <motion.div
+                className="h-64 w-full relative rounded-lg overflow-hidden mb-6"
+                initial={{
+                    filter: "blur(10px)",
+                }}
+                whileInView={{
+                    filter: "blur(0px)",
+                }}
+                transition={{ duration: 0.4 }}
+            >
                 <Image
                     src={image}
                     alt={title}
@@ -75,14 +85,45 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
                     objectFit="cover"
                     className="rounded-lg"
                 />
-            </div>
-            <h3 className="text-3xl font-bold text-neutral-900 mb-0 sm:mb-2">
+            </motion.div>
+            <motion.h3
+                className="text-3xl font-bold text-neutral-900 mb-0 sm:mb-2"
+                initial={{
+                    filter: "blur(10px)",
+                }}
+                whileInView={{
+                    filter: "blur(0px)",
+                }}
+                transition={{ duration: 0.4 }}
+            >
                 {title.split(" - ")[0]}
-            </h3>
-            <p className="text-neutral-600 mb-2 sm:mb-4">{description}</p>
+            </motion.h3>
+            <motion.p
+                className="text-neutral-600 mb-2 sm:mb-4"
+                initial={{
+                    filter: "blur(10px)",
+                }}
+                whileInView={{
+                    filter: "blur(0px)",
+                }}
+                transition={{ duration: 0.4 }}
+            >
+                {description}
+            </motion.p>
             <ul className="text-neutral-700 mb-2 sm:mb-4 list-disc pl-5 leading-5">
                 {items.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <motion.li
+                        key={index}
+                        initial={{
+                            filter: "blur(10px)",
+                        }}
+                        whileInView={{
+                            filter: "blur(0px)",
+                        }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                        {item}
+                    </motion.li>
                 ))}
             </ul>
             <div className="mt-auto">

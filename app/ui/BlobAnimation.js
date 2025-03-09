@@ -31,7 +31,7 @@ const BlobAnimation = ({
             )}% ${randomInRange(20, 80)}% ${randomInRange(20, 80)}%`,
             scale: randomInRange(1.1, 1.4),
             rotate: randomInRange(-15, 15),
-            x: randomInRange(-100, 100),
+            x: randomInRange(-200, 200),
             y: randomInRange(-20, 20),
             duration: randomInRange(6, 12),
             randomTop: top !== undefined ? top : `${randomInRange(20, 80)}%`,

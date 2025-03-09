@@ -15,18 +15,16 @@ const menuItems = [
 ];
 
 const menuVariants = {
-    hidden: { opacity: 0, y: -20, filter: "blur(5px)" },
+    hidden: { opacity: 0, y: -20 },
     visible: {
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
         transition: { duration: 0.4, ease: "easeOut" },
     },
     exit: {
         opacity: 0,
         y: -20,
-        filter: "blur(5px)",
-        transition: { duration: 0.3 },
+        transition: { duration: 0.4 },
     },
 };
 
@@ -43,8 +41,10 @@ const Navbar = () => {
                             href="/"
                             className="text-white font-raleway text-xl font-bold"
                         >
-                            <div className="raleway">Future</div>
-                            <div className="raleway">Culture.</div>
+                            <div className="raleway translate-y-1">Future</div>
+                            <div className="raleway -translate-y-1">
+                                Culture.
+                            </div>
                         </Link>
                     </div>
 
@@ -94,7 +94,7 @@ const Navbar = () => {
                         animate="visible"
                         exit="exit"
                         variants={menuVariants}
-                        className="md:hidden bg-neutral-900/80 backdrop-blur-lg absolute top-16 left-0 w-full px-4 py-4 space-y-2"
+                        className="md:hidden bg-neutral-900/80 backdrop-blur-sm absolute top-16 left-0 w-full px-4 py-4 space-y-2"
                     >
                         {menuItems.map((item, i) => (
                             <motion.div

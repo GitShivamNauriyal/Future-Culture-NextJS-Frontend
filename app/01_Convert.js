@@ -91,7 +91,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-3xl bg-[#eeeeee88] shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -131,7 +131,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-3xl bg-[#eeeeee88] shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -234,10 +234,10 @@ const Convert = () => {
                                                 filter: "blur(0px)",
                                             }}
                                         >
-                                            <div className="raleway mb-1 md:mb-6">
+                                            <div className="raleway mb-1 md:mb-2">
                                                 Future
                                             </div>
-                                            <div className="raleway mb-1 md:mb-6">
+                                            <div className="raleway mb-1 md:mb-2">
                                                 Culture.
                                             </div>
                                         </motion.div>

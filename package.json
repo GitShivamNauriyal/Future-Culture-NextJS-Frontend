@@ -30,6 +30,7 @@
     "react-multi-carousel": "^2.8.5",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-filters": "^3.0.0",
     "three": "^0.174.0",
     "zod": "^3.24.1"
   },

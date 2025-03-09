@@ -32,7 +32,7 @@ const collectionsData = [
 const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
         <motion.div
-            className="bg-neutral-800 rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="bg-neutral-700/30 backdrop-blur-md rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105 cursor-pointer"
             initial={{
                 filter: "blur(10px)",
                 // scale: 1.06,
@@ -79,7 +79,25 @@ const CollectionCard = ({ title, description, number, explore, image }) => {
 const Collections = () => {
     return (
         <section id="collections" className="py-20 bg-neutral-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative group">
+                <div className="absolute inset-0 pointer-events-none">
+                    <div
+                        className="absolute w-52 h-52 bg-gradient-to-br from-pink-500 to-pink-300 opacity-20 rounded-full top-32 -left-8 blur-3xl  
+                    transition-all duration-500 transform group-hover:-translate-x-4 group-hover:-translate-y-8 group-hover:scale-110"
+                    />
+                    <div
+                        className="absolute w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 opacity-30 rounded-full bottom-32 left-6 blur-2xl 
+                transition-all duration-500 transform group-hover:-translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
+                    />
+                    <div
+                        className="absolute w-24 h-24 bg-gradient-to-br from-orange-500 to-pink-500 opacity-50 rounded-full bottom-10 right-6 blur-2xl 
+                transition-all duration-500 transform group-hover:translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
+                    />
+                    <div
+                        className="absolute w-44 h-24 bg-gradient-to-br from-red-500 to-pink-900 opacity-50 rounded-full top-60 right-6 blur-2xl 
+                transition-all duration-500 transform group-hover:translate-x-8 group-hover:-translate-y-4 group-hover:scale-110"
+                    />
+                </div>
                 <motion.div
                     className="text-center mb-8 sm:mb-16"
                     initial={{ filter: "blur(10px", y: 5 }}

@@ -80,6 +80,27 @@ const HowItWorks = () => {
 
     return (
         <section id="process" className="py-20 bg-neutral-900 relative">
+            <div className="absolute inset-0">
+                <style>
+                    {`
+                        @media (min-width: 640px) { /* Tablets and larger */
+                            .grid-bg {
+                                background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+                                background-size: 30px 30px;
+                            }
+                        }
+
+                        @media (max-width: 639px) { /* Mobile screens */
+                            .grid-bg {
+                                background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+                                background-size: 30px 30px;
+                            }
+                        }
+                    `}
+                </style>
+                <div className="grid-bg absolute inset-0" />
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-8 sm:mb-16">
                     <motion.h2

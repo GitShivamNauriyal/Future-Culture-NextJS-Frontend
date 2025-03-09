@@ -86,14 +86,14 @@ export default function ProductsCardsCarousel() {
             {/* Carousel */}
             <div className="relative w-full flex flex-col items-center">
                 <div
-                    className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide overflow-y-clip"
+                    className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide overflow-y-clip snap-x snap-mandatory"
                     ref={carouselRef}
                 >
                     <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
                         {items.map((item, index) => (
                             <motion.div
                                 key={index}
-                                className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow"
+                                className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow snap-center"
                                 initial={{
                                     opacity: 0,
                                     y: 50,

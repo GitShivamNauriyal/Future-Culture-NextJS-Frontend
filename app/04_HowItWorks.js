@@ -68,7 +68,7 @@ const HowItWorks = () => {
     return (
         <section id="process" className="py-20 bg-neutral-900 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8 sm:mb-16">
                     <motion.h2
                         className="text-4xl md:text-5xl font-raleway font-bold text-white mb-6"
                         initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
@@ -87,7 +87,7 @@ const HowItWorks = () => {
                     <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neutral-800 via-white to-neutral-800 hidden md:block"></div>
 
                     {/* Steps Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-8">
                         {stepsData.map((step, index) => (
                             <CardSpotlight
                                 key={step.id}
@@ -103,7 +103,7 @@ const HowItWorks = () => {
 
                     {/* Call-to-Action Button */}
                     <motion.div
-                        className="mt-16 text-center"
+                        className="mt-8 sm:mt-16 text-center"
                         initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 0.6, delay: 0.8 }}

@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 :root {
     --background: #ffffff;
     --foreground: #171717;
+    width: 100vw;
 }
 
 @media (prefers-color-scheme: light) {
@@ -18,37 +24,32 @@ html {
     }
 }
 
-* {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-/* Hide scrollbar completely on mobile */
-@media (min-width: 768px) {
+/* Hide scrollbar only on mobile (≤768px) */
+@media (max-width: 768px) {
     *::-webkit-scrollbar {
         display: none;
         width: 0;
         height: 0;
     }
 
-    /* For Firefox */
     * {
-        scrollbar-width: none;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
     }
 }
 
-/* Custom scrollbar for desktops */
-@media (max-width: 769px) {
+/* Show scrollbar on desktops (≥769px) */
+@media (min-width: 769px) {
     ::-webkit-scrollbar {
-        width: 2px; /* Adjust width as needed */
+        width: 4px; /* Adjust width as needed */
     }
 
     ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 2px;
+        background: #ffffff00;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: #888;
+        background: #444;
         border-radius: 2px;
     }
 
@@ -57,9 +58,15 @@ html {
     }
 }
 
-/* Remove tap highlight on mobile */
-* {
-    -webkit-tap-highlight-color: transparent;
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+    width: 0;
+    height: 0;
 }
 
 body {

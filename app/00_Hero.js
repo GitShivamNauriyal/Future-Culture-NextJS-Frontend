@@ -65,7 +65,7 @@ const BackgroundBeams = React.memo(({ className }) => {
             )}
         >
             <svg
-                className=" z-0 h-full w-full pointer-events-none absolute "
+                className=" z-0 h-full w-full pointer-events-none absolute scale-[3] sm:scale-100"
                 width="100%"
                 height="100%"
                 viewBox="0 0 696 316"
@@ -161,14 +161,14 @@ const Hero = () => {
         >
             <BackgroundBeams />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mt-36 mb-28 cursor-default">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-6">
+                <div className="text-center mt-40 mb-44 sm:mt-36 sm:mb-28 cursor-default">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-3 sm:mb-6">
                         Curated Gifts for
-                        <span className="block mt-2 bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent pb-3">
+                        <span className="block mt-[0.1rem] sm:mt-2 bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent pb-3">
                             <ColourfulText text={"Meaningful Moments"} />
                         </span>
                     </h1>
-                    <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-10">
+                    <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-6 sm:mb-10">
                         Discover thoughtfully curated gift collections that
                         create lasting impressions and strengthen relationships.
                     </p>

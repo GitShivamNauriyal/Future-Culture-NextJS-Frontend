@@ -91,7 +91,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -104,7 +104,16 @@ const Convert = () => {
                                         scale: 1,
                                         filter: "blur(0px)",
                                     }}
-                                    transition={{ duration: 0.4, delay: 0.4 }}
+                                    whileHover={{
+                                        scale: 1.03,
+                                    }}
+                                    transition={{
+                                        duration: 0.4,
+                                        delay: 0.4,
+                                        scale: {
+                                            duration: 0.2,
+                                        },
+                                    }}
                                 >
                                     <div className="absolute inset-0 pointer-events-none">
                                         <Meteors
@@ -122,7 +131,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-8 px-4 bg-neutral-100 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-100 to-neutral-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -135,7 +144,17 @@ const Convert = () => {
                                         scale: 1,
                                         filter: "blur(0px)",
                                     }}
-                                    transition={{ duration: 0.4, delay: 0.5 }}
+                                    whileHover={{
+                                        scale: 1.03,
+                                    }}
+                                    transition={{
+                                        duration: 0.4,
+                                        delay: 0.5,
+                                        scale: {
+                                            duration: 0.2,
+                                            delay: 0,
+                                        },
+                                    }}
                                 >
                                     <div className="absolute inset-0 pointer-events-none">
                                         <Meteors

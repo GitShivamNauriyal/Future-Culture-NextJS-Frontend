@@ -66,7 +66,7 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
         }}
         transition={{ duration: 0.4, delay }}
     >
-        <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+        <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-3 sm:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
             <div className="h-64 w-full relative rounded-lg overflow-hidden mb-6">
                 <Image
                     src={image}
@@ -76,11 +76,11 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
                     className="rounded-lg"
                 />
             </div>
-            <h3 className="text-3xl font-bold text-neutral-900 mb-2">
+            <h3 className="text-3xl font-bold text-neutral-900 mb-0 sm:mb-2">
                 {title.split(" - ")[0]}
             </h3>
-            <p className="text-neutral-600 mb-4">{description}</p>
-            <ul className="text-neutral-700 mb-4 list-disc pl-5">
+            <p className="text-neutral-600 mb-2 sm:mb-4">{description}</p>
+            <ul className="text-neutral-700 mb-2 sm:mb-4 list-disc pl-5 leading-5">
                 {items.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
@@ -97,7 +97,7 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
 const FeaturedSets = () => {
     return (
         <section id="featured" className="py-20 bg-white relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     className="text-center mb-8"
                     initial={{
@@ -124,7 +124,8 @@ const FeaturedSets = () => {
                     showDots
                     responsive={responsive}
                     infinite
-                    autoPlay={false}
+                    autoPlay={["tablet", "mobile"]}
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
                     keyBoardControl
                     customTransition="all .5s"
                     transitionDuration={500}

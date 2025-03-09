@@ -81,14 +81,14 @@ const Collections = () => {
         <section id="collections" className="py-20 bg-neutral-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-8 sm:mb-16"
                     initial={{ filter: "blur(10px", y: 5 }}
                     whileInView={{ filter: "blur(0px)", y: 0 }}
                     transition={{ duration: 0.4 }}
                 >
-                    <div className="text-3xl md:text-5xl font-raleway font-bold text-white mb-6">
+                    <div className="text-4xl md:text-5xl font-raleway font-bold text-white mb-4 sm:mb-6">
                         Our Curated
-                        <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
+                        <span className="block mt-0 sm:mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
                             Collections
                         </span>
                     </div>
@@ -112,7 +112,7 @@ const Collections = () => {
                 </div>
 
                 <motion.div
-                    className="mt-16 text-center"
+                    className="mt-10 sm:mt-16 text-center"
                     initial={{ filter: "blur(10px" }}
                     whileInView={{ filter: "blur(0px)" }}
                     transition={{ duration: 0.4, delay: 0.3 }}

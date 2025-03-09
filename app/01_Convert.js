@@ -28,7 +28,7 @@ const Convert = () => {
                         >
                             {/* Discover Our Story */}
                             Crafting Memorable
-                            <span className="block mt-2 bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
+                            <span className="block mt-0 mb:mt-2 bg-gradient-to-r from-neutral-900 to-neutral-700 bg-clip-text text-transparent">
                                 Gift Experiences
                             </span>
                         </motion.h2>
@@ -234,10 +234,10 @@ const Convert = () => {
                                                 filter: "blur(0px)",
                                             }}
                                         >
-                                            <div className="raleway mb-6">
+                                            <div className="raleway mb-1 md:mb-6">
                                                 Future
                                             </div>
-                                            <div className="raleway mb-6">
+                                            <div className="raleway mb-1 md:mb-6">
                                                 Culture.
                                             </div>
                                         </motion.div>

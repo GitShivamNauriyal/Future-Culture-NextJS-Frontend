@@ -57,13 +57,13 @@ const Blogs = () => {
         <section id="blog" className="bg-white py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
-                    className="text-center mb-16 animate__animated"
+                    className="text-center mb-8 md:mb-16 animate__animated"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl font-bold font-raleway mb-4">
+                    <h2 className="text-3xl font-bold font-raleway mb-0 md:mb-4">
                         Latest From Our Blog
                     </h2>
                     <p className="text-gray-600 font-raleway max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ const Blogs = () => {
                     {blogPosts.map((post, index) => (
                         <motion.article
                             key={index}
-                            className="bg-neutral-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate__animated"
+                            className="bg-neutral-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 animate__animated"
                             initial={{
                                 opacity: 0,
                                 y: 20,

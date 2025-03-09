@@ -36,8 +36,8 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
     const isActive = (index) => index === active;
 
     return (
-        <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pb-20 pt-2 text-white">
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pb-6 md:pb-20 pt-2 text-white">
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
                 {/* Image Section */}
                 <div>
                     <div className="relative h-80 w-full">
@@ -148,7 +148,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
                     </motion.div>
 
                     {/* Navigation Buttons */}
-                    <div className="flex gap-4 pt-12 md:pt-0">
+                    <div className="flex gap-4 pt-6 md:pt-12">
                         <button
                             onClick={handlePrev}
                             className="h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center group/button"

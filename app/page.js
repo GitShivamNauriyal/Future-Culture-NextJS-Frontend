@@ -24,10 +24,10 @@ const page = () => {
             <HowItWorks />
             <ProductsCardsCarousel />
             <OurPromises />
+            <InstaUpdates />
             <Testimonials />
             <PricingModels />
             <Stats />
-            <InstaUpdates />
             <Blogs />
             <Contactus />
             {/* <h1 className="mb-24">

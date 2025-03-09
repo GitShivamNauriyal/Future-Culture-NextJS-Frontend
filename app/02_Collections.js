@@ -32,7 +32,7 @@ const collectionsData = [
 const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
         <motion.div
-            className="bg-neutral-700/30 backdrop-blur-md rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="bg-neutral-700/30 backdrop-blur-md rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.03] cursor-pointer"
             initial={{
                 filter: "blur(10px)",
                 // scale: 1.06,
@@ -87,6 +87,10 @@ const Collections = () => {
                     />
                     <div
                         className="absolute w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 opacity-30 rounded-full bottom-32 left-6 blur-2xl 
+                transition-all duration-500 transform group-hover:-translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
+                    />
+                    <div
+                        className="absolute w-40 h-40 bg-gradient-to-br from-pink-500 to-red-500 opacity-50 rounded-full top-[55%] left-[50%] blur-3xl 
                 transition-all duration-500 transform group-hover:-translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
                     />
                     <div

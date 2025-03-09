@@ -35,7 +35,7 @@ const BlobAnimation = ({
             y: randomInRange(-20, 20),
             duration: randomInRange(6, 12),
             randomTop: top !== undefined ? top : `${randomInRange(20, 80)}%`,
-            randomLeft: left !== undefined ? left : `${randomInRange(20, 80)}%`,
+            randomLeft: left !== undefined ? left : `${randomInRange(0, 80)}%`,
         });
     }, []);
 

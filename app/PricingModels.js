@@ -51,7 +51,7 @@ const PricingCard = ({ title, description, icon, bgColor }) => {
 
     return (
         <motion.div
-            className="px-5 md:px-8 py-8 md:py-12 z-10 rounded-[50px] bg-[#eeeeee66] shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] flex flex-col sm:items-start  backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer select-none"
+            className="px-5 md:px-8 py-8 md:py-12 z-10 rounded-[50px] bg-[#eeeeee88] shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] flex flex-col sm:items-start  backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer select-none"
             initial={{ filter: "blur(10px)" }}
             whileInView={{ filter: "blur(0px)" }}
             // whileHover={{ scale: 1.02 }}
@@ -65,6 +65,7 @@ const PricingCard = ({ title, description, icon, bgColor }) => {
                 // },
             }}
         >
+            <BlobAnimation />
             <div className="flex items-center space-x-4">
                 <motion.div
                     className="text-5xl text-neutral-900"
@@ -130,7 +131,7 @@ const PricingModels = () => {
                     <div className="z-0 absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
                     <div className="z-0 absolute left-3/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
 
-                    <BlobAnimation h="16" w="16" left="5px" top="100px" />
+                    {/* <BlobAnimation h="16" w="16" left="5px" top="100px" />
                     <BlobAnimation
                         h="16"
                         w="16"
@@ -139,7 +140,7 @@ const PricingModels = () => {
                         fromColor="orange-400"
                         toColor="orange-400"
                         blur="md"
-                    />
+                    /> */}
                     <div className="relative flex flex-col space-y-8">
                         {modelsData.map((model, index) => (
                             <PricingCard key={index} {...model} />

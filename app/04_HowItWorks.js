@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CardSpotlight } from "./ui/CardSpotlight";
 
@@ -47,7 +47,7 @@ const stepsData = [
 // Step Card Component
 const ProcessStep = ({ id, title, description }) => {
     return (
-        <div className="relative cursor-pointer select-none hover:-translate-y-2 transition">
+        <div className="relative select-none hover:-translate-y-2 transition">
             <div className="bg-neutral-80 rounded-xl p-6 hover:bg-neutral-70 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-900 font-bold mx-auto mb-4 mt-2 transition-transform duration-300">
                     {id}
@@ -65,6 +65,19 @@ const ProcessStep = ({ id, title, description }) => {
 
 // Main How It Works Section
 const HowItWorks = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768); // Mobile if width < 768px
+        };
+
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
+
+        return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
+
     return (
         <section id="process" className="py-20 bg-neutral-900 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,6 +108,7 @@ const HowItWorks = () => {
                                 colors={step.colors} // Pass colors dynamically
                                 dotSize={4}
                                 animationSpeed={1.5}
+                                alwaysActive={isMobile} // 🟢 Pass prop to enable on mobile
                             >
                                 <ProcessStep {...step} />
                             </CardSpotlight>

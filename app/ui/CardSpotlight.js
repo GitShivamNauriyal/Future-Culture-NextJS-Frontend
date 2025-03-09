@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CanvasRevealEffect } from "./card-reveal-effect";
 import { cn } from "../lib/utils";
 
@@ -17,6 +17,7 @@ export const CardSpotlight = ({
     animationSpeed = 3,
     className,
     delay = 0,
+    alwaysActive = false, // Default false, will be true for mobile
     ...props
 }) => {
     const mouseX = useMotionValue(0);
@@ -28,9 +29,19 @@ export const CardSpotlight = ({
         mouseY.set(clientY - top);
     }
 
-    const [isHovering, setIsHovering] = useState(false);
+    const [isHovering, setIsHovering] = useState(alwaysActive);
+
     const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    const handleMouseLeave = () => setIsHovering(alwaysActive); // Reset to alwaysActive state
+
+    // Detect mobile devices and enable alwaysActive mode
+    useEffect(() => {
+        const isTouchDevice =
+            "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) {
+            setIsHovering(true); // Enable effect permanently for mobile
+        }
+    }, []);
 
     return (
         <motion.div
@@ -63,7 +74,8 @@ export const CardSpotlight = ({
                 }}
             />
 
-            {isHovering && (
+            {/* Always show effect on mobile */}
+            {(isHovering || alwaysActive) && (
                 <CanvasRevealEffect
                     animationSpeed={animationSpeed}
                     containerClassName="bg-transparent absolute inset-0 pointer-events-none rounded-3xl"

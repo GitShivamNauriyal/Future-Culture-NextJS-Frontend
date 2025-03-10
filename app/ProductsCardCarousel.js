@@ -113,9 +113,9 @@ export default function ProductsCardsCarousel() {
                                           }
                                 }
                                 transition={{
-                                    duration: 0.5,
+                                    duration: 0.4,
                                     ease: "easeOut",
-                                    delay: 0.1 * index,
+                                    delay: (0.1 * index) % 0.5,
                                 }}
                                 onClick={() => setSelectedCard(item)}
                             >
@@ -126,7 +126,7 @@ export default function ProductsCardsCarousel() {
                                     objectFit="cover"
                                     className="absolute inset-0 rounded-3xl"
                                 />
-                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#00000077] via-transparent to-transparent text-white rounded-3xl">
+                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#000000aa] via-transparent to-transparent text-white rounded-3xl">
                                     <h3 className="text-2xl font-semibold font-mono">
                                         {item.title}
                                     </h3>

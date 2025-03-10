@@ -99,7 +99,7 @@ const InstaUpdates = () => {
         <section id="instagram" className="bg-neutral-50 py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16 animate__animated animate__fadeIn">
-                    <h2 className="text-3xl font-bold font-raleway mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold font-raleway mb-2">
                         Follow Our Journey
                     </h2>
                     <p className="text-gray-600 font-raleway max-w-2xl mx-auto">

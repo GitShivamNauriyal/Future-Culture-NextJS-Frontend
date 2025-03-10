@@ -166,7 +166,7 @@ export default function ProductsCardsCarousel() {
                         className="fixed z-40 inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4"
                         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: 20, filter: "blur(10px)" }} // ✅ Proper exit animation
+                        exit={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                         transition={{ duration: 0.4 }}
                         onClick={() => setShowGrid(false)}
                     >
@@ -174,12 +174,12 @@ export default function ProductsCardsCarousel() {
                             className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto relative"
                             initial={{ opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }} // ✅ Smooth exit
+                            exit={{ scale: 0.95, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
                         >
                             <button
-                                className="absolute top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
+                                className="absolute z-50 top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
                                 onClick={() => setShowGrid(false)}
                             >
                                 <IconX className="h-5 w-5 text-gray-600" />
@@ -187,22 +187,37 @@ export default function ProductsCardsCarousel() {
 
                             <div className="grid grid-cols-2 gap-4 sm:hidden">
                                 {items.map((item, index) => (
-                                    <div
+                                    <motion.div
                                         key={index}
                                         className="cursor-pointer flex flex-col items-center"
                                         onClick={() => setSelectedCard(item)}
+                                        initial={{
+                                            y: 20,
+                                            opacity: 0,
+                                            filter: "blur(10px)",
+                                        }}
+                                        whileInView={{
+                                            y: 0,
+                                            opacity: 1,
+                                            filter: "blur(0px)",
+                                        }}
+                                        transition={{
+                                            delay: (index * 0.1) % 0.2,
+                                        }}
+                                        viewport={{ once: true }}
                                     >
                                         <Image
                                             src={item.image}
                                             alt={item.title}
-                                            width={100}
-                                            height={100}
-                                            className="rounded-md"
+                                            width={100} // Adjust width as needed
+                                            height={150} // Height should be 1.5x width for 2:3 ratio
+                                            className="rounded-md w-full h-auto aspect-[2/3] object-cover"
                                         />
+
                                         <p className="text-center font-medium mt-2 text-sm">
                                             {item.title}
                                         </p>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </motion.div>
@@ -216,7 +231,7 @@ export default function ProductsCardsCarousel() {
                         className="z-50 fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }} // ✅ Proper exit animation
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         onClick={() => setSelectedCard(null)}
                     >
@@ -228,7 +243,7 @@ export default function ProductsCardsCarousel() {
                                 filter: "blur(20px)",
                             }}
                             animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                            exit={{ y: 30, opacity: 0, filter: "blur(20px)" }} // ✅ Proper exit
+                            exit={{ y: 30, opacity: 0, filter: "blur(20px)" }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
                             onClick={(e) => e.stopPropagation()}
                         >

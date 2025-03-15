@@ -25,8 +25,8 @@ const page = () => {
             <ProductsCardsCarousel />
             <OurPromises />
             <PricingModels />
-            <InstaUpdates />
             <Testimonials />
+            <InstaUpdates />
             <Stats />
             <Blogs />
             <Contactus />

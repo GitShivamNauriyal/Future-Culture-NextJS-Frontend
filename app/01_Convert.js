@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FlipWords } from "./ui/FlipWords";
 import { AnimatePresence, motion } from "framer-motion";
 import { Meteors } from "./ui/Meteors";
+import { HoverBorderGradient } from "./ui/HoverBorderGradient";
 
 const Convert = () => {
     const [blur, setBlur] = useState(0);
@@ -91,7 +92,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl  shadow-[20px_20px_60px_#bebebe44,-12px_-12px_60px_#ffa50033] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl  shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -131,7 +132,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl shadow-[20px_20px_60px_#bebebe44,-12px_-12px_60px_#ffa50033] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -189,23 +190,15 @@ const Convert = () => {
                             }}
                             transition={{ duration: 0.4, delay: 0.2 }}
                         >
-                            <motion.button
-                                className="px-7 py-4 text-xl bg-neutral-800 raleway text-slate-100 rounded-full font-light hover:bg-neutral-800 transition-all duration-300 transform hover:scale-105"
+                            <motion.div
+                                className="text-lg raleway text-slate-100 font-light transition hover:scale-[1.01]"
                                 whileTap={{ scale: 0.9 }}
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.02 }}
+                                transition={{ duration: 0.2 }}
                             >
-                                <motion.div
-                                    animate={{ filter: `blur(${blur}px)` }}
-                                    onMouseEnter={() => {
-                                        setBlur(5); // Apply blur
-                                        setTimeout(() => setBlur(0), 100); // Remove blur after 0.2s
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                >
+                                <HoverBorderGradient>
                                     Discover Our Story
-                                </motion.div>
-                            </motion.button>
+                                </HoverBorderGradient>
+                            </motion.div>
                         </motion.div>
                     </div>
 

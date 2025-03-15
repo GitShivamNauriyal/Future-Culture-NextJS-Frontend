@@ -8,18 +8,42 @@ import {
     IconX,
 } from "@tabler/icons-react";
 
+const items = [
+    { title: "Tshirts", image: "/images/tshirts.jpg" },
+    { title: "Hoodies", image: "/images/hoodies.jpg" },
+    { title: "Jackets", image: "/images/jackets.jpg" },
+    { title: "Embroidery Patches", image: "/images/patches.jpg" },
+    { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
+    { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
+    { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
+    { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
+    { title: "Hamper Boxes", image: "/images/hamper_boxes.jpg" },
+    { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
+    { title: "Collectibles", image: "/images/collectibles.jpg" },
+    { title: "Drinkware", image: "/images/drink_ware.jpg" },
+    { title: "Coasters", image: "/images/coasters.jpg" },
+    { title: "Tote Bags", image: "/images/tote_bags.jpg" },
+    { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
+    { title: "Candles", image: "/images/candles.jpg" },
+    { title: "Customised Edibles", image: "/images/edibles.jpg" },
+    {
+        title: "Other Items like Scarf, Wristband, Sunglasses and More",
+        image: "/images/scarfs.jpg",
+    },
+];
+
 const categories = {
     fashion: [
-        { title: "Denim Collection", image: "/images/denim.jpg" },
+        { title: "Denim Collection", image: "/images/jackets.jpg" },
         { title: "T-Shirts", image: "/images/tshirts.jpg" },
         { title: "Hoodies and Sweatshirts", image: "/images/hoodies.jpg" },
-        { title: "Caps and Accessories", image: "/images/caps.jpg" },
+        { title: "Caps and Accessories", image: "/images/crossbody_bags.jpg" },
     ],
     collectibles: [
-        { title: "Pins and Badges", image: "/images/pins.jpg" },
-        { title: "Magnets", image: "/images/magnets.jpg" },
-        { title: "Costume Coins", image: "/images/coins.jpg" },
-        { title: "Stickers and Patches", image: "/images/stickers.jpg" },
+        { title: "Pins and Badges", image: "/images/lapel_pins.jpg" },
+        { title: "Magnets", image: "/images/fridge_magnets.jpg" },
+        { title: "Costume Coins", image: "/images/coasters.jpg" },
+        { title: "Stickers and Patches", image: "/images/laptop_stickers.jpg" },
     ],
     tech: [
         { title: "Voice-Activated Speakers", image: "/images/speakers.jpg" },
@@ -55,14 +79,18 @@ export default function ProductTabsCarousel() {
     };
 
     return (
-        <div className="w-full py-10">
+        <div className="w-full py-10 flex flex-col justify-center align-middle">
+            <h2 className="text-5xl font-bold text-center mb-2 mt-2 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
+                Collection for You
+            </h2>
+            <p className="mb-8 mx-auto">Tentative List of Items we provide</p>
             <Tabs defaultValue="fashion">
                 <TabsList className="flex md:gap-12 gap-4 md:p-5">
                     <TabsTrigger
-                        value="collectibles"
+                        value="fashion"
                         className="text-base md:text-lg font-semibold"
                     >
-                        Collectibles
+                        Fashion
                     </TabsTrigger>
                     <TabsTrigger
                         value="tech"
@@ -71,10 +99,10 @@ export default function ProductTabsCarousel() {
                         Tech
                     </TabsTrigger>
                     <TabsTrigger
-                        value="fashion"
+                        value="collectibles"
                         className="text-base md:text-lg font-semibold"
                     >
-                        Fashion
+                        Collectibles
                     </TabsTrigger>
                 </TabsList>
 

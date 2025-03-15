@@ -109,10 +109,9 @@ const Collections = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <div className="text-4xl md:text-5xl font-raleway font-bold text-white mb-4 sm:mb-6">
-                        Our Curated
-                        <span className="block mt-0 sm:mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
-                            Collections
-                        </span>
+                        Our Curated Collections
+                        {/* <span className="block mt-0 sm:mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent"> */}
+                        {/* </span> */}
                     </div>
                     <p className="text-gray-400 max-w-2xl mx-auto">
                         Explore our thoughtfully curated gift collections,
@@ -133,7 +132,7 @@ const Collections = () => {
                     ))}
                 </div>
 
-                <motion.div
+                {/* <motion.div
                     className="mt-10 sm:mt-16 text-center"
                     initial={{ filter: "blur(10px" }}
                     whileInView={{ filter: "blur(0px)" }}
@@ -142,7 +141,7 @@ const Collections = () => {
                     <button className="px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
                         View All Collections
                     </button>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );

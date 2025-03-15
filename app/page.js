@@ -24,9 +24,9 @@ const page = () => {
             <HowItWorks />
             <ProductsCardsCarousel />
             <OurPromises />
+            <PricingModels />
             <InstaUpdates />
             <Testimonials />
-            <PricingModels />
             <Stats />
             <Blogs />
             <Contactus />

@@ -109,10 +109,9 @@ const HowItWorks = () => {
                         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        How It
-                        <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
-                            Works
-                        </span>
+                        How It Works
+                        {/* <span className="block mt-2 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent"> */}
+                        {/* </span> */}
                     </motion.h2>
                 </div>
 

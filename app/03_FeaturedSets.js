@@ -152,10 +152,9 @@ const FeaturedSets = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-5xl md:text-6xl font-raleway font-bold text-neutral-900 mb-4">
-                        Featured
-                        <span className="block mt-2 bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text text-transparent pb-3">
-                            Categories
-                        </span>
+                        Featured Categories
+                        {/* <span className="block mt-2 bg-gradient-to-r from-neutral-900 to-neutral-600 bg-clip-text text-transparent pb-3"> */}
+                        {/* </span> */}
                     </h2>
                 </motion.div>
 

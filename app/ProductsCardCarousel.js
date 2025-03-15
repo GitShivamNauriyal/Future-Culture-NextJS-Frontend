@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AnimatePresence, motion } from "framer-motion";
 import {
     IconArrowNarrowLeft,
@@ -7,228 +8,153 @@ import {
     IconX,
 } from "@tabler/icons-react";
 
-const items = [
-    { title: "Tshirts", image: "/images/tshirts.jpg" },
-    { title: "Hoodies", image: "/images/hoodies.jpg" },
-    { title: "Jackets", image: "/images/jackets.jpg" },
-    { title: "Embroidery Patches", image: "/images/patches.jpg" },
-    { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
-    { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
-    { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
-    { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
-    { title: "Hamper Boxes", image: "/images/hamper_boxes.jpg" },
-    { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
-    { title: "Collectibles", image: "/images/collectibles.jpg" },
-    { title: "Drinkware", image: "/images/drink_ware.jpg" },
-    { title: "Coasters", image: "/images/coasters.jpg" },
-    { title: "Tote Bags", image: "/images/tote_bags.jpg" },
-    { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
-    { title: "Candles", image: "/images/candles.jpg" },
-    { title: "Customised Edibles", image: "/images/edibles.jpg" },
-    {
-        title: "Other Items like Scarf, Wristband, Sunglasses and More",
-        image: "/images/scarfs.jpg",
-    },
-];
+const categories = {
+    fashion: [
+        { title: "Denim Collection", image: "/images/denim.jpg" },
+        { title: "T-Shirts", image: "/images/tshirts.jpg" },
+        { title: "Hoodies and Sweatshirts", image: "/images/hoodies.jpg" },
+        { title: "Caps and Accessories", image: "/images/caps.jpg" },
+    ],
+    collectibles: [
+        { title: "Pins and Badges", image: "/images/pins.jpg" },
+        { title: "Magnets", image: "/images/magnets.jpg" },
+        { title: "Costume Coins", image: "/images/coins.jpg" },
+        { title: "Stickers and Patches", image: "/images/stickers.jpg" },
+    ],
+    tech: [
+        { title: "Voice-Activated Speakers", image: "/images/speakers.jpg" },
+        { title: "Tech-Boxes", image: "/images/tech_boxes.jpg" },
+        { title: "USBs and Power Banks", image: "/images/power_banks.jpg" },
+    ],
+};
 
-export default function ProductsCardsCarousel() {
+export default function ProductTabsCarousel() {
     const [selectedCard, setSelectedCard] = useState(null);
-    const [showGrid, setShowGrid] = useState(false);
-    const carouselRef = useRef(null);
-    const [visibleCards, setVisibleCards] = useState(new Set());
+    const carouselRefs = {
+        fashion: useRef(null),
+        collectibles: useRef(null),
+        tech: useRef(null),
+    };
 
-    useEffect(() => {
-        if (!carouselRef.current) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setVisibleCards((prev) =>
-                            new Set(prev).add(entry.target.dataset.index)
-                        );
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        const cardElements =
-            carouselRef.current.querySelectorAll(".carousel-card");
-        cardElements.forEach((card, index) => {
-            card.dataset.index = index;
-            observer.observe(card);
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    const scrollLeft = () => {
-        if (carouselRef.current) {
-            carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    const scrollLeft = (category) => {
+        if (carouselRefs[category].current) {
+            carouselRefs[category].current.scrollBy({
+                left: -300,
+                behavior: "smooth",
+            });
         }
     };
 
-    const scrollRight = () => {
-        if (carouselRef.current) {
-            carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    const scrollRight = (category) => {
+        if (carouselRefs[category].current) {
+            carouselRefs[category].current.scrollBy({
+                left: 300,
+                behavior: "smooth",
+            });
         }
     };
 
     return (
-        <div className="relative w-full py-10 flex flex-col items-center">
-            <h2 className="text-5xl font-bold text-center mb-1 mt-10 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
-                Collectibles
-            </h2>
-            <p className="mb-6">Tentative List of Items we provide</p>
+        <div className="w-full py-10">
+            <Tabs defaultValue="fashion">
+                <TabsList className="flex md:gap-12 gap-4 md:p-5">
+                    <TabsTrigger
+                        value="collectibles"
+                        className="text-base md:text-lg font-semibold"
+                    >
+                        Collectibles
+                    </TabsTrigger>
+                    <TabsTrigger
+                        value="tech"
+                        className="text-base md:text-lg font-semibold"
+                    >
+                        Tech
+                    </TabsTrigger>
+                    <TabsTrigger
+                        value="fashion"
+                        className="text-base md:text-lg font-semibold"
+                    >
+                        Fashion
+                    </TabsTrigger>
+                </TabsList>
 
-            {/* Carousel */}
-            <div className="relative w-full flex flex-col items-center">
-                <div
-                    className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide overflow-y-clip snap-x snap-mandatory"
-                    ref={carouselRef}
-                >
-                    <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
-                        {items.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                className="carousel-card w-[300px] min-w-[250px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow snap-center"
-                                initial={{
-                                    opacity: 0,
-                                    y: 50,
-                                    filter: "blur(10px)",
-                                }}
-                                animate={
-                                    visibleCards.has(index.toString())
-                                        ? {
-                                              opacity: 1,
-                                              y: 0,
-                                              filter: "blur(0px)",
-                                          }
-                                        : {
-                                              opacity: 0,
-                                              y: 50,
-                                              filter: "blur(10px)",
-                                          }
-                                }
-                                transition={{
-                                    duration: 0.4,
-                                    ease: "easeOut",
-                                    delay: (0.1 * index) % 0.5,
-                                }}
-                                onClick={() => setSelectedCard(item)}
+                {Object.keys(categories).map((category) => (
+                    <TabsContent
+                        key={category}
+                        value={category}
+                        className="w-full"
+                    >
+                        <div className="relative w-full flex flex-col items-center">
+                            <div
+                                className="flex w-full overflow-x-auto py-6 scroll-smooth scrollbar-hide snap-x"
+                                ref={carouselRefs[category]}
                             >
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    objectFit="cover"
-                                    className="absolute inset-0 rounded-3xl"
-                                />
-                                <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#000000aa] via-transparent to-transparent text-white rounded-3xl">
-                                    <h3 className="text-2xl font-semibold font-mono">
-                                        {item.title}
-                                    </h3>
+                                <div className="flex flex-row select-none justify-start gap-4 px-8 max-w-7xl mx-auto">
+                                    {categories[category].map((item, index) => (
+                                        <motion.div
+                                            key={index}
+                                            className="carousel-card w-[300px] h-[500px] flex-shrink-0 rounded-3xl bg-gray-100 cursor-pointer relative shadow-md hover:shadow-lg transition-shadow snap-center"
+                                            initial={{
+                                                opacity: 0,
+                                                y: 50,
+                                                filter: "blur(10px)",
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                y: 0,
+                                                filter: "blur(0px)",
+                                            }}
+                                            transition={{
+                                                duration: 0.4,
+                                                ease: "easeOut",
+                                                delay: (0.1 * index) % 0.5,
+                                            }}
+                                            onClick={() =>
+                                                setSelectedCard(item)
+                                            }
+                                        >
+                                            <Image
+                                                src={item.image}
+                                                alt={item.title}
+                                                fill
+                                                objectFit="cover"
+                                                className="absolute inset-0 rounded-3xl"
+                                            />
+                                            <div className="absolute top-0 left-0 w-full h-full p-4 bg-gradient-to-b from-[#000000aa] via-transparent to-transparent text-white rounded-3xl">
+                                                <h3 className="text-2xl font-semibold">
+                                                    {item.title}
+                                                </h3>
+                                            </div>
+                                        </motion.div>
+                                    ))}
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Navigation Buttons */}
-                <div className="flex justify-center gap-4 mt-6">
-                    <button
-                        onClick={scrollLeft}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition sm:flex"
-                    >
-                        <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-                    </button>
-                    <button
-                        onClick={() => setShowGrid(true)}
-                        className="h-12 px-4 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 transition sm:hidden"
-                    >
-                        View All
-                    </button>
-                    <button
-                        onClick={scrollRight}
-                        className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition  sm:flex"
-                    >
-                        <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-                    </button>
-                </div>
-            </div>
-
-            {/* Grid Modal */}
-            <AnimatePresence>
-                {showGrid && (
-                    <motion.div
-                        className="fixed z-40 inset-0 bg-black bg-opacity-70 flex justify-center items-center p-4"
-                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                        transition={{ duration: 0.4 }}
-                        onClick={() => setShowGrid(false)}
-                    >
-                        <motion.div
-                            className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[80vh] overflow-y-auto relative"
-                            initial={{ opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-                        >
-                            <button
-                                className="absolute z-50 top-3 right-3 bg-gray-200 rounded-full p-2 hover:bg-gray-300 transition"
-                                onClick={() => setShowGrid(false)}
-                            >
-                                <IconX className="h-5 w-5 text-gray-600" />
-                            </button>
-
-                            <div className="grid grid-cols-2 gap-4 sm:hidden">
-                                {items.map((item, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="cursor-pointer flex flex-col items-center"
-                                        onClick={() => setSelectedCard(item)}
-                                        initial={{
-                                            y: 20,
-                                            opacity: 0,
-                                            filter: "blur(10px)",
-                                        }}
-                                        whileInView={{
-                                            y: 0,
-                                            opacity: 1,
-                                            filter: "blur(0px)",
-                                        }}
-                                        transition={{
-                                            delay: (index * 0.1) % 0.2,
-                                        }}
-                                        viewport={{ once: true }}
-                                    >
-                                        <Image
-                                            src={item.image}
-                                            alt={item.title}
-                                            width={100} // Adjust width as needed
-                                            height={150} // Height should be 1.5x width for 2:3 ratio
-                                            className="rounded-md w-full h-auto aspect-[2/3] object-cover"
-                                        />
-
-                                        <p className="text-center font-medium mt-2 text-sm">
-                                            {item.title}
-                                        </p>
-                                    </motion.div>
-                                ))}
                             </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
+                            {/* Navigation Arrows */}
+                            <div className="flex justify-center gap-4 mt-6">
+                                <button
+                                    onClick={() => scrollLeft(category)}
+                                    className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:rotate-12 transition"
+                                >
+                                    <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+                                </button>
+                                <button
+                                    onClick={() => scrollRight(category)}
+                                    className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center shadow-md hover:bg-gray-300 hover:-rotate-12 transition"
+                                >
+                                    <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+                                </button>
+                            </div>
+                        </div>
+                    </TabsContent>
+                ))}
+            </Tabs>
+
+            {/* Detail Modal */}
             <AnimatePresence>
                 {selectedCard && (
                     <motion.div
-                        className="z-50 fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center"
+                        className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
+export const AnimatedTestimonials = ({ testimonials, autoplay = true }) => {
     const [client, setClient] = useState(false);
     const [active, setActive] = useState(0);
     const [randomRotations, setRandomRotations] = useState([]);
@@ -16,36 +16,26 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
         );
     }, [testimonials]);
 
-    useEffect(() => {
-        if (autoplay) {
-            const interval = setInterval(() => {
-                setActive((prev) => (prev + 1) % testimonials.length);
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [autoplay, testimonials?.length]);
-
-    if (!client || !testimonials || testimonials.length === 0) return null;
-
+    // Move function definitions above useEffect
     const handleNext = () =>
         setActive((prev) => (prev + 1) % testimonials.length);
+
     const handlePrev = () =>
         setActive(
             (prev) => (prev - 1 + testimonials.length) % testimonials.length
         );
 
-    const handleClick = (event) => {
-        if (event.button === 0) {
-            // Left click
-            handleNext();
-        } else if (event.button === 2) {
-            // Right click
-            handlePrev();
-            event.preventDefault(); // Prevent context menu
-        }
-    };
+    useEffect(() => {
+        if (autoplay) {
+            const interval = setInterval(() => {
+                handleNext();
+            }, 4000); // Change every 4 seconds
 
-    const isActive = (index) => index === active;
+            return () => clearInterval(interval);
+        }
+    }, [autoplay, testimonials.length]); // Restart on changes
+
+    if (!client || !testimonials || testimonials.length === 0) return null;
 
     return (
         <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pb-6 md:pb-20 pt-2 text-white">
@@ -64,16 +54,20 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
                                         rotate: randomRotations[index],
                                     }}
                                     animate={{
-                                        opacity: isActive(index) ? 1 : 0.7,
-                                        scale: isActive(index) ? 1 : 0.95,
-                                        z: isActive(index) ? 0 : -100,
-                                        rotate: isActive(index)
-                                            ? 0
-                                            : randomRotations[index],
-                                        zIndex: isActive(index)
-                                            ? 999
-                                            : testimonials.length + 2 - index,
-                                        y: isActive(index) ? [0, -80, 0] : 0,
+                                        opacity: active === index ? 1 : 0.7,
+                                        scale: active === index ? 1 : 0.95,
+                                        z: active === index ? 0 : -100,
+                                        rotate:
+                                            active === index
+                                                ? 0
+                                                : randomRotations[index],
+                                        zIndex:
+                                            active === index
+                                                ? 999
+                                                : testimonials.length +
+                                                  2 -
+                                                  index,
+                                        y: active === index ? [0, -80, 0] : 0,
                                     }}
                                     exit={{
                                         opacity: 0,

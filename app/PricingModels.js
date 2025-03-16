@@ -1,11 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { FaHandshake, FaBoxOpen } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
-import { delay, motion } from "framer-motion";
-import { useAnimation } from "framer-motion";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionTrigger,
+    AccordionContent,
+} from "@/components/ui/accordion";
 import BottomGradient from "./ui/BottomGradient";
-import BlobAnimation from "./ui/BlobAnimation";
 
 const modelsData = [
     {
@@ -17,8 +21,8 @@ const modelsData = [
                 influencers & brand collaborations.
             </>
         ),
-        icon: <FaHandshake className="text-5xl text-neutral-900" />,
-        bgColor: "bg-gradient-to-r from-blue-100 to-blue-50",
+        icon: <FaHandshake className="text-5xl opacity-70" />,
+        image: "/images/tshirts.jpg",
     },
     {
         title: "Manufactured by Future Culture",
@@ -29,70 +33,37 @@ const modelsData = [
                 full-service manufacturing.
             </>
         ),
-        icon: <MdFactory className="text-5xl text-neutral-900" />,
-        bgColor: "bg-gradient-to-r from-green-100 to-green-50",
+        icon: <MdFactory className="text-5xl opacity-70" />,
+        image: "/images/hoodies.jpg",
     },
     {
         title: "White Labeling",
         description: (
             <>
                 Order in bulk at <strong>exclusive pricing</strong>. Perfect for
-                companies looking to resell products under their{" "}
-                <strong>own brand</strong>.
+                companies looking to resell products under their own brand.
             </>
         ),
-        icon: <FaBoxOpen className="text-5xl text-neutral-900" />,
-        bgColor: "bg-gradient-to-r from-yellow-100 to-yellow-50",
+        icon: <FaBoxOpen className="text-5xl opacity-70" />,
+        image: "/images/jackets.jpg",
     },
 ];
 
-const PricingCard = ({ title, description, icon, bgColor }) => {
-    const iconControls = useAnimation();
-
-    return (
-        <motion.div
-            className="px-5 md:px-8 py-8 md:py-12 z-10 rounded-[50px] bg-[#eeeeee88] shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] flex flex-col sm:items-start  backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer select-none"
-            initial={{ filter: "blur(10px)" }}
-            whileInView={{ filter: "blur(0px)" }}
-            // whileHover={{ scale: 1.02 }}
-            onHoverStart={() => iconControls.start({ y: -10 })}
-            onHoverEnd={() => iconControls.start({ y: 0 })}
-            transition={{
-                duration: 0.4,
-                // scale: {
-                //     duration: 0.3,
-                //     delay: 0,
-                // },
-            }}
-        >
-            <BlobAnimation />
-            <div className="flex items-center space-x-4">
-                <motion.div
-                    className="text-5xl text-neutral-900"
-                    animate={iconControls}
-                    transition={{
-                        ease: "easeInOut",
-                        duration: 0.6,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                    }}
-                >
-                    {icon}
-                </motion.div>
-                <h3 className="text-2xl font-semibold text-neutral-800 ml-6">
-                    {title}
-                </h3>
-            </div>
-
-            {/* Description always below title */}
-            <p className="text-neutral-600 leading-relaxed mt-2 ">
-                {description}
-            </p>
-        </motion.div>
-    );
-};
-
 const PricingModels = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [loadedImages, setLoadedImages] = useState(new Set([0])); // Store loaded images
+
+    // Prevent unnecessary re-renders
+    const handleAccordionClick = useCallback(
+        (index) => {
+            if (!loadedImages.has(index)) {
+                setLoadedImages((prev) => new Set(prev).add(index));
+            }
+            setActiveIndex(index);
+        },
+        [loadedImages]
+    );
+
     return (
         <section
             id="pricing-models"
@@ -105,14 +76,8 @@ const PricingModels = () => {
                         Our{" "}
                         <motion.span
                             className="bg-gradient-to-r from-orange-700 to-orange-500 bg-clip-text text-transparent"
-                            initial={{
-                                y: 50,
-                                filter: "blur(10px)",
-                            }}
-                            whileInView={{
-                                y: 0,
-                                filter: "blur(0px)",
-                            }}
+                            initial={{ y: 50, filter: "blur(10px)" }}
+                            whileInView={{ y: 0, filter: "blur(0px)" }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                         >
                             Business Models
@@ -125,26 +90,59 @@ const PricingModels = () => {
                     </p>
                 </div>
 
-                {/* Cards Layout */}
-                <div className="relative space-y-4">
-                    <div className="z-0 absolute left-1/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
-                    <div className="z-0 absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
-                    <div className="z-0 absolute left-3/4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neutral-50 via-neutral-900 to-neutral-50 hidden md:block"></div>
+                {/* Accordion & Image */}
+                <div className="flex flex-col md:flex-row items-start gap-8">
+                    {/* Image Section */}
+                    <div className="md:w-1/2 w-full flex justify-center relative">
+                        {modelsData.map(
+                            (model, index) =>
+                                loadedImages.has(index) && ( // Only render images that have been clicked
+                                    <motion.img
+                                        key={index}
+                                        src={model.image}
+                                        alt={model.title}
+                                        className={`rounded-lg shadow-lg max-h-72 aspect-square object-cover absolute transition-opacity duration-500 ${
+                                            activeIndex === index
+                                                ? "opacity-100"
+                                                : "opacity-0"
+                                        }`}
+                                    />
+                                )
+                        )}
+                    </div>
 
-                    {/* <BlobAnimation h="16" w="16" left="5px" top="100px" />
-                    <BlobAnimation
-                        h="16"
-                        w="16"
-                        right="0px"
-                        bottom="50px"
-                        fromColor="orange-400"
-                        toColor="orange-400"
-                        blur="md"
-                    /> */}
-                    <div className="relative flex flex-col space-y-8">
-                        {modelsData.map((model, index) => (
-                            <PricingCard key={index} {...model} />
-                        ))}
+                    {/* Accordion Section */}
+                    <div className="md:w-1/2 w-full">
+                        <Accordion type="single" collapsible>
+                            {modelsData.map((model, index) => (
+                                <AccordionItem key={index} value={model.title}>
+                                    <AccordionTrigger
+                                        onClick={() =>
+                                            handleAccordionClick(index)
+                                        }
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            {model.icon}
+                                            <h3 className="text-xl font-semibold text-neutral-800">
+                                                {model.title}
+                                            </h3>
+                                        </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                        {activeIndex === index && (
+                                            <motion.p
+                                                className="text-neutral-600"
+                                                initial={{ opacity: 0, y: -10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.5 }}
+                                            >
+                                                {model.description}
+                                            </motion.p>
+                                        )}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
                     </div>
                 </div>
             </div>

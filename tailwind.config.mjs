@@ -1,10 +1,9 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
-const {
-    default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+const flattenColorPalette =
+    require("tailwindcss/lib/util/flattenColorPalette").default;
+const svgToDataUri = require("mini-svg-data-uri");
 
-// Define the function before usage
 function addVariablesForColors({ addBase, theme }) {
     let allColors = flattenColorPalette(theme("colors"));
     let newVars = Object.fromEntries(
@@ -17,17 +16,17 @@ function addVariablesForColors({ addBase, theme }) {
 }
 
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
-    darkMode: ["class", "class"],
+    darkMode: "class",
     theme: {
         extend: {
             boxShadow: {
-                input: "`0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`",
+                input: "0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)",
             },
             animation: {
                 "meteor-effect": "meteor 5s linear infinite",
@@ -86,17 +85,38 @@ export default {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
-                chart: {
-                    1: "hsl(var(--chart-1))",
-                    2: "hsl(var(--chart-2))",
-                    3: "hsl(var(--chart-3))",
-                    4: "hsl(var(--chart-4))",
-                    5: "hsl(var(--chart-5))",
-                },
             },
         },
     },
     plugins: [
+        function ({ matchUtilities, theme }) {
+            matchUtilities(
+                {
+                    "bg-grid": (value) => ({
+                        backgroundImage: `url("${svgToDataUri(
+                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+                        )}")`,
+                        maskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                        WebkitMaskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                    }),
+                    "bg-grid-small": (value) => ({
+                        backgroundImage: `url("${svgToDataUri(
+                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+                        )}")`,
+                        maskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                        WebkitMaskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                    }),
+                },
+                {
+                    values: flattenColorPalette(theme("backgroundColor")),
+                    type: "color",
+                }
+            );
+        },
         function ({ addBase, theme }) {
             addVariablesForColors({ addBase, theme });
         },

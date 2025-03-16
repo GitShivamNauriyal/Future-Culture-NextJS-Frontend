@@ -67,7 +67,7 @@ const Navbar = () => {
                                                     duration: 0.3,
                                                     ease: "easeOut",
                                                 }}
-                                                className="absolute left-0 mt-2 w-48 bg-black/60 shadow-sm shadow-neutral-700 rounded-md overflow-hidden z-50"
+                                                className="absolute left-0 mt-2 w-48 bg-black/80 backdrop-blur-md shadow-sm shadow-neutral-700 rounded-md overflow-hidden z-50"
                                             >
                                                 {collectionItems.map(
                                                     (subItem) => (

@@ -90,21 +90,22 @@ const PricingModels = () => {
                     </p>
                 </div>
 
-                {/* Accordion & Image */}
-                <div className="flex flex-col md:flex-row items-start gap-8">
-                    {/* Image Section */}
-                    <div className="md:w-1/2 w-full flex justify-center relative">
+                {/* Image & Accordion (Fixed Placement) */}
+                <div className="flex flex-col md:flex-row items-start gap-0 md:gap-8">
+                    {/* Image Section - Now Before Accordion (Normal Placement) */}
+                    {/* Image Section - Now Centered */}
+                    <div className="w-full md:w-1/2 flex justify-center items-center relative h-72">
                         {modelsData.map(
                             (model, index) =>
-                                loadedImages.has(index) && ( // Only render images that have been clicked
+                                loadedImages.has(index) && ( // Render only clicked images
                                     <motion.img
                                         key={index}
                                         src={model.image}
                                         alt={model.title}
-                                        className={`rounded-lg shadow-lg max-h-72 aspect-video object-cover absolute transition-opacity duration-500 ${
+                                        className={`rounded-lg shadow-lg max-h-72 aspect-video w-auto max-w-full object-cover absolute transition-opacity duration-500 ${
                                             activeIndex === index
-                                                ? "opacity-100"
-                                                : "opacity-0"
+                                                ? "opacity-100 scale-105"
+                                                : "opacity-0 scale-95"
                                         }`}
                                     />
                                 )
@@ -112,7 +113,7 @@ const PricingModels = () => {
                     </div>
 
                     {/* Accordion Section */}
-                    <div className="md:w-1/2 w-full">
+                    <div className="w-full md:w-1/2">
                         <Accordion type="single" collapsible>
                             {modelsData.map((model, index) => (
                                 <AccordionItem key={index} value={model.title}>

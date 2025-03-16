@@ -101,7 +101,7 @@ const PricingModels = () => {
                                         key={index}
                                         src={model.image}
                                         alt={model.title}
-                                        className={`rounded-lg shadow-lg max-h-72 aspect-square object-cover absolute transition-opacity duration-500 ${
+                                        className={`rounded-lg shadow-lg max-h-72 aspect-video object-cover absolute transition-opacity duration-500 ${
                                             activeIndex === index
                                                 ? "opacity-100"
                                                 : "opacity-0"

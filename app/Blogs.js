@@ -63,7 +63,7 @@ const Blogs = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl font-bold font-raleway mb-0 md:mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold font-raleway mb-0 md:mb-2">
                         Latest From Our Blog
                     </h2>
                     <p className="text-gray-600 font-raleway max-w-2xl mx-auto">

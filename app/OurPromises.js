@@ -46,52 +46,11 @@ const promisesData = [
     },
 ];
 
-const PromiseCard = ({ title, subtitle, description, Icon, delay }) => {
-    return (
-        <motion.div
-            className="relative backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg rounded-3xl p-6 flex flex-col hover:shadow-2xl transition-all duration-300 group overflow-hidden"
-            initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.4, delay }}
-        >
-            {/* Floating Background Shapes - Now using Group Hover */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div
-                    className="absolute w-32 h-32 bg-gradient-to-br from-purple-500 to-blue-500 opacity-20 rounded-full -top-8 -left-8 blur-2xl 
-                    transition-all duration-500 transform group-hover:-translate-x-4 group-hover:-translate-y-8 group-hover:scale-110"
-                />
-                <div
-                    className="absolute w-24 h-24 bg-gradient-to-br from-yellow-400 to-pink-500 opacity-30 rounded-full bottom-6 right-6 blur-2xl 
-                    transition-all duration-500 transform group-hover:translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
-                />
-            </div>
-
-            {/* Icon */}
-            <div className="mb-4 text-4xl text-white transition-transform duration-300 group-hover:-translate-y-1 z-10">
-                <Icon />
-            </div>
-
-            {/* Title */}
-            <h3 className="text-xl font-bold text-white mb-2 z-10">
-                {title}{" "}
-                {subtitle && (
-                    <span className="text-base font-normal opacity-80">
-                        {subtitle}
-                    </span>
-                )}
-            </h3>
-
-            {/* Description */}
-            <p className="text-white/80 flex-grow z-10">{description}</p>
-        </motion.div>
-    );
-};
-
 const OurPromises = () => {
     return (
         <section
             id="our-promises"
-            className="relative py-20 bg-black flex flex-col items-center justify-center"
+            className="relative py-20 bg-black flex flex-col items-center justify-center overflow-hidden"
         >
             {/* Section Heading */}
             <div className="text-center mb-12">
@@ -103,17 +62,46 @@ const OurPromises = () => {
                 </p>
             </div>
 
-            {/* Glassmorphic Cards Grid */}
-            <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl px-6">
-                {promisesData.map((promise, index) => (
-                    <PromiseCard key={index} delay={index * 0.2} {...promise} />
-                ))}
+            {/* Floating Background Blurs */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full top-16 left-16 blur-[120px]" />
+                <div className="absolute w-72 h-72 bg-orange-500 opacity-25 rounded-full bottom-16 right-16 blur-[120px]" />
             </div>
 
-            {/* Floating Decorative Background Elements */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute w-64 h-64 bg-purple-600 opacity-20 rounded-full top-10 left-10 blur-3xl transition-all duration-500" />
-                <div className="absolute w-40 h-40 bg-blue-500 opacity-25 rounded-full bottom-10 right-10 blur-3xl transition-all duration-500" />
+            {/* Promises Grid - No Boxes, Just Floating Text */}
+            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl px-6">
+                {promisesData.map((promise, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            delay: index * 0.15,
+                        }}
+                        className="flex items-center gap-4 group"
+                    >
+                        {/* Floating Icon */}
+                        <div className="text-5xl text-white/90 transition-transform duration-300 group-hover:scale-110">
+                            <promise.Icon />
+                        </div>
+
+                        {/* Text Content */}
+                        <div className="text-white">
+                            <h3 className="text-xl font-bold mb-1">
+                                {promise.title}{" "}
+                                {promise.subtitle && (
+                                    <span className="text-base font-normal opacity-80">
+                                        {promise.subtitle}
+                                    </span>
+                                )}
+                            </h3>
+                            <p className="text-white/70 text-sm">
+                                {promise.description}
+                            </p>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );

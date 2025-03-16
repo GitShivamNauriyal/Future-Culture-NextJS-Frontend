@@ -80,7 +80,7 @@ export default function ProductTabsCarousel() {
 
     return (
         <div className="w-full py-10 flex flex-col justify-center align-middle">
-            <h2 className="text-5xl font-bold text-center mb-2 mt-2 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-0 md:mb-2 mt-2 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
                 Collection for You
             </h2>
             <p className="mb-8 mx-auto">Tentative List of Items we provide</p>

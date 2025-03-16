@@ -50,8 +50,14 @@ const OurPromises = () => {
     return (
         <section
             id="our-promises"
-            className="relative py-20 bg-black flex flex-col items-center justify-center overflow-hidden"
+            className="relative py-24 bg-black flex flex-col items-center justify-center overflow-hidden"
         >
+            {/* Background Blurred Gradient Effect */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute w-[400px] h-[400px] bg-blue-500 opacity-30 rounded-full -top-10 left-1/4 blur-[140px]" />
+                <div className="absolute w-[350px] h-[350px] bg-orange-500 opacity-30 rounded-full bottom-10 right-1/4 blur-[140px]" />
+            </div>
+
             {/* Section Heading */}
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -62,40 +68,39 @@ const OurPromises = () => {
                 </p>
             </div>
 
-            {/* Floating Background Blurs */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute w-96 h-96 bg-blue-500 opacity-20 rounded-full top-16 left-16 blur-[120px]" />
-                <div className="absolute w-72 h-72 bg-orange-500 opacity-25 rounded-full bottom-16 right-16 blur-[120px]" />
-            </div>
-
-            {/* Promises Grid - No Boxes, Just Floating Text */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl px-6">
+            {/* Floating Compact Elements */}
+            <div className="relative w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
                 {promisesData.map((promise, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: index * 0.15,
+                        initial={{
+                            opacity: 0,
+                            scale: 0.95,
+                            filter: "blur(10px)",
                         }}
-                        className="flex items-center gap-4 group"
+                        whileInView={{
+                            opacity: 1,
+                            scale: 1,
+                            filter: "blur(0px)",
+                        }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-lg shadow-lg"
                     >
-                        {/* Floating Icon */}
-                        <div className="text-5xl text-white/90 transition-transform duration-300 group-hover:scale-110">
-                            <promise.Icon />
+                        {/* Glowing Icon Orb */}
+                        <div className="min-w-12 aspect-square flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md shadow-md">
+                            <promise.Icon className="text-white text-2xl" />
                         </div>
 
-                        {/* Text Content */}
+                        {/* Compact Floating Text */}
                         <div className="text-white">
-                            <h3 className="text-xl font-bold mb-1">
-                                {promise.title}{" "}
-                                {promise.subtitle && (
-                                    <span className="text-base font-normal opacity-80">
-                                        {promise.subtitle}
-                                    </span>
-                                )}
+                            <h3 className="text-lg font-semibold">
+                                {promise.title}
                             </h3>
+                            {promise.subtitle && (
+                                <span className="text-sm opacity-80">
+                                    {promise.subtitle}
+                                </span>
+                            )}
                             <p className="text-white/70 text-sm">
                                 {promise.description}
                             </p>

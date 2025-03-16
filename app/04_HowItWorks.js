@@ -32,8 +32,7 @@ const ProcessStep = ({ id, title, description }) => (
         className="relative flex items-center gap-6 w-full"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
     >
         {/* Step Number (Fixed Left-Aligned Position) */}
         <div className="relative z-10 flex items-center justify-center w-12 h-12 text-lg font-bold text-white bg-neutral-900 rounded-full border border-white shadow-lg">
@@ -75,7 +74,7 @@ const HowItWorks = () => {
                 </motion.h2>
 
                 {/* Steps List */}
-                <div className="relative flex flex-col gap-12 sm:gap-16 max-w-xl mx-auto border-l-4 border-white/30 pl-6 sm:pl-12">
+                <div className="relative flex flex-col gap-12 sm:gap-16 max-w-xl mx-auto border-l-2 border-white/30 pl-6 sm:pl-12">
                     {stepsData?.length > 0 &&
                         stepsData.map((step) => (
                             <ProcessStep key={step.id} {...step} />

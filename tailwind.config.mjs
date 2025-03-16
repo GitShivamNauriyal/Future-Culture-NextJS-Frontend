@@ -110,9 +110,26 @@ module.exports = {
                         WebkitMaskImage:
                             "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
                     }),
+                    "bg-dot": (value) => ({
+                        backgroundImage: `url("${svgToDataUri(
+                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="${value}">
+                                <circle cx="6" cy="6" r="2"/>
+                            </svg>`
+                        )}")`,
+                        backgroundSize: "16px 16px",
+                    }),
+                    "bg-dot-small": (value) => ({
+                        backgroundImage: `url("${svgToDataUri(
+                            `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" width="8" height="8" fill="${value}"><circle cx="2" cy="2" r="1"/><circle cx="6" cy="2" r="1"/><circle cx="2" cy="6" r="1"/><circle cx="6" cy="6" r="1"/></svg>`
+                        )}")`,
+                        maskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                        WebkitMaskImage:
+                            "radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 80%)",
+                    }),
                 },
                 {
-                    values: flattenColorPalette(theme("backgroundColor")),
+                    values: flattenColorPalette(theme("colors")),
                     type: "color",
                 }
             );

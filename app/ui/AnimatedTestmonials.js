@@ -33,6 +33,18 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
         setActive(
             (prev) => (prev - 1 + testimonials.length) % testimonials.length
         );
+
+    const handleClick = (event) => {
+        if (event.button === 0) {
+            // Left click
+            handleNext();
+        } else if (event.button === 2) {
+            // Right click
+            handlePrev();
+            event.preventDefault(); // Prevent context menu
+        }
+    };
+
     const isActive = (index) => index === active;
 
     return (

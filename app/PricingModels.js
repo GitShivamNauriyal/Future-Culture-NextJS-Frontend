@@ -69,7 +69,6 @@ const PricingModels = () => {
                             style={{ willChange: "opacity, transform" }}
                         >
                             Business Models
-                            <BottomGradient />
                         </motion.span>
                     </h2>
                     <p className="text-lg text-neutral-700">

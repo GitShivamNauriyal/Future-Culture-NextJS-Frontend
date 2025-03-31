@@ -26,7 +26,7 @@ const Navbar = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     return (
-        <nav className="fixed w-full bg-black/80 backdrop-blur-md z-50">
+        <nav className="fixed w-full bg-black/80 backdrop-blur-md z-[999]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}

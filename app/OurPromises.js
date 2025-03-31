@@ -5,6 +5,7 @@ import { MdVerified } from "react-icons/md";
 import { TbPrinter, TbRuler2 } from "react-icons/tb";
 import { IoColorPalette } from "react-icons/io5";
 import { motion } from "framer-motion";
+import BottomGradient from "./ui/BottomGradient";
 
 const promisesData = [
     {
@@ -51,6 +52,10 @@ const OurPromises = () => {
         <section
             id="our-promises"
             className="relative py-24 bg-black flex flex-col items-center justify-center overflow-hidden"
+            style={{
+                backgroundColor: "#0b0b0b",
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a86d6d' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
         >
             {/* Background Blurred Gradient Effect */}
             <div className="absolute inset-0 -z-10">
@@ -59,17 +64,18 @@ const OurPromises = () => {
             </div>
 
             {/* Section Heading */}
-            <div className="text-center mb-12">
+            <div className="relative text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                     Our Promises
                 </h2>
+                <BottomGradient />
                 <p className="text-lg text-white/70">
                     Our commitment to excellence in every detail.
                 </p>
             </div>
 
             {/* Floating Compact Elements */}
-            <div className="relative w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+            <div className="relative select-none w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
                 {promisesData.map((promise, index) => (
                     <motion.div
                         key={index}
@@ -84,7 +90,7 @@ const OurPromises = () => {
                             filter: "blur(0px)",
                         }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-lg shadow-lg"
+                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-lg shadow-lg border-l border-b border-red-500/30 hover:border-red-500/50 transition cursor-pointer"
                     >
                         {/* Glowing Icon Orb */}
                         <div className="min-w-12 aspect-square flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md shadow-md">

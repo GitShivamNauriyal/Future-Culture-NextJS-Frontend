@@ -63,7 +63,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = true }) => {
                                                 : randomRotations[index],
                                         zIndex:
                                             active === index
-                                                ? 999
+                                                ? 10
                                                 : testimonials.length +
                                                   2 -
                                                   index,

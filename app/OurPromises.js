@@ -90,7 +90,7 @@ const OurPromises = () => {
                             filter: "blur(0px)",
                         }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-lg shadow-lg border-l border-b border-red-500/30 hover:border-red-500/50 transition cursor-pointer"
+                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm shadow-lg border-l border-b border-red-500/30 hover:border-red-500/50 transition cursor-pointer"
                     >
                         {/* Glowing Icon Orb */}
                         <div className="min-w-12 aspect-square flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md shadow-md">

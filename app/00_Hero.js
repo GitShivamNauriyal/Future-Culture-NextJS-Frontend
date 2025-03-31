@@ -137,7 +137,7 @@ const BackgroundBeams = React.memo(({ className }) => {
                         ></stop>
                         <stop
                             offset="0.243243"
-                            stopColor="var(--neutral-300)"
+                            stopColor="var(--neutral-500)"
                         ></stop>
                         <stop
                             offset="0.43594"
@@ -162,9 +162,9 @@ const Hero = () => {
             <BackgroundBeams />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mt-40 mb-44 sm:mt-36 sm:mb-28 cursor-default">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent mb-3 sm:mb-6">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-red-500 via-pink-400 to-orange-500 bg-clip-text text-transparent mb-3 sm:mb-6">
                         Curated Gifts for
-                        <span className="block mt-[0.1rem] sm:mt-2 bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-transparent pb-3">
+                        <span className="block mt-[0.1rem] sm:mt-1 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent pb-3">
                             <ColourfulText text={"Meaningful Moments"} />
                         </span>
                     </h1>
@@ -173,15 +173,60 @@ const Hero = () => {
                         create lasting impressions and strengthen relationships.
                     </p>
                     <div className="flex justify-center space-x-4">
-                        <button className="px-6 md:px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                        <button className="px-6 md:px-8 py-3 bg-white text-neutral-900 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
                             Explore Collections
                         </button>
-                        <button className="px-6 md:px-8 py-3 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-neutral-900 transition-all duration-300 transform hover:scale-105">
+                        <button className="px-6 md:px-8 py-3 border-[1px] border-white text-white rounded-full font-medium hover:bg-white hover:text-neutral-900 transition-all duration-300 transform ">
                             Learn More
                         </button>
                     </div>
                 </div>
             </div>
+            {/* <div className="relative flex items-center justify-center h-screen w-full bg-black overflow-hidden">
+                <div className="absolute inset-0 bg-black">
+                    <div
+                        className="absolute bottom-0 left-0 right-0 h-[100%]"
+                        style={{
+                            background:
+                                "radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 140, 0, 0.7) 30%, rgba(0, 0, 0, 0.9) 70%)",
+                        }}
+                    ></div>
+
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage:
+                                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E\")",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            opacity: "0.3",
+                        }}
+                    ></div>
+                </div>
+
+                <div className="relative text-white z-10">
+                    <h1
+                        className={`raleway text-7xl md:text-[12rem] font-extrabold leading-none text-glow`}
+                        style={{
+                            fontWeight: 900,
+                            letterSpacing: "-0.05em",
+                            opacity: "0.9",
+                        }}
+                    >
+                        Future
+                    </h1>
+                    <h1
+                        className={`raleway text-7xl md:text-[12rem] font-extrabold leading-none text-glow`}
+                        style={{
+                            fontWeight: 900,
+                            letterSpacing: "-0.05em",
+                            opacity: "0.9",
+                        }}
+                    >
+                        Culture.
+                    </h1>
+                </div>
+            </div> */}
         </section>
     );
 };

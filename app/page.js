@@ -20,9 +20,10 @@ const page = () => {
             <Hero />
             <Convert />
             <Collections />
-            <FeaturedSets />
+            <ProductsCardsCarousel /> {/*brought up temporarily*/}
+            {/* <FeaturedSets />  */}
+            {/* skipping this temporarily till we get the review from the client */}
             <HowItWorks />
-            <ProductsCardsCarousel />
             <OurPromises />
             <PricingModels />
             <Testimonials />

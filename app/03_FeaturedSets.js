@@ -67,7 +67,7 @@ const CategoryCard = ({ title, description, items, image, delay }) => (
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay }}
     >
-        <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-3 sm:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+        <div className="bg-gradient-to-tr from-neutral-50 to-neutral-200 rounded-xl p-4 sm:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
             <motion.div
                 className="h-64 w-full relative rounded-lg overflow-hidden mb-6"
                 initial={{

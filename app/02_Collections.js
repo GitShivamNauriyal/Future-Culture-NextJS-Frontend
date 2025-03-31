@@ -32,17 +32,12 @@ const collectionsData = [
 const CollectionCard = ({ title, description, number, explore, image }) => {
     return (
         <motion.div
-            className="bg-neutral-700/30 backdrop-blur-md rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.03] cursor-pointer"
-            initial={{
-                filter: "blur(10px)",
-                // scale: 1.06,
-            }}
-            whileInView={{
-                filter: "blur(0px)",
-                // scale: 1,
-            }}
+            className="bg-neutral-700/30 backdrop-blur-md rounded-xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.03] cursor-pointer w-full h-full"
+            initial={{ filter: "blur(10px)" }}
+            whileInView={{ filter: "blur(0px)" }}
             transition={{ duration: 0.4 }}
         >
+            {/* Image Container */}
             <div className="h-48 w-full relative rounded-lg overflow-hidden mb-6">
                 <Image
                     src={image}
@@ -52,8 +47,16 @@ const CollectionCard = ({ title, description, number, explore, image }) => {
                     className="rounded-lg"
                 />
             </div>
-            <h3 className="text-xl font-bold text-white ">{title}</h3>
-            <p className="text-gray-400 flex-grow">{description}</p>
+
+            {/* Text Content */}
+            <div className="flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-white">{title}</h3>
+                <p className="text-gray-400 break-words whitespace-normal">
+                    {description}
+                </p>
+            </div>
+
+            {/* Button Section */}
             <div className="mt-auto">
                 <button className="text-white mt-2 hover:text-gray-300 transition-colors duration-300 flex items-center">
                     Explore Our {explore}
@@ -86,7 +89,7 @@ const Collections = () => {
                     transition-all duration-500 transform group-hover:-translate-x-4 group-hover:-translate-y-8 group-hover:scale-110"
                     />
                     <div
-                        className="absolute w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 opacity-30 rounded-full bottom-32 left-6 blur-2xl 
+                        className="absolute w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 opacity-30 rounded-full bottom-16 left-6 blur-2xl 
                 transition-all duration-500 transform group-hover:-translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
                     />
                     <div
@@ -98,7 +101,7 @@ const Collections = () => {
                 transition-all duration-500 transform group-hover:translate-x-8 group-hover:translate-y-4 group-hover:scale-110"
                     />
                     <div
-                        className="absolute w-44 h-24 bg-gradient-to-br from-red-500 to-pink-900 opacity-50 rounded-full top-60 right-6 blur-2xl 
+                        className="absolute w-44 h-24 bg-gradient-to-br from-red-500 to-pink-900 opacity-50 rounded-full top-40 right-6 blur-2xl 
                 transition-all duration-500 transform group-hover:translate-x-8 group-hover:-translate-y-4 group-hover:scale-110"
                     />
                 </div>
@@ -119,16 +122,20 @@ const Collections = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="md:grid md:grid-cols-1 lg:grid-cols-3 md:gap-8 gap-4 flex md:overflow-visible overflow-x-scroll whitespace-nowrap snap-x snap-mandatory scroll-smooth md:px-6 px-2">
                     {collectionsData.map((collection) => (
-                        <CollectionCard
+                        <div
                             key={collection.id}
-                            title={collection.title}
-                            description={collection.description}
-                            number={collection.number}
-                            explore={collection.explore}
-                            image={collection.image}
-                        />
+                            className="snap-center flex-shrink-0 m-0 md:w-[100%] w-[85%]"
+                        >
+                            <CollectionCard
+                                title={collection.title}
+                                description={collection.description}
+                                number={collection.number}
+                                explore={collection.explore}
+                                image={collection.image}
+                            />
+                        </div>
                     ))}
                 </div>
 

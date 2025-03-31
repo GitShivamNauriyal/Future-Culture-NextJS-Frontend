@@ -67,7 +67,7 @@ const PricingModels = () => {
     return (
         <section
             id="pricing-models"
-            className="relative py-16 md:py-20 bg-neutral-50"
+            className="relative py-16 md:pb-20 md:pt-16 bg-neutral-50"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}

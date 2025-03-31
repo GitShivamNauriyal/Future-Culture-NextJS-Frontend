@@ -46,7 +46,10 @@ const categories = {
         { title: "Stickers and Patches", image: "/images/laptop_stickers.jpg" },
     ],
     tech: [
-        { title: "Voice-Activated Speakers", image: "/images/speakers.jpg" },
+        {
+            title: "Voice-Activated Speakers",
+            image: "/images/voice_activated_speaker.jpg",
+        },
         { title: "Tech-Boxes", image: "/images/tech_boxes.jpg" },
         { title: "USBs and Power Banks", image: "/images/power_banks.jpg" },
     ],

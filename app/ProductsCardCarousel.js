@@ -88,22 +88,22 @@ export default function ProductTabsCarousel() {
             </h2>
             <p className="mb-8 mx-auto">Tentative List of Items we provide</p>
             <Tabs defaultValue="fashion">
-                <TabsList className="flex md:gap-12 gap-4 md:p-5">
+                <TabsList className="flex md:gap-12 gap-4 md:p-6 p-2 bg-neutral-100">
                     <TabsTrigger
                         value="fashion"
-                        className="text-base md:text-lg font-semibold"
+                        className="text-base md:text-lg font-semibold "
                     >
                         Fashion
                     </TabsTrigger>
                     <TabsTrigger
                         value="tech"
-                        className="text-base md:text-lg font-semibold"
+                        className="text-base md:text-lg font-semibold "
                     >
                         Tech
                     </TabsTrigger>
                     <TabsTrigger
                         value="collectibles"
-                        className="text-base md:text-lg font-semibold"
+                        className="text-base md:text-lg font-semibold "
                     >
                         Collectibles
                     </TabsTrigger>

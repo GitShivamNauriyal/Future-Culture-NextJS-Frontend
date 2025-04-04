@@ -35,7 +35,7 @@ const StatBox = ({ target, label, delay }) => {
     return (
         <motion.div
             ref={ref}
-            className="relative group bg-neutral-600/30 backdrop-blur-sm p-8 rounded-2xl text-center transform hover:-translate-y-1 transition-transform duration-300"
+            className="relative group bg-neutral-600/30 backdrop-blur-[1px] p-8 rounded-2xl text-center transform hover:-translate-y-1 transition-transform duration-300"
             style={{ animationDelay: `${delay}s` }}
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}

@@ -58,10 +58,10 @@ const OurPromises = () => {
             }}
         >
             {/* Background Blurred Gradient Effect */}
-            <div className="absolute inset-0 -z-10">
+            {/* <div className="absolute inset-0 -z-10">
                 <div className="absolute w-[400px] h-[400px] bg-blue-500 opacity-30 rounded-full -top-10 left-1/4 blur-[140px]" />
                 <div className="absolute w-[350px] h-[350px] bg-orange-500 opacity-30 rounded-full bottom-10 right-1/4 blur-[140px]" />
-            </div>
+            </div> */}
 
             {/* Section Heading */}
             <div className="relative text-center mb-12">
@@ -81,16 +81,14 @@ const OurPromises = () => {
                         key={index}
                         initial={{
                             opacity: 0,
-                            scale: 0.95,
                             filter: "blur(10px)",
                         }}
                         whileInView={{
                             opacity: 1,
-                            scale: 1,
                             filter: "blur(0px)",
                         }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm shadow-lg border-l border-b border-red-500/30 hover:border-red-500/50 transition cursor-pointer"
+                        className="relative flex items-start gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm shadow-lg border-l border-b border-red-500/30 hover:border-red-500/50 transition-all duration-500 cursor-pointer"
                     >
                         {/* Glowing Icon Orb */}
                         <div className="min-w-12 aspect-square flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md shadow-md">

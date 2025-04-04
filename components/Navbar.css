@@ -1,6 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap");
+
 .raleway {
-  font-family: "Raleway", serif;
-  font-weight: 800;
-  line-height: 18px;
+    font-family: "Raleway", serif;
+    font-weight: 800;
+    line-height: 18px;
+}
+
+.glitch-container {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch-text {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.glitch-container:hover .glitch-text {
+    animation: glitch-animation 0.5s linear infinite;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(-2px);
+        opacity: 0.8;
+    }
+    40% {
+        transform: translateX(2px);
+        opacity: 1;
+    }
+    60% {
+        transform: translateX(-1px);
+        opacity: 0.9;
+    }
+    80% {
+        transform: translateX(1px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

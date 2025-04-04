@@ -33,10 +33,12 @@ const Navbar = () => {
                     <div className="flex-shrink-0">
                         <Link
                             href="/"
-                            className="text-white font-raleway text-xl font-bold"
+                            className="relative text-white font-raleway text-xl font-bold glitch-container"
                         >
-                            <div className="raleway translate-y-1">Future</div>
-                            <div className="raleway -translate-y-1">
+                            <div className="raleway translate-y-1 glitch-text">
+                                Future
+                            </div>
+                            <div className="raleway -translate-y-1 glitch-text">
                                 Culture.
                             </div>
                         </Link>

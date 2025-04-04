@@ -92,7 +92,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl  shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl  shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] hover:scale-[102] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -105,15 +105,9 @@ const Convert = () => {
                                         scale: 1,
                                         filter: "blur(0px)",
                                     }}
-                                    whileHover={{
-                                        scale: 1.03,
-                                    }}
                                     transition={{
                                         duration: 0.4,
                                         delay: 0.4,
-                                        scale: {
-                                            duration: 0.2,
-                                        },
                                     }}
                                 >
                                     <div className="absolute inset-0 pointer-events-none">
@@ -132,7 +126,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] hover:scale-[102] transition-all duration-300"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -145,16 +139,9 @@ const Convert = () => {
                                         scale: 1,
                                         filter: "blur(0px)",
                                     }}
-                                    whileHover={{
-                                        scale: 1.03,
-                                    }}
                                     transition={{
                                         duration: 0.4,
                                         delay: 0.5,
-                                        scale: {
-                                            duration: 0.2,
-                                            delay: 0,
-                                        },
                                     }}
                                 >
                                     <div className="absolute inset-0 pointer-events-none">
@@ -191,7 +178,7 @@ const Convert = () => {
                             transition={{ duration: 0.4, delay: 0.2 }}
                         >
                             <motion.div
-                                className="text-lg raleway text-slate-100 font-light transition hover:scale-[1.01]"
+                                className="text-lg raleway inline text-slate-100 font-light transition"
                                 whileTap={{ scale: 0.9 }}
                                 transition={{ duration: 0.2 }}
                             >

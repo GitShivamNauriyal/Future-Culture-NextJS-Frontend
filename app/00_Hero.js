@@ -162,13 +162,13 @@ const Hero = () => {
             <BackgroundBeams />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mt-40 mb-44 sm:mt-36 sm:mb-28 cursor-default">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway font-bold bg-gradient-to-r from-red-500 via-pink-400 to-orange-500 bg-clip-text text-transparent mb-3 sm:mb-6">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-raleway leading-8 font-bold bg-gradient-to-r from-red-500 via-pink-400 to-orange-500 bg-clip-text text-transparent mb-3 sm:mb-6">
                         Curated Gifts for
                         <span className="block mt-[0.1rem] sm:mt-1 bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent pb-3">
                             <ColourfulText text={"Meaningful Moments"} />
                         </span>
                     </h1>
-                    <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-6 sm:mb-10">
+                    <p className="max-w-2xl mx-auto font-thin text-lg leading-6 text-gray-300 mb-6 sm:mb-10">
                         Discover thoughtfully curated gift collections that
                         create lasting impressions and strengthen relationships.
                     </p>

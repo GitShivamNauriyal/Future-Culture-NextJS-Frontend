@@ -92,7 +92,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-white to-neutral-100 rounded-3xl shadow-[12px_12px_16px_#43434322,-12px_-12px_60px_#dedede11] "
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-white rounded-3xl border"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -126,7 +126,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-white to-neutral-100 rounded-3xl shadow-[12px_12px_16px_#43434322,-12px_-12px_60px_#dedede11]"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-white rounded-3xl border"
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -177,15 +177,11 @@ const Convert = () => {
                             }}
                             transition={{ duration: 0.4, delay: 0.2 }}
                         >
-                            <motion.div
-                                className="text-lg raleway inline text-slate-100 font-light transition"
-                                whileTap={{ scale: 0.9 }}
-                                transition={{ duration: 0.2 }}
-                            >
+                            <div className="text-xl raleway inline text-slate-100 font-light transition hover:scale-[1.01]">
                                 <HoverBorderGradient>
                                     Discover Our Story
                                 </HoverBorderGradient>
-                            </motion.div>
+                            </div>
                         </motion.div>
                     </div>
 

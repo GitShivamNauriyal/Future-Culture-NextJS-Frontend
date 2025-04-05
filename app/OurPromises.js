@@ -65,11 +65,11 @@ const OurPromises = () => {
 
             {/* Section Heading */}
             <div className="relative text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-1">
                     Our Promises
                 </h2>
                 <BottomGradient />
-                <p className="text-lg text-white/70">
+                <p className="text-base font-thin text-white/70">
                     Our commitment to excellence in every detail.
                 </p>
             </div>

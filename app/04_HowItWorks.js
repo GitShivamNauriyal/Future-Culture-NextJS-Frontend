@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import BottomGradient from "./ui/BottomGradient";
 
 const stepsData = [
     {
@@ -36,10 +37,17 @@ const ProcessStep = ({ id, title, description, animation, isReversed }) => (
         className={`flex flex-col md:flex-row items-center justify-center gap-0 md:gap-0 w-full ${
             isReversed ? "md:flex-row-reverse" : ""
         }`}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        initial={{
+            opacity: 0,
+            y: 20,
+            filter: "blur(10px)",
+        }}
+        whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+        }}
+        transition={{ duration: 0.5 }}
     >
         {/* Animation with glow */}
         <div className="flex-shrink-0 w-full md:w-1/2 max-w-md relative">
@@ -77,16 +85,28 @@ const HowItWorks = () => {
                 {/* Section Title */}
                 <motion.h2
                     className="text-4xl sm:text-4xl md:text-5xl font-bold text-white mb-4 text-center"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{
+                        opacity: 0,
+                        y: 50,
+                        filter: "blur(10px)",
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        filter: "blur(0px)",
+                    }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.4 }}
                 >
                     How It Works
+                    <BottomGradient />
+                    <p className="text-lg font-thin text-white/70 mt-1">
+                        Simple steps to follow through.
+                    </p>
                 </motion.h2>
 
                 {/* Steps List */}
-                <div className="flex flex-col items-center gap-12 w-full">
+                <div className="flex flex-col items-center gap-8 w-full">
                     {stepsData.map((step) => (
                         <ProcessStep key={step.id} {...step} />
                     ))}

@@ -59,7 +59,6 @@ const HowItWorks = () => {
                 id="process"
                 className="relative py-20 flex flex-col items-center"
             >
-                {/* ✅ Keeping Tracing Beam Disabled for Now */}
                 {/* <TracingBeam className="absolute inset-0 z-0 opacity-70 blur-xl" width={6} /> */}
 
                 {/* Section Title */}

@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaHandshake, FaBoxOpen } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
-import { ChevronDown } from "lucide-react"; // Down arrow icon
-import BottomGradient from "./ui/BottomGradient";
+import { ChevronDown } from "lucide-react";
 
 const modelsData = [
     {
@@ -62,11 +61,10 @@ const PricingModels = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-neutral-700 mb-2">
                         Our{" "}
                         <motion.span
-                            className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent"
+                            className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent"
                             initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
-                            style={{ willChange: "opacity, transform" }}
                         >
                             Business Models
                         </motion.span>

@@ -92,7 +92,7 @@ const Convert = () => {
 
                             <div className="grid grid-cols-2 gap-6 ">
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl  shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] hover:scale-[102] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-white to-neutral-100 rounded-3xl shadow-[12px_12px_16px_#43434322,-12px_-12px_60px_#dedede11] "
                                     initial={{
                                         opacity: 0,
                                         y: 2,
@@ -126,7 +126,7 @@ const Convert = () => {
                                 </motion.div>
 
                                 <motion.div
-                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-neutral-50 to-neutral-100 rounded-3xl shadow-[20px_20px_60px_#43434333,-12px_-12px_60px_#dededeaa] hover:scale-[102] transition-all duration-300"
+                                    className="relative overflow-hidden cursor-pointer py-4 px-4 sm:py-8 sm:px-4 bg-gradient-to-tl from-white to-neutral-100 rounded-3xl shadow-[12px_12px_16px_#43434322,-12px_-12px_60px_#dedede11]"
                                     initial={{
                                         opacity: 0,
                                         y: 2,

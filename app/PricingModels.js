@@ -61,7 +61,7 @@ const PricingModels = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-neutral-700 mb-2">
                         Our{" "}
                         <motion.span
-                            className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent"
+                            className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-600 bg-clip-text text-transparent"
                             initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -69,7 +69,7 @@ const PricingModels = () => {
                             Business Models
                         </motion.span>
                     </h2>
-                    <p className="text-lg text-neutral-700">
+                    <p className="text-base font-thin text-neutral-700 leading-4">
                         Flexible pricing and collaboration options to fit your
                         business needs.
                     </p>

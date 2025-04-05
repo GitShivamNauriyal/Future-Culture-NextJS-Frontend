@@ -92,11 +92,11 @@ const Stats = () => {
                 <div className="grid-bg absolute inset-0" />
             </div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16 animate__animated animate__fadeIn">
-                    <h2 className="text-4xl md:text-5xl font-bold font-raleway mb-4">
+                <div className="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 className="text-[2.5rem] md:text-5xl font-bold font-raleway md:mb-1">
                         Our Impact
                     </h2>
-                    <p className="text-gray-300 font-raleway max-w-2xl mx-auto">
+                    <p className="text-gray-300 font-raleway  mx-auto">
                         Making memorable moments across the globe
                     </p>
                 </div>

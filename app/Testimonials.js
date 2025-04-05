@@ -42,7 +42,7 @@ const Testimonials = () => {
             <div className="text-center mb-8 md:mb-16">
                 <h2 className="text-[2.5rem] md:text-5xl font-raleway font-bold text-neutral-100 mb-6">
                     Client
-                    <span className="md:translate-y-0 -translate-y-2 md:inline-flex block md:ml-2 ml-0 md:mt-2 bg-gradient-to-r from-neutral-50 to-neutral-200 bg-clip-text text-transparent">
+                    <span className="md:translate-y-0 -translate-y-4 md:inline-flex block md:ml-2 ml-0 md:mt-2 bg-gradient-to-r from-neutral-50 to-neutral-200 bg-clip-text text-transparent">
                         Testimonials
                     </span>
                 </h2>

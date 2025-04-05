@@ -81,7 +81,7 @@ const CollectionCard = ({ title, description, number, explore, image }) => {
 
 const Collections = () => {
     return (
-        <section id="collections" className="py-20 bg-neutral-900">
+        <section id="categories" className="py-20 bg-neutral-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative group">
                 <div className="absolute inset-0 pointer-events-none">
                     <div
@@ -114,7 +114,7 @@ const Collections = () => {
                     <div className="text-4xl md:text-5xl font-raleway font-bold text-white mb-2 leading-8">
                         Our Curated
                         <span className="md:ml-2 inline-block mt-0 sm:mt-2 bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                            Collections
+                            Collection
                         </span>
                     </div>
                     <p className="text-gray-400 font-thin max-w-2xl mx-auto">

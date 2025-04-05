@@ -7,30 +7,31 @@ import {
     IconArrowNarrowRight,
     IconX,
 } from "@tabler/icons-react";
+import BottomGradient from "./ui/BottomGradient";
 
-const items = [
-    { title: "Tshirts", image: "/images/tshirts.jpg" },
-    { title: "Hoodies", image: "/images/hoodies.jpg" },
-    { title: "Jackets", image: "/images/jackets.jpg" },
-    { title: "Embroidery Patches", image: "/images/patches.jpg" },
-    { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
-    { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
-    { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
-    { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
-    { title: "Hamper Boxes", image: "/images/hamper_boxes.jpg" },
-    { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
-    { title: "Collectibles", image: "/images/collectibles.jpg" },
-    { title: "Drinkware", image: "/images/drink_ware.jpg" },
-    { title: "Coasters", image: "/images/coasters.jpg" },
-    { title: "Tote Bags", image: "/images/tote_bags.jpg" },
-    { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
-    { title: "Candles", image: "/images/candles.jpg" },
-    { title: "Customised Edibles", image: "/images/edibles.jpg" },
-    {
-        title: "Other Items like Scarf, Wristband, Sunglasses and More",
-        image: "/images/scarfs.jpg",
-    },
-];
+// const items = [
+//     { title: "Tshirts", image: "/images/tshirts.jpg" },
+//     { title: "Hoodies", image: "/images/hoodies.jpg" },
+//     { title: "Jackets", image: "/images/jackets.jpg" },
+//     { title: "Embroidery Patches", image: "/images/patches.jpg" },
+//     { title: "Laptop Stickers", image: "/images/laptop_stickers.jpg" },
+//     { title: "Lapel Pins", image: "/images/lapel_pins.jpg" },
+//     { title: "Fridge Magnets", image: "/images/fridge_magnets.jpg" },
+//     { title: "Crossbody Bags", image: "/images/crossbody_bags.jpg" },
+//     { title: "Hamper Boxes", image: "/images/hamper_boxes.jpg" },
+//     { title: "Tech Boxes", image: "/images/tech_boxes.jpg" },
+//     { title: "Collectibles", image: "/images/collectibles.jpg" },
+//     { title: "Drinkware", image: "/images/drink_ware.jpg" },
+//     { title: "Coasters", image: "/images/coasters.jpg" },
+//     { title: "Tote Bags", image: "/images/tote_bags.jpg" },
+//     { title: "3D Printed Bobbleheads", image: "/images/bobbleheads.jpg" },
+//     { title: "Candles", image: "/images/candles.jpg" },
+//     { title: "Customised Edibles", image: "/images/edibles.jpg" },
+//     {
+//         title: "Other Items like Scarf, Wristband, Sunglasses and More",
+//         image: "/images/scarfs.jpg",
+//     },
+// ];
 
 const categories = {
     fashion: [
@@ -82,11 +83,16 @@ export default function ProductTabsCarousel() {
     };
 
     return (
-        <div className="w-full py-10 flex flex-col justify-center align-middle">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-0 md:mb-2 mt-2 bg-gradient-to-b from-neutral-900 to-neutral-600 bg-clip-text text-transparent">
+        <div
+            id="collections"
+            className="w-full py-10 flex flex-col justify-center align-middle"
+        >
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-0 md:mb-2 mt-2 bg-gradient-to-b from-neutral-900 to-neutral-500 bg-clip-text text-transparent">
                 Collection for You
             </h2>
-            <p className="mb-8 mx-auto">Tentative List of Items we provide</p>
+            <p className="mb-8 mx-auto font-normal bg-gradient-to-r from-red-500 via-pink-500 to-orange-600 bg-clip-text text-transparent">
+                Discover the Items we provide
+            </p>
             <Tabs defaultValue="fashion">
                 <TabsList className="flex md:gap-12 gap-4 md:p-6 p-2 bg-neutral-100">
                     <TabsTrigger
@@ -180,7 +186,6 @@ export default function ProductTabsCarousel() {
                     </TabsContent>
                 ))}
             </Tabs>
-
             {/* Detail Modal */}
             <AnimatePresence>
                 {selectedCard && (

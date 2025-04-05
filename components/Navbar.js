@@ -8,17 +8,17 @@ import { Menu, MenuItem } from "../app/ui/navbar-menu";
 const menuItems = [
     "hero",
     "about",
+    "categories",
     "collections",
-    "featured",
     "process",
     "testimonials",
     "contact",
 ];
 
 const collectionItems = [
-    { title: "Tech", href: "/collections/tech" },
-    { title: "Fashion", href: "/collections/fashion" },
-    { title: "Collectables", href: "/collections/collectables" },
+    { title: "Tech", href: "/#collections" }, // later to be changed
+    { title: "Fashion", href: "/#collections" },
+    { title: "Collectables", href: "/#collections" },
 ];
 
 const Navbar = () => {

@@ -53,7 +53,7 @@ const ProcessStep = ({ id, title, description, animation, isReversed }) => (
         </div>
 
         {/* Step Info */}
-        <div className="flex flex-col items-start md:items-start text-left md:w-1/4 gap-2">
+        <div className="flex flex-col items-start md:items-start text-left max-w-[80%] md:w-1/4 gap-2">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-neutral-900 text-white font-bold border border-white shadow-md">
                 {id}
             </div>
@@ -72,11 +72,11 @@ const HowItWorks = () => {
 
             <section
                 id="process"
-                className="relative py-20 flex flex-col items-center"
+                className="relative py-16 flex flex-col items-center"
             >
                 {/* Section Title */}
                 <motion.h2
-                    className="text-4xl sm:text-4xl md:text-5xl font-bold text-white mb-16 text-center"
+                    className="text-4xl sm:text-4xl md:text-5xl font-bold text-white mb-4 text-center"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

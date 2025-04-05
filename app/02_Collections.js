@@ -122,7 +122,7 @@ const Collections = () => {
                     </p>
                 </motion.div>
 
-                <div className="md:grid md:grid-cols-1 lg:grid-cols-3 md:gap-8 gap-4 flex md:overflow-visible overflow-x-scroll whitespace-nowrap snap-x snap-mandatory scroll-smooth md:px-6 px-2">
+                <div className="md:grid md:grid-cols-1 lg:grid-cols-3 md:gap-8 gap-4 flex md:overflow-visible overflow-y-visible overflow-x-scroll whitespace-nowrap snap-x snap-mandatory scroll-smooth md:px-6 px-2">
                     {collectionsData.map((collection) => (
                         <div
                             key={collection.id}

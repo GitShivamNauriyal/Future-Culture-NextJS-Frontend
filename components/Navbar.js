@@ -10,7 +10,7 @@ const menuItems = [
     "about",
     "categories",
     "collections",
-    "process",
+    // "process",
     "testimonials",
     "contact",
 ];
@@ -33,14 +33,14 @@ const Navbar = () => {
                     <div className="flex-shrink-0">
                         <Link
                             href="/"
-                            className="relative text-white font-raleway text-xl font-bold glitch-container"
+                            className="relative text-white font-raleway text-3xl font-bold glitch-container"
                         >
-                            <div className="raleway translate-y-1 glitch-text">
-                                Future
+                            <div className="raleway glitch-text">
+                                Tangibles.
                             </div>
-                            <div className="raleway -translate-y-1 glitch-text">
+                            {/* <div className="raleway -translate-y-1 glitch-text">
                                 Culture.
-                            </div>
+                            </div> */}
                         </Link>
                     </div>
 

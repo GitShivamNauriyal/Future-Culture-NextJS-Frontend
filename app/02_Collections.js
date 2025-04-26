@@ -111,10 +111,10 @@ const Collections = () => {
                     whileInView={{ filter: "blur(0px)", y: 0 }}
                     transition={{ duration: 0.4 }}
                 >
-                    <div className="text-4xl md:text-5xl font-raleway font-bold text-white mb-2 leading-8">
+                    <div className="text-4xl md:text-5xl font-raleway font-bold text-white leading-8">
                         Our Curated
-                        <span className="md:ml-2 inline-block mt-0 sm:mt-2 bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                            Collection
+                        <span className="md:ml-2 pb-4 inline-block mt-0 sm:mt-2 bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                            Categories
                         </span>
                     </div>
                     <p className="text-gray-400 font-thin max-w-2xl mx-auto">

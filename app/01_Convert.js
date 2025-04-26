@@ -64,6 +64,10 @@ const Convert = () => {
                                     }}
                                     transition={{ duration: 0.4 }}
                                 >
+                                    <strong>What we do?</strong>
+                                    <br />
+                                    We are a Next-gen Mascom Agency.
+                                    <br />
                                     Our Vision? Tech should be seamless, not
                                     just something you plug in. It should
                                     enhance life, shape experiences, and elevate
@@ -116,7 +120,7 @@ const Convert = () => {
                                             className="opacity-40"
                                         />
                                     </div>
-                                    <h3 className="font-bold text-xl text-neutral-700 mb-2">
+                                    <h3 className="font-bold text-xl text-neutral-700 mb-1">
                                         Curated Selection
                                     </h3>
                                     <p className="text-sm text-neutral-600">
@@ -150,7 +154,7 @@ const Convert = () => {
                                             className="opacity-40"
                                         />
                                     </div>
-                                    <h3 className="font-bold text-xl text-neutral-700 mb-2">
+                                    <h3 className="font-bold text-xl text-neutral-700 mb-1">
                                         Custom Design
                                     </h3>
                                     <p className="text-sm text-neutral-600">
@@ -198,7 +202,7 @@ const Convert = () => {
                                 <div className="text-4xl font-bold text-neutral-100">
                                     <div className="flex-shrink-0">
                                         <motion.div
-                                            className="font-raleway text-5xl font-bold"
+                                            className="font-raleway text-6xl font-bold"
                                             initial={{
                                                 opacity: 0,
                                                 y: 20,
@@ -211,11 +215,11 @@ const Convert = () => {
                                             }}
                                         >
                                             <div className="raleway mb-1 md:mb-2">
-                                                Future
+                                                Tangibles.
                                             </div>
-                                            <div className="raleway mb-1 md:mb-2">
+                                            {/* <div className="raleway mb-1 md:mb-2">
                                                 Culture.
-                                            </div>
+                                            </div> */}
                                         </motion.div>
                                     </div>
                                 </div>

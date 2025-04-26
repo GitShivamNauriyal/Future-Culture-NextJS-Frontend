@@ -143,7 +143,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = true }) => {
                                 .map((_, idx) => (
                                     <svg
                                         key={idx}
-                                        className="w-5 h-5"
+                                        className="w-6 h-6"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                     >

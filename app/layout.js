@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-    title: "Future Culture",
-    description: "Future Culture Gift Shop",
+    title: "Tangibles",
+    description: "Tangibles Gift Shop",
 };
 
 export default function RootLayout({ children }) {

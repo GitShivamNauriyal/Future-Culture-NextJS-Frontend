@@ -19,7 +19,7 @@ const modelsData = [
         image: "/images/tshirts.jpg",
     },
     {
-        title: "Manufactured by Future Culture",
+        title: "Manufactured by Tangibles",
         description: (
             <>
                 We handle <strong>everything</strong>—from design to production!

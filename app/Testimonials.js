@@ -18,7 +18,7 @@ const testimonialsData = [
         name: "Jane Smith",
         position: "Event Planner",
         message:
-            "Future Culture has become our go-to for client appreciation gifts. The quality and presentation are always impeccable.",
+            "Tangibles has become our go-to for client appreciation gifts. The quality and presentation are always impeccable.",
         rating: 5,
     },
     {

@@ -185,11 +185,11 @@ const Contactus = () => {
                                     <span>+91 2099209900</span>
                                 </div>
                                 <div className="flex items-center text-gray-300">
-                                    <span>contact@futureculture.com</span>
+                                    <span>contact@tangibles.com</span>
                                 </div>
                                 <div className=" flex items-center text-gray-300">
                                     <span>
-                                        2099 Future Street, Future District
+                                        2099 Tangibles Street, Future District
                                         <br />
                                         Future City, ST 12345
                                     </span>

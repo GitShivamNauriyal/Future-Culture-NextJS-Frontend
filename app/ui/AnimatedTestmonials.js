@@ -159,13 +159,13 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = true }) => {
                             onClick={handlePrev}
                             className="h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center group/button"
                         >
-                            <IconArrowLeft className="h-5 w-5 text-white group-hover/button:rotate-12 transition-transform duration-300" />
+                            <IconArrowLeft className="h-5 w-5 text-white group-hover/button:rotate-2 group-hover/button:-translate-x-[2px] transition-transform duration-300" />
                         </button>
                         <button
                             onClick={handleNext}
                             className="h-10 w-10 rounded-full bg-gray-700 flex items-center justify-center group/button"
                         >
-                            <IconArrowRight className="h-5 w-5 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
+                            <IconArrowRight className="h-5 w-5 text-white group-hover/button:-rotate-2 group-hover/button:translate-x-[2px] transition-transform duration-300" />
                         </button>
                     </div>
                 </div>

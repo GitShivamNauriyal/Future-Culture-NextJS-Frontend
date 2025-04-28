@@ -13,10 +13,22 @@ import Contactus from "./Contactus";
 import OurPromises from "./OurPromises";
 import PricingModels from "./PricingModels";
 import ProductsCardsCarousel from "./ProductsCardCarousel";
+import Marquee from "./Marquee";
 
 const page = () => {
+    const marqueeContent = {
+        announcement1:
+            "🚀 Big Sale this weekend! Get your best ever Gifting Experience at The Best Price",
+        announcement2: "🎉 New features launched!",
+        announcement3: "📢 Subscribe to our newsletter!",
+        announcement4: "💡 Tips and tricks for better gifting!",
+        announcement5: "🌟 Join our community for exclusive offers!",
+        announcement6: "🎨 Custom designs available now!",
+        announcement7: "📦 Fast shipping on all orders!",
+    };
     return (
-        <div>
+        <div className="mt-16">
+            <Marquee contentObj={marqueeContent} />
             <Hero />
             <Convert />
             <Collections />

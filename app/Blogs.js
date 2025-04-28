@@ -28,7 +28,7 @@ const Blogs = () => {
 
     const blogPosts = [
         {
-            image: "corporate_gifting.jpg",
+            image: "corporate_gifting_min.jpg",
             date: "December 15, 2024",
             title: "The Art of Corporate Gifting",
             excerpt:
@@ -36,7 +36,7 @@ const Blogs = () => {
             delay: 0,
         },
         {
-            image: "sustainable_gifting.jpg",
+            image: "sustainable_gifting_min.jpg",
             date: "December 10, 2024",
             title: "Sustainable Gifting Guide",
             excerpt:
@@ -44,7 +44,7 @@ const Blogs = () => {
             delay: 0.2,
         },
         {
-            image: "personalization_gifting.jpg",
+            image: "personalization_gifting_min.jpg",
             date: "December 5, 2024",
             title: "Personalization Trends",
             excerpt:

@@ -74,6 +74,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    display: inline-block;
+    animation: marquee linear infinite;
+}
+
 /* css for the carousel*/
 .react-multi-carousel-list {
     display: flex;

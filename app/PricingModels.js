@@ -16,7 +16,7 @@ const modelsData = [
             </>
         ),
         icon: <FaHandshake className="text-5xl opacity-70" />,
-        image: "/images/tshirts.jpg",
+        image: "/images/tshirts_min.jpg",
     },
     {
         title: "Manufactured by Tangibles",
@@ -28,7 +28,7 @@ const modelsData = [
             </>
         ),
         icon: <MdFactory className="text-5xl opacity-70" />,
-        image: "/images/hoodies.jpg",
+        image: "/images/hoodies_min.jpg",
     },
     {
         title: "White Labeling",
@@ -39,7 +39,7 @@ const modelsData = [
             </>
         ),
         icon: <FaBoxOpen className="text-5xl opacity-70" />,
-        image: "/images/jackets.jpg",
+        image: "/images/jackets_min.jpg",
     },
 ];
 

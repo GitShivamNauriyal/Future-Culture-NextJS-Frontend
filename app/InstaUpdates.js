@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 
 const posts = [
     {
-        imageName: "/images/Insta_Updates/new_collection.jpg",
+        imageName: "/images/Insta_Updates/new_collection_min.jpg",
         title: "New Collection Preview",
         likes: 276,
     },
     {
-        imageName: "/images/Insta_Updates/Luxurious_Gift.jpg",
+        imageName: "/images/Insta_Updates/Luxurious_Gift_min.jpg",
         title: "Luxury Gift Box Collection",
         likes: 245,
     },
     {
-        imageName: "/images/Insta_Updates/corporate_event.jpg",
+        imageName: "/images/Insta_Updates/corporate_event_min.jpg",
         title: "Corporate Event Highlights",
         likes: 189,
     },
     {
-        imageName: "/images/Insta_Updates/behind_the_scene.jpg",
+        imageName: "/images/Insta_Updates/behind_the_scene_min.jpg",
         title: "Behind the Scenes",
         likes: 343,
     },
@@ -103,7 +103,7 @@ const InstaUpdates = () => {
                         Follow Our Journey
                     </h2>
                     <p className="text-gray-600 font-raleway max-w-2xl mx-auto">
-                        @futureculture_demo_2099
+                        @Tangibles_demo_2099
                     </p>
                 </div>
 
@@ -121,7 +121,7 @@ const InstaUpdates = () => {
 
                 <div className="text-center mt-12">
                     <a
-                        href="https://instagram.com/futureculture2099"
+                        href="https://instagram.com/tangibles2099"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center font-raleway text-black hover:text-gray-600 transition-colors"

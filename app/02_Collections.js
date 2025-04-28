@@ -9,7 +9,7 @@ const collectionsData = [
         description: "Premium gifts for those who appreciate the finer things",
         number: "01",
         explore: " Exclusive Drops",
-        image: "/images/collections/luxury_gifting.jpg",
+        image: "/images/collections/luxury_gifting_min.jpg",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const collectionsData = [
         description: "Professional gifts to strengthen business relationships",
         number: "02",
         explore: " Statement Pieces",
-        image: "/images/collections/corporate_gifting.jpg",
+        image: "/images/collections/corporate_gifting_min.jpg",
     },
     {
         id: 3,
@@ -25,7 +25,7 @@ const collectionsData = [
         description: "Customizable gifts for personal celebrations",
         number: "03",
         explore: " Future-Ready Designs",
-        image: "/images/collections/personal_touch.jpg",
+        image: "/images/collections/personal_touch_min.jpg",
     },
 ];
 

@@ -5,7 +5,7 @@ import { AnimatedTestimonials } from "./ui/AnimatedTestmonials";
 const testimonialsData = [
     {
         initials: "JD",
-        src: "/images/tshirts.jpg",
+        src: "/images/tshirts_min.jpg",
         name: "John Doe",
         position: "CEO, Tech Corp",
         message:
@@ -14,7 +14,7 @@ const testimonialsData = [
     },
     {
         initials: "JS",
-        src: "/images/hoodies.jpg",
+        src: "/images/hoodies_min.jpg",
         name: "Jane Smith",
         position: "Event Planner",
         message:
@@ -23,7 +23,7 @@ const testimonialsData = [
     },
     {
         initials: "RB",
-        src: "/images/jackets.jpg",
+        src: "/images/jackets_min.jpg",
         name: "Robert Brown",
         position: "Marketing Director",
         message:

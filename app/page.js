@@ -13,7 +13,7 @@ import Contactus from "./Contactus";
 import OurPromises from "./OurPromises";
 import PricingModels from "./PricingModels";
 import ProductsCardsCarousel from "./ProductsCardCarousel";
-import Marquee from "./Marquee";
+import MarqueeSection from "./Marquee";
 
 const page = () => {
     const marqueeContent = {
@@ -28,7 +28,7 @@ const page = () => {
     };
     return (
         <div className="mt-16">
-            <Marquee contentObj={marqueeContent} />
+            <MarqueeSection contentObj={marqueeContent} />
             <Hero />
             <Convert />
             <Collections />
